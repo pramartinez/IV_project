@@ -3,7 +3,21 @@
 
 *Proyecto de la asignatura Infraestructura Virtual*
 
-[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v0.1-blue)](https://www.gnu.org/licenses/gpl-3.0.html)
+[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v0.1-blue)](https://github.com/pramartinez/IV_project) 
+
+___________________________________
+
+Índice
+======
+<!--ts-->
+  - [¿Cuál es el objetivo de este proyecto?](#%c2%bfcu%c3%a1l-es-el-objetivo-de-este-proyecto)
+  - [Descripción general y motivación](#descripci%c3%b3n-general-y-motivaci%c3%b3n)
+  - [Funcionalidades a desarrollar](#funcionalidades-a-desarrollar)
+  - [Implementación: herramientas y servicios](#implementaci%c3%b3n-herramientas-y-servicios)
+<!--te-->
+
+__________________________________________
+
 
 ## ¿Cuál es el objetivo de este proyecto?
 VPTournaments consistirá en un microservicio de gestión de torneos de voley playa, donde se diferenciará en distintas categorías de juego.
@@ -30,17 +44,14 @@ Por otro lado, aunque esté por concretar, se tratará de usar una base de datos
 Respecto a la integración continua, se podrá emplear Travis-CI:
 - [Travis-CI](https://travis-ci.org/).
 
-Y para la realización de tests podríamos usar el framework de testeo *unittest*:
+Y para la realización de tests podríamos usar frameworks de testeo como:
 - [Unittest](https://docs.python.org/3/library/unittest.html).
+- [pytest](https://docs.pytest.org/en/latest/).
 
 Por otro lado, sería interesante emplear un sistema de logs con el fin de llevar un rastro del flujo de nuestra aplicación, lo cual podría ayudar durante el desenvolvimiento de la misma. Python tiene un módulo para ello:
 - [Loggin Python](https://docs.python.org/3/library/logging.html).
 
-El desarrollo del proyecto se llevará a cabo en el sistema operativo *Linux*, concretamente usando la distribución:
-- [Ubuntu 18.04](http://releases.ubuntu.com/18.04/).
-
-Una vez llegado el momento de realizar el despliegue en la nube, se elegirá la plataforma para ello y que, por ejemplo, podría ser: 
+Una vez llegado el momento de realizar el despliegue en la nube, se elegirá el servicio para ello y que, por ejemplo, podría ser: 
 - [Heroku](https://www.heroku.com/home).
 - [Microsoft Azure](https://azure.microsoft.com/es-es/free/search/?&ef_id=EAIaIQobChMIp7Gn16_z5AIVCLDtCh3jUA2cEAAYASAAEgJ_cfD_BwE:G:s&OCID=AID2000115_SEM_VAab2G2A&MarinID=VAab2G2A_325772882790_azure_e_c__68954907492_kwd-49508422&lnkd=Google_Azure_Brand&dclid=CJbPsNiv8-QCFRDV1QodhagCXw).
-
 
