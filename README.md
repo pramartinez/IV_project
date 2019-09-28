@@ -35,7 +35,7 @@ El lenguaje de programación a emplear para el proyecto será *Python*, por lo q
 - Web application framework: [Flask](https://palletsprojects.com/p/flask/).
 - Para el entorno virtual: [venv](https://docs.python.org/3/library/venv.html).
 
-El porqué de elegir este lenguaje interpretado es que resulta ser muy intuitivo y, además, goza de muchas herramientas y funcionalidades de fácil acceso. Por otro lado, se ha seleccionado *Flask* como *web framework* por la flexibilidad y la simplicidad que parece aportar y porque parece sencillo de aprender.
+El porqué de elegir este lenguaje interpretado es que resulta ser muy intuitivo y, además, goza de muchas herramientas y funcionalidades de fácil acceso. Por otro lado, se ha seleccionado *Flask* como *web framework* por la flexibilidad y la simplicidad que parece aportar.
 
 Por otro lado, aunque esté por concretar, se tratará de usar una base de datos para almacenar la información sobre los participantes que se vayan uniendo a la competición. Por ejemplo:
 - [MariaDB](https://mariadb.org/).
