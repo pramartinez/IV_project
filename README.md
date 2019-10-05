@@ -3,7 +3,7 @@
 
 *Proyecto de la asignatura Infraestructura Virtual*
 
-[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v0.2-blue)](https://github.com/pramartinez/IV_project) 
+[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v0.3-blue)](https://github.com/pramartinez/IV_project) [![]]()
 
 ___________________________________
 
@@ -30,26 +30,33 @@ Un torneo de voley playa se constituye de una serie de parejas de integrantes, y
 -   Consultar integrantes de cada categoría.
 
 ## Implementación: herramientas y servicios
-El lenguaje de programación a emplear para el proyecto será *Python*, por lo que el web framework que se utilizará será *Flask*. Además, se usará el módulo *venv* para la creación del entorno virtual en el que trabajaremos.
-- Lenguaje de programación: [Python](https://www.python.org/).
-- Web application framework: [Flask](https://palletsprojects.com/p/flask/).
-- Para el entorno virtual: [venv](https://docs.python.org/3/library/venv.html).
-
-El porqué de elegir este lenguaje interpretado es que resulta ser muy intuitivo y, además, goza de muchas herramientas y funcionalidades de fácil acceso. Por otro lado, se ha seleccionado *Flask* como *web framework* por la flexibilidad y la simplicidad que parece aportar.
+El lenguaje de programación a emplear para el proyecto será *Node.js*:
+- Lenguaje de programación: 
+  - [Node.js](https://nodejs.org/es/about/).
+- Web application frameworks: 
+  - [Express](https://expressjs.com/es/).
+  - [Adonis](https://adonisjs.com/).
 
 Por otro lado, aunque esté por concretar, se tratará de usar una base de datos para almacenar la información sobre los participantes que se vayan uniendo a la competición. Por ejemplo:
+- [PostgreSQL](https://www.postgresql.org/).
 - [MariaDB](https://mariadb.org/).
 - [MongoDB](https://www.mongodb.com/es).
 
 Respecto a la integración continua, se podrá emplear Travis-CI:
 - [Travis-CI](https://travis-ci.org/).
+Y como herramienta adicional:
+- [Jekins](https://jenkins.io/).
 
 Y para la realización de tests podríamos usar frameworks de testeo como:
-- [Unittest](https://docs.python.org/3/library/unittest.html).
-- [pytest](https://docs.pytest.org/en/latest/).
+- [Jest](https://jestjs.io/).
 
-Por otro lado, sería interesante emplear un sistema de logs con el fin de llevar un rastro del flujo de nuestra aplicación, lo cual podría ayudar durante el desenvolvimiento de la misma. Python tiene un módulo para ello:
-- [Loggin Python](https://docs.python.org/3/library/logging.html).
+Como herramienta de construcción podemos usar, por ejemplo:
+- [Grunt](https://gruntjs.com/).
+- [Brunch](https://brunch.io/).
+
+
+Por otro lado, sería interesante emplear una herramienta para conseguir el logging con el fin de llevar un rastro del flujo de nuestra aplicación, lo cual podría ayudar durante el desenvolvimiento de la misma. Python tiene un módulo para ello:
+- [Winston](https://github.com/winstonjs/winston).
 
 Una vez llegado el momento de realizar el despliegue en la nube, se elegirá el servicio para ello y que, por ejemplo, podría ser: 
 - [Heroku](https://www.heroku.com/home).

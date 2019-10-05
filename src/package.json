@@ -1,5 +1,5 @@
 {
     "scripts": {
-      "test": "jest --verbose ./tests"
+      "test": "jest --verbose ../test"
     }
   }
