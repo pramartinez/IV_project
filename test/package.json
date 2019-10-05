@@ -1,5 +1,13 @@
 {
-    "scripts": {
-      "test": "jest --verbose ./test"
-    }
+  "author": "Pŕaxedes Martínez <pramtnez@gmail.com>",
+  "name": "VPTournaments",
+  "description": "Gestor de torneos de voley playa",
+  "version": "0.3.0",
+  "repository": {
+    "url": "git://github.com/pramartinez/IV_project.git"
+  },
+  "main":"./funcionalidades.js",
+  "scripts": {
+    "test": "../node_modules/.bin/jest --verbose ../test"
   }
+}
