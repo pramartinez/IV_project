@@ -3,7 +3,7 @@
 
 *Proyecto de la asignatura Infraestructura Virtual*
 
-[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v0.3-blue)](https://github.com/pramartinez/IV_project) [![]]()
+[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v0.3-blue)](https://github.com/pramartinez/IV_project) ![build](https://travis-ci.org/pramartinez/IV_project.svg?branch=master)
 
 ___________________________________
 
@@ -53,6 +53,7 @@ Y para la realización de tests podríamos usar frameworks de testeo como:
 Como herramienta de construcción podemos usar, por ejemplo:
 - [Grunt](https://gruntjs.com/).
 - [Brunch](https://brunch.io/).
+- [Gulp](https://gulpjs.com/).
 
 
 Por otro lado, sería interesante emplear una herramienta para conseguir el logging con el fin de llevar un rastro del flujo de nuestra aplicación, lo cual podría ayudar durante el desenvolvimiento de la misma. Python tiene un módulo para ello:
