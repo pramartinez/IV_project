@@ -23,11 +23,13 @@ __________________________________________
 VPTournaments consistirá en un microservicio de gestión de torneos de voley playa, donde se diferenciará en distintas categorías de juego.
 
 ## Descripción general y motivación
-Un torneo de voley playa se constituye de una serie de parejas de integrantes, ya sean mixtas, femeninas o masculinas. El objetivo es que aquellas personas que quieran inscribirse al torneo, puedan hacerlo gracias a ***VPTournaments*** y que, además, luego puedan consultar por categorías, qué integrantes las componen. Por tanto, el microservicio a construir se encargará de gestionar este tipo de información para poder facilitar la organización de la competición.
+Un torneo de voley playa se constituye de una serie de parejas de integrantes, ya sean mixtas, femeninas o masculinas. El objetivo es que aquellas personas que quieran inscribirse al torneo, puedan hacerlo gracias a ***VPTournaments*** y que, además, luego puedan consultar cualquier información referente a la competición. Por tanto, el microservicio a construir se encargará de gestionar este tipo de recursos para poder facilitar la organización de la competición.
 
 ## Funcionalidades a desarrollar
 -   Inscribirse en la liga en una categoría concreta: mixta, femenina, masculina.
--   Consultar integrantes de cada categoría.
+-   Consultar información varia de cada categoría, pareja o de la competición.
+-   Modificar parejas en caso de error en los datos o por cambio de jugador.
+-   Cancelar inscripción de una pareja.
 
 ## Implementación: herramientas y servicios
 El lenguaje de programación a emplear para el proyecto será *Node.js*:
@@ -47,7 +49,7 @@ Respecto a la integración continua, se podrá emplear Travis-CI:
 Y como herramienta adicional:
 - [Jekins](https://jenkins.io/).
 
-Y para la realización de tests podríamos usar frameworks de testeo como:
+Y para la realización de tests unitarios usamos el framework de testeo:
 - [Jest](https://jestjs.io/).
 
 Como herramienta de construcción podemos usar, por ejemplo:
@@ -55,8 +57,7 @@ Como herramienta de construcción podemos usar, por ejemplo:
 - [Brunch](https://brunch.io/).
 - [Gulp](https://gulpjs.com/).
 
-
-Por otro lado, sería interesante emplear una herramienta para conseguir el logging con el fin de llevar un rastro del flujo de nuestra aplicación, lo cual podría ayudar durante el desenvolvimiento de la misma. Python tiene un módulo para ello:
+Por otro lado, sería interesante emplear un servicio de log con el fin de llevar un rastro del flujo de nuestra aplicación, lo cual podría ayudar durante el desenvolvimiento de la misma:
 - [Winston](https://github.com/winstonjs/winston).
 
 Una vez llegado el momento de realizar el despliegue en la nube, se elegirá el servicio para ello y que, por ejemplo, podría ser: 

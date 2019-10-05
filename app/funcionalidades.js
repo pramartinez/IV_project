@@ -9,14 +9,14 @@ class Funcionalidades {
             };
         this.fs = require('fs')
 
-        if (!this.fs.existsSync("../data/integrantes.json")) {
+        if (!this.fs.existsSync("app/data/integrantes.json")) {
             var json = JSON.stringify(JSON.parse("[]"), null, 2);;
-            this.fs.writeFileSync("../data/integrantes.json",json,'utf8',function(err){
+            this.fs.writeFileSync("app/data/integrantes.json",json,'utf8',function(err){
                 if(err) throw err;
             });
         }
         else {
-            this.data = this.fs.readFileSync("../data/integrantes.json",'utf8');
+            this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8');
             var obj = JSON.parse(this.data);
             
             var obj_filtred = obj.filter(o => (o.categoria == "femenina"));
@@ -27,7 +27,7 @@ class Funcionalidades {
             this.plazas["masculina"] = 20 - obj_filtred.length;
         }
 
-        this.data = this.fs.readFileSync("../data/integrantes.json",'utf8');
+        this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8');
     }
 
 
@@ -89,7 +89,7 @@ class Funcionalidades {
                 
                 var ya_existente = false;
                 
-                //fs.readFile("../data/integrantes.json",'utf8',(err,data)=> { 
+                //fs.readFile("app/data/integrantes.json",'utf8',(err,data)=> { 
 
                 if(this.data === "" ){
                     //console.log("Empty file.");
@@ -97,7 +97,7 @@ class Funcionalidades {
                 else {
                     // Si no se produce error en la lectura del archivo
                     // Creamos objeto json de lo leído
-                    this.data = this.fs.readFileSync("../data/integrantes.json",'utf8');
+                    this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8');
 
                     var obj = JSON.parse(this.data);
                     var ya_existe = false;
@@ -128,11 +128,11 @@ class Funcionalidades {
 
                         // Creamos string que vamos a añadir al archivo donde almacenamos
                         // los integrantes
-                        this.data = this.fs.readFileSync("../data/integrantes.json",'utf8');
+                        this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8');
                         var json = JSON.stringify(obj, null, 2);
 
                         // Escribimos nuevos datos en el archivo de salida
-                        this.fs.writeFileSync("../data/integrantes.json",json);
+                        this.fs.writeFileSync("app/data/integrantes.json",json);
                     }
                     else {
                         //console.log('\n\nLa pareja ya existe, no se puede reinscribir.');
@@ -155,13 +155,13 @@ class Funcionalidades {
         var index = -1;
         var categoria, p1, p2;
 
-        //var data =this.fs.readFileSync("../data/integrantes.json",'utf8');
+        //var data =this.fs.readFileSync("app/data/integrantes.json",'utf8');
         if (this.data === "") {
             //console.log("Empty file.");            
         }
         else {
             index = -1;
-            this.data = this.fs.readFileSync("../data/integrantes.json",'utf8');
+            this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8');
             var obj = JSON.parse(this.data);
             for (var i = 0; i < obj.length ; ++i) {
             //obj.forEach(function(element) {
@@ -179,7 +179,7 @@ class Funcionalidades {
                 //var json = JSON.stringify(obj, null, 2);
                 var json = JSON.stringify(obj, (k, v) => Array.isArray(v) ? v.filter(e => e !== null):v, 2 );
                 
-                this.fs.writeFileSync("../data/integrantes.json",json);
+                this.fs.writeFileSync("app/data/integrantes.json",json);
                 this.incrementar_plazas(categoria);
                 //this.consultar_plazas_disponibles(categoria);
                 //console.log("\n\nInscripción cancelada correctamente.")
@@ -212,14 +212,14 @@ class Funcionalidades {
             "categoria":null
             };
 
-        //var data =this.fs.readFileSync("../data/integrantes.json",'utf8');
+        //var data =this.fs.readFileSync("app/data/integrantes.json",'utf8');
         if (this.data === "") {
             //console.log("Empty file.");            
         }
         else {
             index = -1;
 
-            this.data = this.fs.readFileSync("../data/integrantes.json",'utf8');
+            this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8');
             var obj = JSON.parse(this.data);
             var obj_filtred = obj.filter(o => (o.participante1.dni == ndni1
                                               && o.participante2.dni == ndni2)
@@ -246,7 +246,7 @@ class Funcionalidades {
     
                     var json = JSON.stringify(obj, null, 2);
                     
-                    this.fs.writeFileSync("../data/integrantes.json",json);
+                    this.fs.writeFileSync("app/data/integrantes.json",json);
                     //console.log("\n\nPareja modificada correctamente.")
     
                 }
@@ -263,7 +263,7 @@ class Funcionalidades {
 
 
     consultar_parejas_categoria(categoria){
-        this.data =this.fs.readFileSync("../data/integrantes.json",'utf8');
+        this.data =this.fs.readFileSync("app/data/integrantes.json",'utf8');
         var obj = JSON.parse(this.data);
         var obj_filtred = obj.filter(o => o.categoria == categoria);
 
@@ -279,7 +279,7 @@ class Funcionalidades {
     }
 
     consultar_parejas_totales(){
-        this.data = this.fs.readFileSync("../data/integrantes.json","utf8");
+        this.data = this.fs.readFileSync("app/data/integrantes.json","utf8");
         var obj = JSON.parse(this.data);
 
         //console.log("\n\nLas parejas de la competición son:");
@@ -295,7 +295,7 @@ class Funcionalidades {
     }
 
     consultar_categoria_pareja(nombre1, nombre2){
-        this.data = this.fs.readFileSync("../data/integrantes.json","utf8");
+        this.data = this.fs.readFileSync("app/data/integrantes.json","utf8");
         var obj = JSON.parse(this.data);
 
         var obj_filtred = obj.filter(o => o.participante1.nombre == nombre1 && o.participante2.nombre == nombre2);
@@ -313,7 +313,7 @@ class Funcionalidades {
     }
 
     consultar_pareja_integrante(nombre){
-        this.data = this.fs.readFileSync("../data/integrantes.json","utf8");
+        this.data = this.fs.readFileSync("app/data/integrantes.json","utf8");
         var obj = JSON.parse(this.data);
 
         var obj_filtred = obj.filter(o => o.participante1.nombre == nombre || o.participante2.nombre == nombre);
@@ -328,7 +328,7 @@ class Funcionalidades {
     }
 
     consultar_pareja_categoria(nombre, categoria){
-        this.data = this.fs.readFileSync("../data/integrantes.json","utf8");
+        this.data = this.fs.readFileSync("app/data/integrantes.json","utf8");
         var obj = JSON.parse(this.data);
 
         var obj_filtred = obj.filter(o => o.categoria == categoria && (o.participante1.nombre == nombre || o.participante2.nombre == nombre));
