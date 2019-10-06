@@ -61,7 +61,7 @@ Respecto a la integración continua, se podrá emplear Travis-CI:
 - [Travis-CI](https://travis-ci.org/). 
  
 Y como herramienta adicional podríamos probar:  
-- [Jenkins](https://jenkins.io/).
+- [Shippable](https://app.shippable.com/).
 
 Por otro lado, sería interesante emplear un servicio de log con el fin de llevar un rastro del flujo de nuestra aplicación, lo cual podría ayudar durante el desenvolvimiento de la misma:
 - [Winston](https://github.com/winstonjs/winston).
@@ -74,7 +74,7 @@ Una vez llegado el momento de realizar el despliegue en la nube, se elegirá el 
 <a name="descripcion-clase-proyecto"></a>  
 ## Descripción real de la clase del proyecto   
 
-La clase real del proyecto se compone de una serie de métodos que nos permitirán gestionar las parejas de una competición de voley. Para ello, distinguiremos entre tres tipos de métodos: los que añaden información (POST), los que desechan información (DELETE), los que consultan información (GET) y los que modifican información (PUT).
+La clase real del proyecto se compone de una serie de métodos que nos permitirán gestionar las parejas de una competición de voleibol. Para ello, distinguiremos entre tres tipos de métodos: los que añaden información (POST), los que eliminan información (DELETE), los que consultan información (GET) y los que modifican información (PUT). En un principio, la información de la que hablamos se irá almacenando en un archivo *json*.
 
 <a name="metodos-post"></a>  
 #### Métodos para incluir información sobre las parejas
@@ -84,12 +84,12 @@ Como método de este tipo tenemos el que se encarga de incribir a las parejas de
 <a name="metodos-delete"></a>  
 #### Métodos para cancelar la inscripción de una pareja
 
-En este caso, nos encontramos con el método "cancelar_pareja", que toma unos datos personales de entrada (concretamente el DNI de los dos integrantes) y busca la pareja correspondiente con el fin de eliminarla de la competición.
+En este caso nos encontramos con un método que toma unos datos personales de entrada (concretamente el DNI de los dos integrantes) y busca la información de la pareja correspondiente con el fin de eliminarla de la competición.
 
 <a name="metodos-get"></a>  
 #### Métodos para consultar información de la competición
 
-Para consulta de datos, existen muchos métodos distintos en la clase que simplemente se centran en tomar qué se les pide y mostras la información adecuada al respecto. Por ejemplo: podemos preguntar por la pareja de un integrante, por las las parejas de un categoría, por las parejas de la competición al completo, por la categoría de una pareja, por la pareja de un integrante en una categoría concreta (ya que pueden inscribirse en más de una distinta)...
+Para consulta de datos, existen muchos métodos distintos en la clase que simplemente se centran en tomar qué se les pide y mostrar la información adecuada al respecto. Por ejemplo: podemos preguntar por la pareja de un integrante, por las las parejas de un categoría, por las parejas de la competición al completo, por la categoría de una pareja, por la pareja de un integrante en una categoría concreta (ya que pueden inscribirse en más de una distinta)...
 
 <a name="metodos-put"></a>  
 #### Métodos para modificar la información de una pareja
@@ -116,9 +116,11 @@ Para testear la clase simplemente tenemos que ejecutar:
 <a name="uso-clase-servicio"></a>  
 ## Uso de la clase dentro del servicio
 
-La idea es que esta clase sea la principal del proyecto, lo cual implica que todas las acciones recaerán sobre ella. Será la que se comunique entonces con la base de datos (si finalmente se decide añadir), se encargará de mediar con la información proporcionada por los usuarios y, por tanto, la gestionará, procesará y tratará, etc.
+La idea es que esta clase sea la principal del proyecto, lo que implica que todas las acciones habrán de recaer sobre ella. Será la que se comunique entonces con la base de datos (si finalmente se decide añadir), se encargará de mediar con la información proporcionada por los usuarios, la gestionará, la procesará, la tratará...
 
 <a name="doc-adicional"></a>  
 ## Documentación adicional del proyecto
 
-- [Documentation](https://github.com/pramartinez/IV_project/blob/master/documentation.md).
+¿Por qué he elegido las herramientas indicadas en [Implementación: herramientas y servicios](#implementaci%c3%b3n-herramientas-y-servicios)? Aquí se concretan algunos de los motivos:
+
+- [Documentación adicional](https://github.com/pramartinez/IV_project/blob/master/documentation.md).
