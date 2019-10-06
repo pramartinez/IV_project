@@ -99,11 +99,7 @@ Como es normal, pueden producirse errores a la hora de introducir los datos pers
 <a name="instalar-clase-proyecto"></a>  
 ## ¿Cómo instalamos la clase del proyecto?
 
-Para comenzar, debemos de instalar la herramienta **npm**:
-
-    $ apt install npm
-
-Luego instalamos las dependencias con:
+Instalamos las dependencias con:
 
     $ npm install
 
