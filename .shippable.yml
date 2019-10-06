@@ -5,4 +5,5 @@ node_js:
 
 build:
   ci:
-    - cd /node_modules/.bin/ && npm run test
+    - npm install
+    - npm run test
