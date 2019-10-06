@@ -45,27 +45,23 @@ El lenguaje de programación a emplear para el proyecto será *Node.js*:
 - Lenguaje de programación: 
   - [Node.js](https://nodejs.org/es/about/).
 - Web application frameworks: 
-  - [Express](https://expressjs.com/es/).
   - [Adonis](https://adonisjs.com/).
+  - [Express](https://expressjs.com/es/).
+
+Y para la realización de tests unitarios usamos el framework de testeo:
+- [Jest](https://jestjs.io/).
+  
+Nuestro gestor de paquetes será:
+- [Npm](https://www.npmjs.com/).
 
 Por otro lado, aunque esté por concretar, se tratará de usar una base de datos para almacenar la información sobre los participantes que se vayan uniendo a la competición. Por ejemplo:
 - [PostgreSQL](https://www.postgresql.org/).
-- [MariaDB](https://mariadb.org/).
-- [MongoDB](https://www.mongodb.com/es).
 
 Respecto a la integración continua, se podrá emplear Travis-CI:
 - [Travis-CI](https://travis-ci.org/). 
  
 Y como herramienta adicional podríamos probar:  
-- [Jekins](https://jenkins.io/).
-
-Y para la realización de tests unitarios usamos el framework de testeo:
-- [Jest](https://jestjs.io/).
-
-Como herramienta de construcción podemos usar, por ejemplo:
-- [Grunt](https://gruntjs.com/).
-- [Gulp](https://gulpjs.com/).
-- [Brunch](https://brunch.io/).
+- [Jenkins](https://jenkins.io/).
 
 Por otro lado, sería interesante emplear un servicio de log con el fin de llevar un rastro del flujo de nuestra aplicación, lo cual podría ayudar durante el desenvolvimiento de la misma:
 - [Winston](https://github.com/winstonjs/winston).
@@ -107,18 +103,15 @@ Para comenzar, debemos de instalar la herramienta **npm**:
 
     $ apt install npm
 
-Para llevar a cabo los tests unitarios de la clase necesitamos **Jest**, para ello hacemos uso de *npm*:
+Luego instalamos las dependencias con:
 
-    $ npm install jest
-
+    $ npm install
 
 <a name="testear-clase-proyecto"></a>  
 ## ¿Cómo testeamos la clase?
 Para testear la clase simplemente tenemos que ejecutar:
 
     $ npm run test
-
-Y debería ejecutarse los tests adecuados para la clase.
 
 <a name="uso-clase-servicio"></a>  
 ## Uso de la clase dentro del servicio
@@ -128,4 +121,4 @@ La idea es que esta clase sea la principal del proyecto, lo cual implica que tod
 <a name="doc-adicional"></a>  
 ## Documentación adicional del proyecto
 
-- [Documentation](https://github.com/pramartinez/IV_project/documentation.md).
+- [Documentation](https://github.com/pramartinez/IV_project/blob/master/documentation.md).

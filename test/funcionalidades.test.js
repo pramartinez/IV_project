@@ -26,7 +26,9 @@ test('Inscribe new couple in competition',() => {
         "categoria":"femenina"
         };
 
-    data = fs.readFileSync("app/data/integrantes.json",'utf8');
+    data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => o.participante1.dni == "1" && o.participante2.dni == "2");
     
@@ -34,7 +36,9 @@ test('Inscribe new couple in competition',() => {
         //console.log("testing: La pareja no existe aún.")
         funcionalidades.inscribir_pareja("pra","1","1","1","pilar","2","2","2","femenina");
     
-        data = fs.readFileSync("app/data/integrantes.json",'utf8');
+        data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
         obj = JSON.parse(data);
         obj_filtred = obj.filter(o => o.participante1.dni == "1" && o.participante2.dni == "2");
     
@@ -45,7 +49,9 @@ test('Inscribe new couple in competition',() => {
 test('Remove couple inscription',() => {
     funcionalidades.cancelar_inscripcion("1","2");
 
-    data = fs.readFileSync("app/data/integrantes.json",'utf8');
+    data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => o.participante1.dni == "1" && o.participante2.dni == "2");
 
@@ -55,7 +61,9 @@ test('Remove couple inscription',() => {
 test('Modify a couple',() => {
 
     
-    data = fs.readFileSync("app/data/integrantes.json",'utf8');
+    data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => o.participante1.dni == "9" 
     && o.participante2.dni == "10");
@@ -84,7 +92,9 @@ test('Modify a couple',() => {
     // Modificamos la pareja
     funcionalidades.modificar_pareja("9","10","julia","pepa","9","11","9","11","9","11");
 
-    data = fs.readFileSync("app/data/integrantes.json",'utf8');
+    data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
     obj = JSON.parse(data);
 
     var obj_filtred1 = obj.filter(o => o.participante1.dni == "9" 
@@ -99,7 +109,9 @@ test('Modify a couple',() => {
 test('Consulting couples in a cathegory',() => {
     response = funcionalidades.consultar_parejas_categoria("femenina");
 
-    data = fs.readFileSync("app/data/integrantes.json",'utf8');
+    data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => o.categoria == "femenina");
 
@@ -109,7 +121,9 @@ test('Consulting couples in a cathegory',() => {
 test('Consulting all the couples in the competition',() => {
     response = funcionalidades.consultar_parejas_totales();
 
-    data = fs.readFileSync("app/data/integrantes.json",'utf8');
+    data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
     var obj = JSON.parse(data);
 
     expect(response).toEqual(obj);    
@@ -118,7 +132,9 @@ test('Consulting all the couples in the competition',() => {
 test('Consulting the couple o a member',() => {
     response = funcionalidades.consultar_pareja_integrante("nanu");
 
-    data = fs.readFileSync("app/data/integrantes.json",'utf8');
+    data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => o.participante1.nombre == "nanu" || o.participante2.nombre == "nanu")
 
@@ -128,7 +144,9 @@ test('Consulting the couple o a member',() => {
 test('Consulting the couple o a member in a cathegory',() => {
     response = funcionalidades.consultar_pareja_categoria("nanu", "masculina");
 
-    data = fs.readFileSync("app/data/integrantes.json",'utf8');
+    data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => (o.participante1.nombre == "nanu" || o.participante2.nombre == "nanu") && o.categoria == "masculina")
 
@@ -138,7 +156,9 @@ test('Consulting the couple o a member in a cathegory',() => {
 test('Consulting avaible plazes',() => {
     response = funcionalidades.consultar_plazas_disponibles("femenina");
 
-    data = fs.readFileSync("app/data/integrantes.json",'utf8');
+    data = fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                if(err) throw err;
+            });
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => (o.categoria == "femenina"));
     num = 20 - obj_filtred.length;
