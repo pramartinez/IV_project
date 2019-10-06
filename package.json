@@ -1,0 +1,32 @@
+{
+  "name": "vptournaments",
+  "version": "3.0.0",
+  "description": "Gestor de torneos de voley playa",
+  "main": "./src/funcionalidades.js",
+  "directories": {
+    "app": "app",
+    "dist": "dist",
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/jest --verbose ../test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pramartinez/IV_project.git"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Práxedes Martínez Moreno",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/pramartinez/IV_project/issues"
+  },
+  "homepage": "https://github.com/pramartinez/IV_project#readme"
+}
