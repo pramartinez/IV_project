@@ -12,5 +12,8 @@ Este ***"JavaScript Testing Framework"*** prima por centrar su foco en la simpli
 
 ## ¿Por qué [Travis-CI](https://travis-ci.org/)?
 
+En primer lugar, es necesario comentar el interés residente en el uso de integración. Usar herramientas como **Travis CI** nos aporta una seguridad mayor a la hora del desarrollo de nuestro proyecto, pues estas se encargan de testear nuestro programa cada vez que realizamos un commit a GitHub. De esta forma, podemos descubrir fácilmente dónde hemos cometido un fallo o por dónde hemos "roto" nuestro código. 
+
+Concretamente empleo Travis-CI, aparte de porque se me ha recomendado, porque es muy sencillo de usar (simplemente accedemos a su página web, habilitamos nuestro repositorio, añadimos un archivo shippeable.yml y ya podemos comenzar a utilizarlo), es claro a la hora de mostrar dónde se han producido los errores, es una herramienta gratuita...
 
 ***To be continued...***
