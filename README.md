@@ -10,31 +10,31 @@ ___________________________________
 Índice
 ======
 <!--ts-->
-  - [¿Cuál es el objetivo de este proyecto?](#%c2%bfcu%c3%a1l-es-el-objetivo-de-este-proyecto)
-  - [¿Por qué VPTournaments?](#%c2%bfpor-qu%c3%a9-vptournaments)
-  - [¿Cuáles son las funcionalidades principales?](#%c2%bfcu%c3%a1les-son-las-funcionalidades-principales)
-  - [¿Qué herramientas y servicios se usarán?](#%c2%bfqu%c3%a9-herramientas-y-servicios-se-usar%c3%a1n)
-  - [¿Cómo funciona la clase principal del proyecto?](#%c2%bfc%c3%b3mo-funciona-la-clase-principal-del-proyecto)
-  - [¿Cómo instalamos la clase del proyecto?](#%c2%bfc%c3%b3mo-instalamos-la-clase-del-proyecto)
-  - [¿Cómo testeamos la clase?](#%c2%bfc%c3%b3mo-testeamos-la-clase)
+  - [¿Cuál es el objetivo de este proyecto?](#objetivo-de-este-proyecto)
+  - [¿Por qué VPTournaments?](#vptournaments)
+  - [¿Cuáles son las funcionalidades principales?](#funcionalidades-principales)
+  - [¿Qué herramientas y servicios se usarán?](#herramientas-y-servicios)
+  - [¿Cómo funciona la clase principal del proyecto?](#clase-principal-del-proyecto)
+  - [¿Cómo instalamos la clase del proyecto?](#instalamos-la-clase-del-proyecto)
+  - [¿Cómo testeamos la clase?](#testeamos-la-clase)
 <!--te-->
 
 __________________________________________
 
 
-<a name="%c2%bfcu%c3%a1l-es-el-objetivo-de-este-proyecto"></a>
+<a name="objetivo-de-este-proyecto"></a>
 
 ## ¿Cuál es el objetivo de este proyecto?
 
 VPTournaments consistirá en un microservicio de gestión de torneos de voley playa, donde se diferenciará en distintas categorías de juego.
 
-<a name="%c2%bfpor-qu%c3%a9-vptournaments"></a>
+<a name="vptournaments"></a>
 
 ## ¿Por qué VPTournaments?
 
 Un torneo de voley playa se constituye de una serie de parejas de integrantes, ya sean mixtas, femeninas o masculinas. El objetivo es que aquellas personas que quieran inscribirse al torneo, puedan hacerlo gracias a ***VPTournaments*** y que, además, luego puedan consultar cualquier información referente a la competición. Por tanto, el microservicio a construir se encargará de gestionar este tipo de recursos para poder facilitar la organización de la competición.
 
-<a name="%c2%bfcu%c3%a1les-son-las-funcionalidades-principales"></a>
+<a name="funcionalidades-principales"></a>
 
 ## ¿Cuáles son las funcionalidades principales?
 
@@ -43,7 +43,7 @@ Un torneo de voley playa se constituye de una serie de parejas de integrantes, y
 -   Modificar parejas en caso de error en los datos o por cambio de jugador.
 -   Cancelar inscripción de una pareja.
 
-<a name="%c2%bfqu%c3%a9-herramientas-y-servicios-se-usar%c3%a1n"></a>
+<a name="herramientas-y-servicios"></a>
 
 ## ¿Qué herramientas y servicios se usarán?
 
@@ -67,7 +67,7 @@ Un torneo de voley playa se constituye de una serie de parejas de integrantes, y
 
 **¿Por qué he elegido algunas de las herramientas indicadas en este apartado?** [Aquí se concretan ciertos motivos](https://github.com/pramartinez/IV_project/blob/master/docs/documentation.md).
 
-<a name="%c2%bfc%c3%b3mo-funciona-la-clase-principal-del-proyecto"></a>
+<a name="clase-principal-del-proyecto"></a>
 
 ## ¿Cómo funciona la clase principal del proyecto?
 
@@ -75,7 +75,7 @@ Antes de continuar, tal vez, le intesaría tener una **visión más global de la
 
 Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la **documentación del código** actual de la misma: [Class Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/class_doc.md).
 
-<a name="c2%bfc%c3%b3mo-instalamos-la-clase-del-proyecto"></a>  
+<a name="instalamos-la-clase-del-proyecto"></a>  
 
 ## ¿Cómo instalamos la clase del proyecto?
 
@@ -84,7 +84,7 @@ Instalamos las dependencias con:
 
     $ npm install
 
-<a name="%c2%bfc%c3%b3mo-testeamos-la-clase"></a>
+<a name="testeamos-la-clase"></a>
 
 ## ¿Cómo testeamos la clase?
 

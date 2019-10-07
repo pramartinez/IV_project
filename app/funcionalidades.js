@@ -7,7 +7,8 @@ class Funcionalidades {
      * Crea una competición.
      * @param {string} nombre_competicion - Nombre de la competición.
      */
-    constructor(nombre_competicion) {
+    constructor(nombre_competicion, path_db) {
+        this.path = path_db
         this.nombre = nombre_competicion
         this.categorias = ['femenina','masculina','mixta'];
         this.plazas = {
@@ -18,23 +19,23 @@ class Funcionalidades {
         this.fs = require('fs')
 
         // Si no existe el archivo de integrantes, lo creamos inicianizándolo
-        if (!this.fs.existsSync("app/data/integrantes.json")) {
+        if (!this.fs.existsSync(this.path)) {
             var json = JSON.stringify(JSON.parse("[]"), null, 2);
-            this.fs.writeFileSync("app/data/integrantes.json",json,'utf8',function(err){
+            this.fs.writeFileSync(this.path,json,'utf8',function(err){
                 if(err) throw err;
             });
         }
 
         // Si sí que existe el archivo simplemente lo abrimos y lo leemos.
         else {
-            this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+            this.data = this.fs.readFileSync(this.path,'utf8',function(err){
                 if(err) throw err;
             });
 
             // Si al leer el archivo, está vacío, lo inicializamos
             if (this.data === ""){
                 var json = JSON.stringify(JSON.parse("[]"), null, 2);
-                this.fs.writeFileSync("app/data/integrantes.json",json,'utf8',function(err){
+                this.fs.writeFileSync(this.path,json,'utf8',function(err){
                     if(err) throw err;
                 });
             }
@@ -52,7 +53,7 @@ class Funcionalidades {
             this.plazas["masculina"] = 20 - obj_filtred.length;
         }
 
-        this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+        this.data = this.fs.readFileSync(this.path,'utf8',function(err){
             if(err) throw err;
         });
     }
@@ -135,7 +136,7 @@ class Funcionalidades {
                 var ya_existente = false;
                 
                 // Releemos el archivo por si se han producido cambios
-                this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                this.data = this.fs.readFileSync(this.path,'utf8',function(err){
                     if(err) throw err;
                 });
                 
@@ -175,13 +176,13 @@ class Funcionalidades {
 
                         // Creamos string que vamos a añadir al archivo donde almacenamos
                         // los integrantes
-                        this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+                        this.data = this.fs.readFileSync(this.path,'utf8',function(err){
                             if(err) throw err;
                         });
                         var json = JSON.stringify(obj, null, 2);
 
                         // Escribimos nuevos datos en el archivo de salida
-                        this.fs.writeFileSync("app/data/integrantes.json",json,function(err){
+                        this.fs.writeFileSync(this.path,json,function(err){
                             if(err) throw err;
                         });
                     }
@@ -211,7 +212,7 @@ class Funcionalidades {
         var categoria, p1, p2;
 
         // Leemos el archivo del almacenamiento de integrantes
-        this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+        this.data = this.fs.readFileSync(this.path,'utf8',function(err){
             if(err) throw err;
         });
 
@@ -245,7 +246,7 @@ class Funcionalidades {
                 var json = JSON.stringify(obj, (k, v) => Array.isArray(v) ? v.filter(e => e !== null):v, 2 );
                 
                 // Escribimos json sin la pareja
-                this.fs.writeFileSync("app/data/integrantes.json",json,function(err){
+                this.fs.writeFileSync(this.path,json,function(err){
                     if(err) throw err;
                 });
 
@@ -297,7 +298,7 @@ class Funcionalidades {
             "categoria":null
             };
 
-        this.data = this.fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+        this.data = this.fs.readFileSync(this.path,'utf8',function(err){
             if(err) throw err;
         });
 
@@ -336,7 +337,7 @@ class Funcionalidades {
     
                     var json = JSON.stringify(obj, null, 2);
                     
-                    this.fs.writeFileSync("app/data/integrantes.json",json,function(err){
+                    this.fs.writeFileSync(this.path,json,function(err){
                         if(err) throw err;
                     });
                     //console.log("\n\nPareja modificada correctamente.")
@@ -361,7 +362,7 @@ class Funcionalidades {
      * @returns {json} - Parejas integrantes de una categoría.
      */
     consultar_parejas_categoria(categoria){
-        this.data =this.fs.readFileSync("app/data/integrantes.json",'utf8',function(err){
+        this.data =this.fs.readFileSync(this.path,'utf8',function(err){
             if(err) throw err;
         });
         var obj = JSON.parse(this.data);
@@ -383,7 +384,7 @@ class Funcionalidades {
      * @returns {json} - Parejas que hay inscritas en toda la competición
      */
     consultar_parejas_totales(){
-        this.data = this.fs.readFileSync("app/data/integrantes.json","utf8",function(err){
+        this.data = this.fs.readFileSync(this.path,"utf8",function(err){
                 if(err) throw err;
             });
         var obj = JSON.parse(this.data);
@@ -407,7 +408,7 @@ class Funcionalidades {
      * @returns {json} - Categoría a la que pertenece una pareja
      */
     consultar_categoria_pareja(nombre1, nombre2){
-        this.data = this.fs.readFileSync("app/data/integrantes.json","utf8",function(err){
+        this.data = this.fs.readFileSync(this.path,"utf8",function(err){
                 if(err) throw err;
             });
         var obj = JSON.parse(this.data);
@@ -432,7 +433,7 @@ class Funcionalidades {
      * @returns {json} - Información de la pareja.
      */    
     consultar_pareja_integrante(nombre){
-        this.data = this.fs.readFileSync("app/data/integrantes.json","utf8",function(err){
+        this.data = this.fs.readFileSync(this.path,"utf8",function(err){
                 if(err) throw err;
             });
         var obj = JSON.parse(this.data);
@@ -455,7 +456,7 @@ class Funcionalidades {
      * @returns {json} - Pareja del participante en la categoría.
      */
     consultar_pareja_categoria(nombre, categoria){
-        this.data = this.fs.readFileSync("app/data/integrantes.json","utf8",function(err){
+        this.data = this.fs.readFileSync(this.path,"utf8",function(err){
                 if(err) throw err;
             });
         var obj = JSON.parse(this.data);
