@@ -119,4 +119,4 @@ La idea es que esta clase sea la principal del proyecto, lo que implica que toda
 
 ¿Por qué he elegido las herramientas indicadas en [Implementación: herramientas y servicios](#implementaci%c3%b3n-herramientas-y-servicios)? Aquí se concretan algunos de los motivos:
 
-- [Documentación adicional](https://github.com/pramartinez/IV_project/blob/master/documentation.md).
+- [Documentación adicional](https://github.com/pramartinez/IV_project/blob/master/docs/documentation.md).
