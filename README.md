@@ -18,8 +18,8 @@ ___________________________________
     - [Métodos para incluir información sobre las parejas](#metodos-post) 
     - [Métodos para cancelar la inscripción de una pareja](#metodos-delete) 
     - [Métodos para consultar información de la competición](#metodos-get) 
-    - [Métodos para modificar la información de una pareja](#metodos-put) 
-  - [¿Cómo instalamos la clase del proyecto?](#instalacion-clase-proyecto)
+    - [Métodos para modificar la información de una pareja](#metodos-put)
+  - [¿Cómo instalamos la clase del proyecto?](#instalar-clase-proyecto)
   - [¿Cómo testeamos la clase?](#testear-clase-proyecto)
   - [Uso de la clase dentro del servicio](#uso-clase-servicio)
   - [Documentación adicional del proyecto](#doc-adicional)
@@ -112,7 +112,7 @@ Para testear la clase simplemente tenemos que ejecutar:
 <a name="uso-clase-servicio"></a>  
 ## Uso de la clase dentro del servicio
 
-La idea es que esta clase sea la principal del proyecto, lo que implica que todas las acciones habrán de recaer sobre ella. Será la que se comunique entonces con la base de datos (si finalmente se decide añadir), se encargará de mediar con la información proporcionada por los usuarios, la gestionará, la procesará, la tratará...
+La idea es que esta clase sea la principal del proyecto, lo que implica que todas las acciones habrán de recaer sobre ella. Será la que se comunique entonces con la base de datos (si finalmente se decide añadir), se encargará de mediar con la información recibida, la gestionará, la procesará, la tratará...
 
 <a name="doc-adicional"></a>  
 ## Documentación adicional del proyecto
