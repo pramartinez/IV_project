@@ -4,8 +4,6 @@ ___________________________________
 Índice
 ======
 <!--ts-->
-- [Descripción real de la clase del proyecto](#descripci%c3%b3n-real-de-la-clase-del-proyecto)
-- [Índice](#%c3%8dndice)
   - [Uso de la clase dentro del servicio](#uso-de-la-clase-dentro-del-servicio)
   - [Indagando superficialmente en la implementación de la clase](#indagando-superficialmente-en-la-implementaci%c3%b3n-de-la-clase)
     - [Métodos para incluir información sobre las parejas](#m%c3%a9todos-para-incluir-informaci%c3%b3n-sobre-las-parejas)
