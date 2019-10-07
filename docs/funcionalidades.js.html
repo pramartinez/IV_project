@@ -1,4 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: funcionalidades.js</title>
 
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: funcionalidades.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
 
 /** Clase que representa una competición: sus funcionalidades.*/
 class Funcionalidades {
@@ -129,8 +157,8 @@ class Funcionalidades {
 
             // Comprobamos que exista la categoría introducida y que el tipo de los datos
             // es correcto
-            if (cat_encontrada && tipo1 && tipo2 && tipo3 && tipo4 && tipo5
-                && tipo6 && tipo7 && tipo8) {
+            if (cat_encontrada &amp;&amp; tipo1 &amp;&amp; tipo2 &amp;&amp; tipo3 &amp;&amp; tipo4 &amp;&amp; tipo5
+                &amp;&amp; tipo6 &amp;&amp; tipo7 &amp;&amp; tipo8) {
                 
                 var ya_existente = false;
                 
@@ -155,8 +183,8 @@ class Funcionalidades {
                         var p1 = element.participante1.nombre;
                         var p2 = element.participante2.nombre;
 
-                        if (( p1 == nombre1 && p2 == nombre2) 
-                            || (p1 == nombre2 && p2 == nombre1)) {
+                        if (( p1 == nombre1 &amp;&amp; p2 == nombre2) 
+                            || (p1 == nombre2 &amp;&amp; p2 == nombre1)) {
                                 ya_existe = true;
                             }
                     });
@@ -224,12 +252,12 @@ class Funcionalidades {
             var obj = JSON.parse(this.data);
 
             // Lo transformamos a JSON y lo recorremos en busca de la pareja a eliminar
-            for (var i = 0; i < obj.length ; ++i) {
+            for (var i = 0; i &lt; obj.length ; ++i) {
             //obj.forEach(function(element) {
                 p1 = obj[i].participante1.dni;
                 p2 = obj[i].participante2.dni;
 
-                if ((p1 == dni1 && p2 == dni2) || (p2 == dni1 && p1 == dni2)) {
+                if ((p1 == dni1 &amp;&amp; p2 == dni2) || (p2 == dni1 &amp;&amp; p1 == dni2)) {
                     index = i; // Guardamos índice de la pareja
                     categoria = obj[i].categoria;
                 }
@@ -311,20 +339,20 @@ class Funcionalidades {
 
             // Filtramos el json para ver si existe una pareja con la información nueva
             var obj_filtred = obj.filter(o => (o.participante1.dni == ndni1
-                                              && o.participante2.dni == ndni2)
+                                              &amp;&amp; o.participante2.dni == ndni2)
                                               ||
                                               (o.participante1.dni == ndni2
-                                              && o.participante2.dni == ndni1));
+                                              &amp;&amp; o.participante2.dni == ndni1));
 
             // Si no existe, podemos proceder a modificar la información antigua
             if (obj_filtred[0] == undefined) {
                 
-                for (var i = 0; i < obj.length ; ++i) {
+                for (var i = 0; i &lt; obj.length ; ++i) {
                     p1 = obj[i].participante1.dni;
                     p2 = obj[i].participante2.dni;
                     categoria = obj[i].categoria;
     
-                    if ((p1 == dni1 && p2 == dni2) || (p2 == dni1 && p1 == dni2)) {
+                    if ((p1 == dni1 &amp;&amp; p2 == dni2) || (p2 == dni1 &amp;&amp; p1 == dni2)) {
                         index = i; // Guaramos índice de la pareja con info obsoleta
                     }
                 }
@@ -412,7 +440,7 @@ class Funcionalidades {
             });
         var obj = JSON.parse(this.data);
 
-        var obj_filtred = obj.filter(o => o.participante1.nombre == nombre1 && o.participante2.nombre == nombre2);
+        var obj_filtred = obj.filter(o => o.participante1.nombre == nombre1 &amp;&amp; o.participante2.nombre == nombre2);
         nombre1 = obj_filtred[0].participante1.nombre;
         nombre2 = obj_filtred[0].participante2.nombre;
 
@@ -460,7 +488,7 @@ class Funcionalidades {
             });
         var obj = JSON.parse(this.data);
 
-        var obj_filtred = obj.filter(o => o.categoria == categoria && (o.participante1.nombre == nombre || o.participante2.nombre == nombre));
+        var obj_filtred = obj.filter(o => o.categoria == categoria &amp;&amp; (o.participante1.nombre == nombre || o.participante2.nombre == nombre));
         //console.log("\n\nLa pareja en la categoria" + categoria + " de " + nombre + " es:");
         //console.log("-----------------------");
         //console.log("Participante 1: " + obj_filtred[0].participante1.nombre);
@@ -484,3 +512,26 @@ class Funcionalidades {
 }
 
 module.exports = Funcionalidades;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Funcionalidades.html">Funcionalidades</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Oct 07 2019 18:26:33 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 var Funcionalidades = require('../app/funcionalidades.js');
-var funcionalidades = new Funcionalidades();
+var funcionalidades = new Funcionalidades("Torneo2019");
 var fs = require('fs');
 
 funcionalidades.inscribir_pareja("alba","3","3","3","famita","4","4","4","femenina");

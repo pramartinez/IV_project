@@ -10,7 +10,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "jsdoc": "^3.6.3",
+    "jsdoc-to-markdown": "^5.0.1"
   },
   "scripts": {
     "test": "node_modules/.bin/jest --verbose ../test"
