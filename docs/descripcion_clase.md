@@ -18,7 +18,9 @@ __________________________________________
 
 ## Uso de la clase dentro del servicio
 
-La idea es que esta clase sea la principal del proyecto, en la que se incluya toda la funcionalidad principal, que consistirá básicamente en tratar con la información:
+Para entender el papel de esta clase y tener una perspectiva de la misma, situémosla como constituyente de un servicio. Un servicio para gestión de torneos tendría que encargarse de administrar las parejas, de proporcionar sus horarios de juego, sus partidos, sus contricantes... de informar sobre la clasificación general, de notificar posibles cambios por imprevistos, etc. Entonces, ¿qué papel desempeña nuestra clase? Concretamente el primero que se menciona: la administración de las parejas. Esta tarea es realmente importante porque una competición deportiva sin sus integrantes no es nada. Por tanto, del alta, baja, modificación e información de las parejas de una competición se encargará nuestra clase.
+
+La idea es que dicha clase sea la principal del proyecto y en la que se incluya toda la funcionalidad básica que, al fin y al cabo, consistirá en tratar con la información:
 -   Recibir información.
 -   Procesar información.
 -   Almacenar nueva información.
@@ -26,7 +28,7 @@ La idea es que esta clase sea la principal del proyecto, en la que se incluya to
 -   Eliminar información.
 -   Enviar información.
 
-Por tanto, para poder llevar a cabo todo ello, habrá de comunicarse con la base de datos (si finalmente se decide emplear porque, por ejemplo, para un torneo en un pueblo pequeño, las plazas son más limitadas y tal vez no sea realmente necesario usarla) o con los archivos de almacenamiento de información, con el exterior de donde recibe información, consultas, etc.
+Por tanto, para poder llevar a cabo todo ello, habrá de comunicarse con la base de datos o con los archivos de almacenamiento de información, con el exterior (de donde recibe información, consultas, etc), con otras clases (si fuera necesario)...
 
 
 ## Indagando superficialmente en la implementación de la clase
