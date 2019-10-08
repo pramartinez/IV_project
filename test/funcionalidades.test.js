@@ -129,7 +129,7 @@ test('Consulting all the couples in the competition',() => {
     expect(response).toEqual(obj);    
 });
 
-test('Consulting the couple o a member',() => {
+test('Consulting the couple of a member',() => {
     response = funcionalidades.consultar_pareja_integrante("nanu");
 
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
@@ -141,7 +141,7 @@ test('Consulting the couple o a member',() => {
     expect(response).toEqual(obj_filtred[0]);    
 });
 
-test('Consulting the couple o a member in a cathegory',() => {
+test('Consulting the couple of a member in a cathegory',() => {
     response = funcionalidades.consultar_pareja_categoria("nanu", "masculina");
 
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
