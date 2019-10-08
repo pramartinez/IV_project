@@ -1,4 +1,4 @@
-<a name="Funcionalidades"></a>
+<a name="funcionalidades"></a>
 
 ## Funcionalidades  
 ***Clase que representa una competición: sus funcionalidades.***
@@ -19,7 +19,7 @@
     - [funcionalidades.consultar\_pareja\_categoria(nombre, categoria) ⇒ <code>json</code>](#funcionalidadesconsultarparejacategorianombre-categoria-%e2%87%92-codejsoncode)
     - [funcionalidades.consultar\_plazas\_disponibles(categoria) ⇒ <code>string</code>](#funcionalidadesconsultarplazasdisponiblescategoria-%e2%87%92-codestringcode)
 
-<a name="new_Funcionalidades_new"></a>
+<a name="new-funcionalidadesnombrecompeticion"></a>
 
 #### new Funcionalidades(nombre_competicion)
 Crea una competición.
@@ -29,7 +29,7 @@ Crea una competición.
 | --- | --- | --- |
 | nombre_competicion | <code>string</code> | Nombre de la competición. |
 
-<a name="Funcionalidades+decrementar_plazas"></a>
+<a name="funcionalidadesdecrementarplazascategoria"></a>
 
 #### funcionalidades.decrementar\_plazas(categoria)
 Decrementa el número de plazas disponibles de una categoría.
@@ -40,7 +40,7 @@ Decrementa el número de plazas disponibles de una categoría.
 | --- | --- | --- |
 | categoria | <code>string</code> | Categoría con una plaza disponible menos. |
 
-<a name="Funcionalidades+incrementar_plazas"></a>
+<a name="funcionalidadesincrementarplazascategoria"></a>
 
 #### funcionalidades.incrementar\_plazas(categoria)
 Decrementa el número de plazas disponibles de una categoría.
@@ -51,7 +51,7 @@ Decrementa el número de plazas disponibles de una categoría.
 | --- | --- | --- |
 | categoria | <code>\*</code> | Categoría con una plaza disponible más. |
 
-<a name="Funcionalidades+inscribir_pareja"></a>
+<a name="funcionalidadesinscribirparejanombre1-dni1-telefono1-correo1-nombre2-dni2-telefono2-correo2-categoria"></a>
 
 #### funcionalidades.inscribir\_pareja(nombre1, dni1, telefono1, correo1, nombre2, dni2, telefono2, correo2, categoria)
 Inscribe una pareja en la competición.
@@ -70,7 +70,7 @@ Inscribe una pareja en la competición.
 | correo2 | <code>string</code> | Correo electrónico del segundo integrante de la pareja. |
 | categoria | <code>string</code> | Categoría a la que pertenece la pareja. |
 
-<a name="Funcionalidades+cancelar_inscripcion"></a>
+<a name="funcionalidadescancelarinscripciondni1-dni2"></a>
 
 #### funcionalidades.cancelar\_inscripcion(dni1, dni2)
 Cancela la inscripción de una pareja.
@@ -82,7 +82,7 @@ Cancela la inscripción de una pareja.
 | dni1 | <code>string</code> | DNI del integrante 1 de la pareja. |
 | dni2 | <code>string</code> | DNI del integrante 2 de la pareja. |
 
-<a name="Funcionalidades+modificar_pareja"></a>
+<a name="funcionalidadesmodificarparejadni1-dni2-nnombre1-nnombre2-ndni1-ndni2-ntelefono1-ntelefono2-ncorreo1-ncorreo2"></a>
 
 #### funcionalidades.modificar\_pareja(dni1, dni2, nnombre1, nnombre2, ndni1, ndni2, ntelefono1, ntelefono2, ncorreo1, ncorreo2)
 Modifica los datos de una pareja, si no se desean modificar algunos de ellos,
@@ -103,7 +103,7 @@ simplemente introducir los valores actuales.
 | ncorreo1 | <code>string</code> | Nuevo correo del primer integrante de la pareja. |
 | ncorreo2 | <code>string</code> | Nuevo correo del segundo integrante de la pareja. |
 
-<a name="Funcionalidades+consultar_parejas_categoria"></a>
+<a name="funcionalidadesconsultarparejascategoriacategoria-%e2%87%92-codejsoncode"></a>
 
 #### funcionalidades.consultar\_parejas\_categoria(categoria) ⇒ <code>json</code>
 Devuelve las parejas integrantes de una categoría.
@@ -115,14 +115,14 @@ Devuelve las parejas integrantes de una categoría.
 | --- | --- | --- |
 | categoria | <code>string</code> | Categoría de la que se quieren saber las parejas. |
 
-<a name="Funcionalidades+consultar_parejas_totales"></a>
+<a name="funcionalidadesconsultarparejastotales-%e2%87%92-codejsoncode"></a>
 
 #### funcionalidades.consultar\_parejas\_totales() ⇒ <code>json</code>
 Devuelve las parejas que hay inscritas en toda la competición.
 
 **Kind**: instance method of [<code>Funcionalidades</code>](#Funcionalidades)  
 **Returns**: <code>json</code> - - Parejas que hay inscritas en toda la competición  
-<a name="Funcionalidades+consultar_categoria_pareja"></a>
+<a name="funcionalidadesconsultarcategoriaparejanombre1-nombre2-%e2%87%92-codejsoncode"></a>
 
 #### funcionalidades.consultar\_categoria\_pareja(nombre1, nombre2) ⇒ <code>json</code>
 Devuelve la categoría a la que pertenece una pareja.
@@ -135,7 +135,7 @@ Devuelve la categoría a la que pertenece una pareja.
 | nombre1 | <code>string</code> | Nombre del primer integrante. |
 | nombre2 | <code>string</code> | Nombre del segundo integrante. |
 
-<a name="Funcionalidades+consultar_pareja_integrante"></a>
+<a name="funcionalidadesconsultarparejaintegrantenombre-%e2%87%92-codejsoncode"></a>
 
 #### funcionalidades.consultar\_pareja\_integrante(nombre) ⇒ <code>json</code>
 Devuelve la información de la pareja del participante indicado
@@ -147,7 +147,7 @@ Devuelve la información de la pareja del participante indicado
 | --- | --- | --- |
 | nombre | <code>string</code> | Integrante de la pareja del que se desconoce compañero |
 
-<a name="Funcionalidades+consultar_pareja_categoria"></a>
+<a name="funcionalidadesconsultarparejacategorianombre-categoria-%e2%87%92-codejsoncode"></a>
 
 #### funcionalidades.consultar\_pareja\_categoria(nombre, categoria) ⇒ <code>json</code>
 Devuelve la pareja de un participante en una categoría concreta.
@@ -160,7 +160,7 @@ Devuelve la pareja de un participante en una categoría concreta.
 | nombre | <code>string</code> | Nombre de uno de los integrantes de la pareja. |
 | categoria | <code>string</code> | Categoría a la que pertenece la pareja. |
 
-<a name="Funcionalidades+consultar_plazas_disponibles"></a>
+<a name="funcionalidadesconsultarplazasdisponiblescategoria-%e2%87%92-codestringcode"></a>
 
 #### funcionalidades.consultar\_plazas\_disponibles(categoria) ⇒ <code>string</code>
 Devuelve el número de parejas que hay en la categoría indicada.
