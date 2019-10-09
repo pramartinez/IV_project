@@ -10,12 +10,15 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "coveralls": "^3.0.6",
     "jest": "^24.9.0",
     "jsdoc": "^3.6.3",
     "jsdoc-to-markdown": "^5.0.1"
   },
   "scripts": {
-    "test": "node_modules/.bin/jest --verbose ../test"
+    "test": "node_modules/.bin/jest --verbose ../test",
+    "coveralls": "node_modules/.bin/jest --coverage --coverageReporters=text-lcov | node_modules/.bin/coveralls"
+
   },
   "repository": {
     "type": "git",
