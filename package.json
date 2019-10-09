@@ -17,7 +17,7 @@
   },
   "scripts": {
     "test": "node_modules/.bin/jest --verbose ../test",
-    "coveralls": "node_modules/.bin/jest --coverage && cat ./tests/coverage/lcov.info | node_modules/.bin/coveralls"
+    "coveralls": "node_modules/.bin/jest --coverage && cat ./test/coverage/lcov.info | node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
