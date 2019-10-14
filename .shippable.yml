@@ -1,5 +1,5 @@
 # Lenguaje del proyecto en el que usamos integración continua
-language: node_js # language runtime
+language: node_js
 
 # Versión del lenguaje 
 node_js:
