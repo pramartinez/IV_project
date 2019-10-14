@@ -9,4 +9,3 @@ build:
   ci: # Construcción para CI
     - npm install         # para instalar dependencias
     - npm run test        # para ejecutar los test unitarios
-    - npm run coveralls   # para comprobar cobertura de código

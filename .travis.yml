@@ -11,4 +11,3 @@ install:
 
 scripts:
   - npm test            # ejecución de tests unitarios
-  - npm run coveralls   # cobertura del código 
