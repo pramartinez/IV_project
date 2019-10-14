@@ -18,7 +18,7 @@ Comandos para instalar dependencias:
     install:    
       - npm install
 
-Comandos para ejecución de tests y cobertura de código:
+Comandos para ejecución de tests:
 
     scripts:    
       - npm test
