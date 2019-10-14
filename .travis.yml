@@ -1,8 +1,14 @@
+# Lenguaje del proyecto en el que usamos integración continua
 language: node_js
+
+# Versión del lenguaje 
 node_js:
   - 10.16.2
+
+# Construcción para CI
 install:
-  - npm install
+  - npm install   # instalamos dependencias
+
 scripts:
-  - npm test
-  - npm run coveralls
+  - npm test   # ejecución de tests unitarios
+  - npm run coveralls   # cobertura del código (aún no incluida al completo)

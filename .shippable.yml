@@ -1,9 +1,11 @@
-language: node_js
+# Lenguaje del proyecto en el que usamos integración continua
+language: node_js # language runtime
 
+# Versión del lenguaje 
 node_js:
   - 10.16.2
 
 build:
-  ci:
-    - npm install
-    - npm run test
+  ci: # Construcción para CI
+    - npm install    # para instalar dependencias
+    - npm run test   # para ejecutar los test unitarios
