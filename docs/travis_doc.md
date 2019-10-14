@@ -22,4 +22,3 @@ Comandos para ejecución de tests y cobertura de código:
 
     scripts:    
       - npm test
-      - npm run coveralls

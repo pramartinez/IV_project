@@ -19,7 +19,6 @@
 ###  Dependencias que se necesitan para la construcción del proyecto:
     "dependencies": {},
     "devDependencies": {
-      "coveralls": "^3.0.6",    #  Para la cobertura del código
       "jest": "^24.9.0",        #  Para realización de tests unitarios
       "jsdoc": "^3.6.3",        #  Para crear y generar la documentación de la clase
       "jsdoc-to-markdown": "^5.0.1"    #  Para pasar la documentación creada a formato Markdown
@@ -28,7 +27,6 @@
 ###  Comandos que ejecutará la herramienta de construcción
     "scripts": { 
        "test": "node_modules/.bin/jest --verbose ../test",
-       "coveralls": "node_modules/.bin/jest --coverage && cat ./test/coverage/lcov.info | coveralls"
      },
 
 ###  Repositorio de github donde se encuentra el proyecto
