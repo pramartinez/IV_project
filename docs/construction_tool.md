@@ -5,7 +5,7 @@
 
     {
     "name": "vptournaments",     # Nombre del microservicio
-    "version": "3.0.0",          # Versión del proyecto
+    "version": "3.0.1",          # Versión del proyecto
     "description": "Gestor de torneos de voley playa",    # Breve descripción del microservicio
     "main": "./app/funcionalidades.js",     # Clase principal del microservicio
 

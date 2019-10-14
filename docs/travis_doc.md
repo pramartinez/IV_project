@@ -6,10 +6,11 @@
 
     language: node_js
 
-**Versión del lenguaje:**
+**Versiones del lenguaje:**
 
     node_js:
      - 10.16.2
+     - 12.10.0
 
 #### Construcción para CI
 
