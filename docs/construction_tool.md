@@ -1,11 +1,11 @@
-# ¿Qué contiene el archivo de configuración *package.json*?
+# ¿Qué encontramos en *package.json*?
 
 
-### Descripción básica del microservicio:
+### Descripción básica del proyecto:
 
     {
     "name": "vptournaments",     # Nombre del microservicio
-    "version": "3.0.0",          # Versión del microservicio
+    "version": "3.0.0",          # Versión del proyecto
     "description": "Gestor de torneos de voley playa",    # Breve descripción del microservicio
     "main": "./app/funcionalidades.js",     # Clase principal del microservicio
 

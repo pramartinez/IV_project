@@ -7,8 +7,8 @@ node_js:
 
 # Construcción para CI
 install:
-  - npm install   # instalamos dependencias
+  - npm install         # instalamos dependencias
 
 scripts:
-  - npm test   # ejecución de tests unitarios
-  - npm run coveralls   # cobertura del código (aún no incluida al completo)
+  - npm test            # ejecución de tests unitarios
+  - npm run coveralls   # cobertura del código 

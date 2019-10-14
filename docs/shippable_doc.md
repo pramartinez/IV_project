@@ -15,5 +15,6 @@
 
     build:
         ci:
-        - npm install      # Instalación de dependencias
-        - npm run test     # Ejecución de los tests
+          - npm install        # Instalación de dependencias
+          - npm run test       # Ejecución de los tests
+          - npm run coveralls  # Cobertura del código

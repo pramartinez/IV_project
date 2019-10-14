@@ -3,7 +3,7 @@
 
 *Proyecto de la asignatura Infraestructura Virtual*
 
-[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v0.3-blue)](https://github.com/pramartinez/IV_project) [![Build Status](https://travis-ci.org/pramartinez/IV_project.svg?branch=master)](https://travis-ci.org/pramartinez/IV_project) [![Run Status](https://api.shippable.com/projects/5d9a289f029be100073e11e9/badge?branch=master)]() <!--[![Coverage Status](https://coveralls.io/repos/github/pramartinez/IV_project/badge.svg?branch=master)](https://coveralls.io/github/pramartinez/IV_project?branch=master) -->
+[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v0.3-blue)](https://github.com/pramartinez/IV_project) [![Build Status](https://travis-ci.org/pramartinez/IV_project.svg?branch=master)](https://travis-ci.org/pramartinez/IV_project) [![Run Status](https://api.shippable.com/projects/5d9a289f029be100073e11e9/badge?branch=master)]() [![Coverage Status](https://coveralls.io/repos/github/pramartinez/IV_project/badge.svg?branch=master)](https://coveralls.io/github/pramartinez/IV_project?branch=master)
 
 ___________________________________
 
@@ -48,18 +48,18 @@ Un torneo de voley playa se constituye de una serie de parejas de integrantes, y
 ## ¿Qué herramientas y servicios se usarán?
 
 - El lenguaje de programación a emplear para el proyecto será [Node.js](https://nodejs.org/es/about/).
-  - Para saber **cómo se ha configurado la herramienta de construcción (npm)** puede consultar el siguiente enlace: [¿Qué contiene el archivo de configuración *package.json*?](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md).
 
 - Para la realización de tests unitarios usamos el framework de testeo [Jest](https://jestjs.io/).
+- Para saber **cómo se ha configurado la herramienta de construcción (npm)** puede consultar el siguiente enlace: [¿Qué encontramos en *package.json*?](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md).
 
 - Respecto a la integración continua, se emplea [Travis-CI](https://travis-ci.org/). 
-  - Para saber **cómo se ha configurado Travis-CI** pulse aquí: [¿Qué contiene el archivo de configuración *package.json*?](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md).
+  - Para saber **cómo se ha configurado Travis-CI** pulse aquí: [¿Cómo se ha configurado *Travis-CI*?](https://github.com/pramartinez/IV_project/blob/master/docs/travis_doc.md).
 
 - Como herramienta alternativa a Travis-CI, se usa [Shippable](https://app.shippable.com/).
-  - Para saber **cómo se ha configurado Shippable** pulse aquí: [¿Qué contiene el archivo de configuración *package.json*?](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md).
+  - Para saber **cómo se ha configurado Shippable** pulse aquí: [¿Cómo se ha configurado *Shippable*?](https://github.com/pramartinez/IV_project/blob/master/docs/shippable_doc.md).
 
 
-**Puedes ver el resto aquí:** [Herramientas y servicios](https://github.com/pramartinez/IV_project/blob/master/docs/tools_services.md). 
+**Puedes ver el resto de herramientas y servicios aquí:** [Herramientas y servicios](https://github.com/pramartinez/IV_project/blob/master/docs/tools_services.md). 
 
 
 <a name="clase-principal-del-proyecto"></a>
