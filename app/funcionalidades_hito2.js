@@ -22,27 +22,21 @@ class Funcionalidades {
         if (!this.fs.existsSync(this.path)) {
             var json = JSON.stringify(JSON.parse("[]"), null, 2);
             this.fs.writeFileSync(this.path,json,'utf8',function(err){
-                if(err) {
-                    throw err;
-                }
+                if(err) throw err;
             });
         }
 
         // Si sí que existe el archivo simplemente lo abrimos y lo leemos.
         else {
             this.data = this.fs.readFileSync(this.path,'utf8',function(err){
-                if(err) {
-                    throw err;
-                }
+                if(err) throw err;
             });
 
             // Si al leer el archivo, está vacío, lo inicializamos
             if (this.data === ""){
                 var json = JSON.stringify(JSON.parse("[]"), null, 2);
                 this.fs.writeFileSync(this.path,json,'utf8',function(err){
-                    if(err) {
-                        throw err;
-                }
+                    if(err) throw err;
                 });
             }
 
@@ -60,9 +54,7 @@ class Funcionalidades {
         }
 
         this.data = this.fs.readFileSync(this.path,'utf8',function(err){
-            if(err) {
-                throw err;
-            }
+            if(err) throw err;
         });
     }
 
@@ -76,7 +68,7 @@ class Funcionalidades {
 
     /**
      * Decrementa el número de plazas disponibles de una categoría.
-     * @param {string} categoria - Categoría con una plaza disponible más.
+     * @param {*} categoria - Categoría con una plaza disponible más.
      */
     incrementar_plazas(categoria) {
         this.plazas[categoria] += 1;
@@ -145,15 +137,12 @@ class Funcionalidades {
                 
                 // Releemos el archivo por si se han producido cambios
                 this.data = this.fs.readFileSync(this.path,'utf8',function(err){
-                    if(err) {
-                    throw err;
-                }
+                    if(err) throw err;
                 });
                 
                 // Comprobamos que no esté vacío el archivo
                 if(this.data === "" ){
-                    var err = new Error('Empty database file');
-                    throw err;
+                    console.log("Empty file.");
                 }
                 else {
                     // Si no se produce error en la lectura del archivo ni está vacío
@@ -188,38 +177,28 @@ class Funcionalidades {
                         // Creamos string que vamos a añadir al archivo donde almacenamos
                         // los integrantes
                         this.data = this.fs.readFileSync(this.path,'utf8',function(err){
-                            if(err) {
-                                throw err;
-                            }
+                            if(err) throw err;
                         });
                         var json = JSON.stringify(obj, null, 2);
 
                         // Escribimos nuevos datos en el archivo de salida
                         this.fs.writeFileSync(this.path,json,function(err){
-                            if(err) {
-                                throw err;
-                            }
+                            if(err) throw err;
                         });
                     }
                     else {
-                        var err = new Error('La pareja ya existe, no se puede reinscribir.');
-                        err.status = 400;
-                        throw err;
+                        console.log('\n\nLa pareja ya existe, no se puede reinscribir.');
                     }
-
+                    
                 }
 
             }
             else {
-                var err = new Error('Datos incorrectos.');
-                err.status = 400;
-                throw err;
+                console.log('\n\nDatos incorrectos.');
             }
         }
         else {
-            var err = new Error('No quedan plazas disponibles.');
-            err.status = 400;
-            throw err;
+            console.log("\n\nNo quedan plazas disponibles.")
         }     
     }
 
@@ -234,14 +213,11 @@ class Funcionalidades {
 
         // Leemos el archivo del almacenamiento de integrantes
         this.data = this.fs.readFileSync(this.path,'utf8',function(err){
-            if(err) {
-                throw err;
-            }
+            if(err) throw err;
         });
 
         if (this.data === "") {
-            var err = new Error('Empty database file.');
-            throw err;            
+            console.log("Empty file.");            
         }
         // Si no está vacío
         else {
@@ -271,9 +247,7 @@ class Funcionalidades {
                 
                 // Escribimos json sin la pareja
                 this.fs.writeFileSync(this.path,json,function(err){
-                    if(err) {
-                        throw err;
-                    }
+                    if(err) throw err;
                 });
 
                 // Incrementamos plazas disponibles
@@ -282,9 +256,7 @@ class Funcionalidades {
                 //console.log("\n\nInscripción cancelada correctamente.")
             }
             else {
-                var err = new Error('La pareja no existe, no se puede cancelar la inscripción.');
-                err.status = 404;
-                throw err;
+                console.log("\n\nLa pareja no existe, no se puede cancelar la inscripción.")
             }
         }
     }
@@ -327,9 +299,7 @@ class Funcionalidades {
             };
 
         this.data = this.fs.readFileSync(this.path,'utf8',function(err){
-            if(err) {
-                throw err;
-            }
+            if(err) throw err;
         });
 
         if (this.data === "") {
@@ -348,43 +318,40 @@ class Funcionalidades {
                                               && o.participante2.dni == ndni1));
 
             // Si no existe, podemos proceder a modificar la información antigua
-            //if (obj_filtred[0] == undefined) {
-            
-            for (var i = 0; i < obj.length ; ++i) {
-                p1 = obj[i].participante1.dni;
-                p2 = obj[i].participante2.dni;
-                categoria = obj[i].categoria;
-
-                if ((p1 == dni1 && p2 == dni2) || (p2 == dni1 && p1 == dni2)) {
-                    index = i; // Guaramos índice de la pareja con info obsoleta
+            if (obj_filtred[0] == undefined) {
+                
+                for (var i = 0; i < obj.length ; ++i) {
+                    p1 = obj[i].participante1.dni;
+                    p2 = obj[i].participante2.dni;
+                    categoria = obj[i].categoria;
+    
+                    if ((p1 == dni1 && p2 == dni2) || (p2 == dni1 && p1 == dni2)) {
+                        index = i; // Guaramos índice de la pareja con info obsoleta
+                    }
+                }
+    
+                if (index > -1) {
+                    // Modificamos información nueva
+                    modificacion.categoria = categoria;
+                    obj[index] = modificacion;
+    
+                    var json = JSON.stringify(obj, null, 2);
+                    
+                    this.fs.writeFileSync(this.path,json,function(err){
+                        if(err) throw err;
+                    });
+                    //console.log("\n\nPareja modificada correctamente.")
+    
+                }
+                else {
+                    console.log("\n\nLa pareja no existe, no se puede cancelar la inscripción.")
                 }
             }
-
-            if (index > -1) {
-                // Modificamos información nueva
-                modificacion.categoria = categoria;
-                obj[index] = modificacion;
-
-                var json = JSON.stringify(obj, null, 2);
-                
-                this.fs.writeFileSync(this.path,json,function(err){
-                    if(err) {
-                        throw err;
-                    }
-                });
-
-            }
             else {
-                var err = new Error('La pareja no existe, no se puede modificar la inscripción.');
-                err.status = 404;
-                throw err;
-            }
-            //}
-            //else {
                 // Si ya existe la pareja con la información nueva, simplemente damos de baja
                 // la pareja con información obsoleta
-            //    this.cancelar_inscripcion(dni1,dni2);
-            //}                               
+                this.cancelar_inscripcion(dni1,dni2);
+            }                               
 
         }
     }
@@ -395,34 +362,21 @@ class Funcionalidades {
      * @returns {json} - Parejas integrantes de una categoría.
      */
     consultar_parejas_categoria(categoria){
-        var cat_encontrada = false;
-        this.categorias.forEach(function(element) {
-          if (element == categoria) {
-              cat_encontrada = true;
-          }
+        this.data =this.fs.readFileSync(this.path,'utf8',function(err){
+            if(err) throw err;
         });
-      
-        if (!cat_encontrada) {
-          var err = Error('Categoría inexistente.')
-          throw(err);
-        }
-        else {  
-            this.data =this.fs.readFileSync(this.path,'utf8',function(err){
-                if(err) {
-                    throw err;
-                }
-            });
-            var obj = JSON.parse(this.data);
-            var obj_filtred = obj.filter(o => o.categoria == categoria);
-                        
-            if (obj_filtred[0] == undefined) {
-                var err = new Error('Categoría vacía.');
-                err.status = 404;
-                throw err;
-            }
+        var obj = JSON.parse(this.data);
+        var obj_filtred = obj.filter(o => o.categoria == categoria);
 
-            return obj_filtred;
-        }
+        //console.log("\n\nLas parejas de la categoría " + categoria + " son:");
+        obj_filtred.forEach(function(element){
+            //console.log("-----------------------");
+            //console.log("Participante 1: " + element.participante1.nombre);
+            //console.log("Participante 2: " + element.participante2.nombre);
+        });
+        //console.log("-----------------------");
+
+        return obj_filtred[0];
     }
 
     /**
@@ -431,18 +385,18 @@ class Funcionalidades {
      */
     consultar_parejas_totales(){
         this.data = this.fs.readFileSync(this.path,"utf8",function(err){
-            if(err) {
-                err.status = 400;
-                throw err;
-            }
-        });
+                if(err) throw err;
+            });
         var obj = JSON.parse(this.data);
 
-        if (obj[0] == undefined) {
-            var err = new Error('Competición sin parejas.');
-            err.status = 404;
-            throw err;
-        }
+        //console.log("\n\nLas parejas de la competición son:");
+        obj.forEach(function(element){
+            //console.log("-----------------------");
+            //console.log("Participante 1: " + element.participante1.nombre);
+            //console.log("Participante 2: " + element.participante2.nombre);
+            //console.log("Categoría: " + element.categoria);
+        });
+        //console.log("-----------------------");
 
         return obj;
     }
@@ -455,23 +409,22 @@ class Funcionalidades {
      */
     consultar_categoria_pareja(nombre1, nombre2){
         this.data = this.fs.readFileSync(this.path,"utf8",function(err){
-                if(err) {
-                    err.status = 400;
-                    throw err;
-                }
+                if(err) throw err;
             });
         var obj = JSON.parse(this.data);
 
-        var obj_filtred = obj.filter(o => (o.participante1.nombre == nombre1 && o.participante2.nombre == nombre2) 
-                                        || o.participante1.nombre == nombre2 && o.participante2.nombre == nombre1);
+        var obj_filtred = obj.filter(o => o.participante1.nombre == nombre1 && o.participante2.nombre == nombre2);
+        nombre1 = obj_filtred[0].participante1.nombre;
+        nombre2 = obj_filtred[0].participante2.nombre;
 
-        if (obj_filtred[0] == undefined) {
-            var err = new Error('Pareja inexistente.');
-            err.status = 404;
-            throw err;
-        }
-        
-        return obj_filtred[0].categoria;
+        //console.log("\n\nLa categoría de la pareja " + nombre1 + "-" + nombre2 + " es " + obj_filtred[0].categoria + ":");
+        //console.log("-----------------------");
+        //console.log("Participante 1: " + nombre1);
+        //console.log("Participante 2: " + nombre2);
+        //console.log("Categoría: " + obj_filtred[0].categoria);
+        //console.log("-----------------------");
+
+        return obj_filtred[0];
     }
 
     /**
@@ -481,20 +434,17 @@ class Funcionalidades {
      */    
     consultar_pareja_integrante(nombre){
         this.data = this.fs.readFileSync(this.path,"utf8",function(err){
-                if(err) {
-                    err.status = 400;
-                    throw err;
-                }
+                if(err) throw err;
             });
         var obj = JSON.parse(this.data);
 
         var obj_filtred = obj.filter(o => o.participante1.nombre == nombre || o.participante2.nombre == nombre);
-
-        if (obj_filtred[0] == undefined) {
-            var err = new Error('Pareja inexistente.');
-            err.status = 404;
-            throw err;
-        }
+        //console.log("\n\nLa pareja del participante " + nombre +  " es:");
+        //console.log("-----------------------");
+        //console.log("Participante 1: " + obj_filtred[0].participante1.nombre);
+        //console.log("Participante 2: " + obj_filtred[0].participante2.nombre);
+        //console.log("Categoría: " + obj_filtred[0].categoria);
+        //console.log("-----------------------");
 
         return obj_filtred[0];
     }
@@ -507,21 +457,18 @@ class Funcionalidades {
      */
     consultar_pareja_categoria(nombre, categoria){
         this.data = this.fs.readFileSync(this.path,"utf8",function(err){
-                if(err) {
-                    err.status = 400;
-                    throw err;
-                }
+                if(err) throw err;
             });
         var obj = JSON.parse(this.data);
 
         var obj_filtred = obj.filter(o => o.categoria == categoria && (o.participante1.nombre == nombre || o.participante2.nombre == nombre));
+        //console.log("\n\nLa pareja en la categoria" + categoria + " de " + nombre + " es:");
+        //console.log("-----------------------");
+        //console.log("Participante 1: " + obj_filtred[0].participante1.nombre);
+        //console.log("Participante 2: " + obj_filtred[0].participante2.nombre);
+        //console.log("Categoría: " + obj_filtred[0].categoria);
+        //console.log("-----------------------");
         
-        if (obj_filtred[0] == undefined) {
-            var err = new Error('Pareja inexistente.');
-            err.status = 404;
-            throw err;
-        }
-
         return obj_filtred[0];
     }
 
@@ -531,9 +478,9 @@ class Funcionalidades {
      * @returns {string} - Plazas disponibles.
      */
     consultar_plazas_disponibles(categoria){
-        var obj = {"plazas":this.plazas[categoria]};
+        //console.log("Hay " + this.plazas[categoria] + " plazas disponibles en la categoria " + categoria + ".");
         
-        return obj;
+        return "Hay " + this.plazas[categoria] + " plazas disponibles en la categoria " + categoria + ".";
     }
 }
 

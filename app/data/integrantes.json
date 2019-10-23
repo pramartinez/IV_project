@@ -47,15 +47,15 @@
   {
     "participante1": {
       "nombre": "julia",
-      "dni": "9",
-      "telefono": "9",
-      "correo": "9"
+      "dni": "28",
+      "telefono": "288888",
+      "correo": "28"
     },
     "participante2": {
       "nombre": "pepa",
-      "dni": "11",
-      "telefono": "11",
-      "correo": "11"
+      "dni": "30",
+      "telefono": "30",
+      "correo": "30"
     },
     "categoria": "femenina"
   }

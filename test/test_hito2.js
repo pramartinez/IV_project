@@ -2,9 +2,9 @@ var Funcionalidades = require('../app/funcionalidades.js');
 var funcionalidades = new Funcionalidades("Torneo2019","app/data/integrantes_tmp.json");
 var fs = require('fs');
 
-//funcionalidades.inscribir_pareja("alba","3","3","3","famita","4","4","4","femenina");
-//funcionalidades.inscribir_pareja("pilar","5","5","5","alvaro","6","6","6","mixta");
-//funcionalidades.inscribir_pareja("nanu","7","7","7","sergio","8","8","8","masculina");
+funcionalidades.inscribir_pareja("alba","3","3","3","famita","4","4","4","femenina");
+funcionalidades.inscribir_pareja("pilar","5","5","5","alvaro","6","6","6","mixta");
+funcionalidades.inscribir_pareja("nanu","7","7","7","sergio","8","8","8","masculina");
 
 test('Inscribe new couple in competition',() => {
 
@@ -34,41 +34,20 @@ test('Inscribe new couple in competition',() => {
     
     if (obj_filtred[0] == undefined) {
         //console.log("testing: La pareja no existe aún.")
-        try {
-            funcionalidades.inscribir_pareja("pra","1","1","1","pilar","2","2","2","femenina");    
-        }
-        catch(e) {
-            try {
-                expect(e.message).toEqual('La pareja ya existe, no se puede reinscribir.');
-            }
-            catch(e) {
-                try {
-                    expect(e.message).toEqual('La pareja ya existe, no se puede reinscribir.');
-                }
-                catch(e) {
-                    expect(e.message).toEqual('No quedan plazas disponibles.');
-                }
-            }
-        }
-        
+        funcionalidades.inscribir_pareja("pra","1","1","1","pilar","2","2","2","femenina");
+    
         data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
-            if(err) throw err;
-        });
+                if(err) throw err;
+            });
         obj = JSON.parse(data);
         obj_filtred = obj.filter(o => o.participante1.dni == "1" && o.participante2.dni == "2");
-        
+    
         expect(obj_filtred[0]).toEqual(nueva_pareja);
     }
 });
 
 test('Remove couple inscription',() => {
-    try {
-        funcionalidades.cancelar_inscripcion("1","2");  
-    }
-    catch(e) {
-        expect(e.message).toEqual('La pareja no existe, no se puede cancelar la inscripción.');
-
-    }
+    funcionalidades.cancelar_inscripcion("1","2");
 
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
                 if(err) throw err;
@@ -80,13 +59,15 @@ test('Remove couple inscription',() => {
 });
 
 test('Modify a couple',() => {
+
+    
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => o.participante1.dni == "9" 
     && o.participante2.dni == "10");
-
+    
     // Si la pareja que vamos a modificar para el testeo no existe ya, la inscribimos
     funcionalidades.inscribir_pareja("julia","9","9","9","lorena","10","10","10","femenina");
 
@@ -107,14 +88,9 @@ test('Modify a couple',() => {
         
         "categoria":"femenina"
     };
-
-    try {
-        // Modificamos la pareja
-        funcionalidades.modificar_pareja("9","10","julia","pepa","9","11","9","11","9","11");
-    }
-    catch(e) {
-        expect(e.message).toEqual('La pareja no existe, no se puede modificar la inscripción.');
-    }
+    
+    // Modificamos la pareja
+    funcionalidades.modificar_pareja("9","10","julia","pepa","9","11","9","11","9","11");
 
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
                 if(err) throw err;
@@ -131,12 +107,7 @@ test('Modify a couple',() => {
 });
 
 test('Consulting couples in a cathegory',() => {
-    try {
-        response = funcionalidades.consultar_parejas_categoria("femenina");
-    }
-    catch(e) {
-        expect(e.message).toEqual('Categoría vacía.');        
-    }
+    response = funcionalidades.consultar_parejas_categoria("femenina");
 
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
                 if(err) throw err;
@@ -144,18 +115,12 @@ test('Consulting couples in a cathegory',() => {
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => o.categoria == "femenina");
 
-    expect(response[0]).toEqual(obj_filtred[0]);    
-    
+    expect(response).toEqual(obj_filtred[0]);    
 });
 
 test('Consulting all the couples in the competition',() => {
-    try {
-        response = funcionalidades.consultar_parejas_totales();
-    }
-    catch(e) {
-        expect(e.message).toEqual('Competición sin parejas.');        
-    }
-    
+    response = funcionalidades.consultar_parejas_totales();
+
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
                 if(err) throw err;
             });
@@ -164,16 +129,8 @@ test('Consulting all the couples in the competition',() => {
     expect(response).toEqual(obj);    
 });
 
-//TODO CATEGORIA DE UNA PAREJA
-
 test('Consulting the couple of a member',() => {
-    
-    try {
-        response = funcionalidades.consultar_pareja_integrante("nanu");
-    }
-    catch(e) {
-        expect(e.message).toEqual('Pareja inexistente.');                
-    }
+    response = funcionalidades.consultar_pareja_integrante("nanu");
 
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
                 if(err) throw err;
@@ -185,12 +142,7 @@ test('Consulting the couple of a member',() => {
 });
 
 test('Consulting the couple of a member in a cathegory',() => {
-    try {
-        response = funcionalidades.consultar_pareja_categoria("nanu", "masculina");
-    }
-    catch(e) {
-        expect(e.message).toEqual('Pareja inexistente.');                        
-    }
+    response = funcionalidades.consultar_pareja_categoria("nanu", "masculina");
 
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
                 if(err) throw err;
@@ -205,13 +157,11 @@ test('Consulting avaible plazes',() => {
     response = funcionalidades.consultar_plazas_disponibles("femenina");
 
     data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
-        if(err) throw err;
-    });
+                if(err) throw err;
+            });
     var obj = JSON.parse(data);
     var obj_filtred = obj.filter(o => (o.categoria == "femenina"));
     num = 20 - obj_filtred.length;
-    
-    var correcto = {"plazas":num}
 
-    expect(response).toEqual(correcto);    
+    expect(response).toEqual("Hay " + num  + " plazas disponibles en la categoria femenina.");    
 });
