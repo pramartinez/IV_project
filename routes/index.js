@@ -4,9 +4,14 @@ var VPTournaments = require('../app/funcionalidades.js');
 var vpt = new VPTournaments("Torneo2019","app/data/integrantes_tmp.json");
 var fs = require('fs');
 
+/* GET status. */
+router.get('/status', function(req, res, next) {
+  res.status(200).json({"status":"OK"});
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendStatus(200);
+  res.status(200).json({"status":"OK"});
 });
 
 /**

@@ -38,6 +38,24 @@ var modificacion = {
     }   
     };
 
+describe( "GET status", function() {
+    it('Should get OK status', function(done) {
+        request(app)
+            .get('/status')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+});
+
+describe( "GET home page", function() {
+    it('Should get OK status', function(done) {
+        request(app)
+            .get('/')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+});
+
 describe( "POST inscripción", function() {
     it('Should create a new inscription', function(done) {
         request(app)
