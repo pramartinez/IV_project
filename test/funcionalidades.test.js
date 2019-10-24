@@ -1,10 +1,12 @@
+var Initialize_Database = require('../app/initialize_database.js')
 var Funcionalidades = require('../app/funcionalidades.js');
-var funcionalidades = new Funcionalidades("Torneo2019","app/data/integrantes_tmp.json");
+var path = "app/data/integrantes_tmp.json";
 var fs = require('fs');
+var init = new Initialize_Database();
+init.initialize();
 
-//funcionalidades.inscribir_pareja("alba","3","3","3","famita","4","4","4","femenina");
-//funcionalidades.inscribir_pareja("pilar","5","5","5","alvaro","6","6","6","mixta");
-//funcionalidades.inscribir_pareja("nanu","7","7","7","sergio","8","8","8","masculina");
+var funcionalidades = new Funcionalidades("Torneo2019",path);
+
 
 test('Inscribe new couple in competition',() => {
 
@@ -26,7 +28,7 @@ test('Inscribe new couple in competition',() => {
         "categoria":"femenina"
         };
 
-    data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+    var data = fs.readFileSync(path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -38,20 +40,20 @@ test('Inscribe new couple in competition',() => {
             funcionalidades.inscribir_pareja("pra","1","1","1","pilar","2","2","2","femenina");    
         }
         catch(e) {
-            try {
+            if (e.message == 'La pareja ya existe, no se puede reinscribir.') {
                 expect(e.message).toEqual('La pareja ya existe, no se puede reinscribir.');
             }
-            catch(e) {
-                try {
-                    expect(e.message).toEqual('La pareja ya existe, no se puede reinscribir.');
-                }
-                catch(e) {
-                    expect(e.message).toEqual('No quedan plazas disponibles.');
-                }
+            else if (e.message == 'Datos incorrectos.') {
+                expect(e.message).toEqual('Datos incorrectos.');
+            }
+            else if (e.message == 'No quedan plazas disponibles.') {
+                expect(e.message).toEqual('No quedan plazas disponibles.');
+            }
+            else {
+                throw e;
             }
         }
-        
-        data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+        var data = fs.readFileSync(path,'utf8',function(err){
             if(err) throw err;
         });
         obj = JSON.parse(data);
@@ -70,7 +72,7 @@ test('Remove couple inscription',() => {
 
     }
 
-    data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+    var data = fs.readFileSync(path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -80,7 +82,7 @@ test('Remove couple inscription',() => {
 });
 
 test('Modify a couple',() => {
-    data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+    var data = fs.readFileSync(path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -92,14 +94,14 @@ test('Modify a couple',() => {
 
     var modificacion = {
         "participante1": {
-            "nombre":"julia",
+            "nombre":"marta",
             "dni":"9",
             "telefono":"9",
             "correo":"9"
         },
         
         "participante2": {
-            "nombre":"pepa",
+            "nombre":"paca",
             "dni":"11",
             "telefono":"11",
             "correo":"11"
@@ -110,13 +112,13 @@ test('Modify a couple',() => {
 
     try {
         // Modificamos la pareja
-        funcionalidades.modificar_pareja("9","10","julia","pepa","9","11","9","11","9","11");
+        funcionalidades.modificar_pareja("9","10","marta","paca","9","11","9","11","9","11");
     }
     catch(e) {
         expect(e.message).toEqual('La pareja no existe, no se puede modificar la inscripción.');
     }
 
-    data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+    var data = fs.readFileSync(path,'utf8',function(err){
                 if(err) throw err;
             });
     obj = JSON.parse(data);
@@ -138,7 +140,7 @@ test('Consulting couples in a cathegory',() => {
         expect(e.message).toEqual('Categoría vacía.');        
     }
 
-    data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+    var data = fs.readFileSync(path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -156,7 +158,7 @@ test('Consulting all the couples in the competition',() => {
         expect(e.message).toEqual('Competición sin parejas.');        
     }
     
-    data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+    var data = fs.readFileSync(path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -175,7 +177,7 @@ test('Consulting the couple of a member',() => {
         expect(e.message).toEqual('Pareja inexistente.');                
     }
 
-    data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+    var data = fs.readFileSync(path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -192,7 +194,7 @@ test('Consulting the couple of a member in a cathegory',() => {
         expect(e.message).toEqual('Pareja inexistente.');                        
     }
 
-    data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+    var data = fs.readFileSync(path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -204,7 +206,7 @@ test('Consulting the couple of a member in a cathegory',() => {
 test('Consulting avaible plazes',() => {
     response = funcionalidades.consultar_plazas_disponibles("femenina");
 
-    data = fs.readFileSync("app/data/integrantes_tmp.json",'utf8',function(err){
+    var data = fs.readFileSync(path,'utf8',function(err){
         if(err) throw err;
     });
     var obj = JSON.parse(data);
@@ -215,3 +217,5 @@ test('Consulting avaible plazes',() => {
 
     expect(response).toEqual(correcto);    
 });
+
+

@@ -203,6 +203,7 @@ class Funcionalidades {
                     }
                     else {
                         var err = new Error('La pareja ya existe, no se puede reinscribir.');
+                        err.name = 'YaExistePareja';
                         err.status = 400;
                         throw err;
                     }
@@ -212,12 +213,14 @@ class Funcionalidades {
             }
             else {
                 var err = new Error('Datos incorrectos.');
+                err.name = 'DatosIncorrectos';
                 err.status = 400;
                 throw err;
             }
         }
         else {
             var err = new Error('No quedan plazas disponibles.');
+            err.name = 'NoPlazasDisponibles';
             err.status = 400;
             throw err;
         }     

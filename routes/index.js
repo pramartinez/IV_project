@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var VPTournaments = require('../app/funcionalidades.js');
-var vpt = new VPTournaments("Torneo2019","app/data/integrantes.json");
+var vpt = new VPTournaments("Torneo2019","app/data/integrantes_tmp.json");
 var fs = require('fs');
 
 /* GET home page. */

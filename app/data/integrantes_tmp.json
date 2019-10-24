@@ -46,103 +46,13 @@
   },
   {
     "participante1": {
-      "nombre": "julia",
+      "nombre": "marta",
       "dni": "9",
       "telefono": "9",
       "correo": "9"
     },
     "participante2": {
-      "nombre": "pepa",
-      "dni": "11",
-      "telefono": "11",
-      "correo": "11"
-    },
-    "categoria": "femenina"
-  },
-  {
-    "participante1": {
-      "nombre": "julia",
-      "dni": "9",
-      "telefono": "9",
-      "correo": "9"
-    },
-    "participante2": {
-      "nombre": "pepa",
-      "dni": "11",
-      "telefono": "11",
-      "correo": "11"
-    },
-    "categoria": "femenina"
-  },
-  {
-    "participante1": {
-      "nombre": "julia",
-      "dni": "9",
-      "telefono": "9",
-      "correo": "9"
-    },
-    "participante2": {
-      "nombre": "pepa",
-      "dni": "11",
-      "telefono": "11",
-      "correo": "11"
-    },
-    "categoria": "femenina"
-  },
-  {
-    "participante1": {
-      "nombre": "julia",
-      "dni": "9",
-      "telefono": "9",
-      "correo": "9"
-    },
-    "participante2": {
-      "nombre": "pepa",
-      "dni": "11",
-      "telefono": "11",
-      "correo": "11"
-    },
-    "categoria": "femenina"
-  },
-  {
-    "participante1": {
-      "nombre": "julia",
-      "dni": "9",
-      "telefono": "9",
-      "correo": "9"
-    },
-    "participante2": {
-      "nombre": "pepa",
-      "dni": "11",
-      "telefono": "11",
-      "correo": "11"
-    },
-    "categoria": "femenina"
-  },
-  {
-    "participante1": {
-      "nombre": "julia",
-      "dni": "9",
-      "telefono": "9",
-      "correo": "9"
-    },
-    "participante2": {
-      "nombre": "pepa",
-      "dni": "11",
-      "telefono": "11",
-      "correo": "11"
-    },
-    "categoria": "femenina"
-  },
-  {
-    "participante1": {
-      "nombre": "julia",
-      "dni": "9",
-      "telefono": "9",
-      "correo": "9"
-    },
-    "participante2": {
-      "nombre": "pepa",
+      "nombre": "paca",
       "dni": "11",
       "telefono": "11",
       "correo": "11"

@@ -31,21 +31,6 @@
   },
   {
     "participante1": {
-      "nombre": "nanu",
-      "dni": "7",
-      "telefono": "7",
-      "correo": "7"
-    },
-    "participante2": {
-      "nombre": "sergio",
-      "dni": "8",
-      "telefono": "8",
-      "correo": "8"
-    },
-    "categoria": "masculina"
-  },
-  {
-    "participante1": {
       "nombre": "julia",
       "dni": "28",
       "telefono": "288888",
@@ -56,6 +41,21 @@
       "dni": "30",
       "telefono": "30",
       "correo": "30"
+    },
+    "categoria": "femenina"
+  },
+  {
+    "participante1": {
+      "nombre": "Ana",
+      "dni": "280898",
+      "telefono": "66666666",
+      "correo": "ana@correo.es"
+    },
+    "participante2": {
+      "nombre": "Paula",
+      "dni": "290999",
+      "telefono": "66666630",
+      "correo": "paula@correo.com"
     },
     "categoria": "femenina"
   }
