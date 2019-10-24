@@ -12,4 +12,5 @@ install:
 
 scripts:
   - npm start           # para desplegar microservicio
+  - npm stop           # para detener microservicio
   - npm test            # ejecución de tests unitarios
