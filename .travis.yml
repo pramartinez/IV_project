@@ -14,3 +14,6 @@ scripts:
   - npm test            # ejecución de tests unitarios
   - npm start           # para desplegar microservicio
   - npm stop           # para detener microservicio
+  - gulp test
+  - gulp start
+  - gulp stop

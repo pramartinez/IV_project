@@ -12,3 +12,6 @@ build:
     - npm run test        # para ejecutar los test unitarios
     - npm start           # para desplegar microservicio
     - npm stop           # para detener microservicio
+    - gulp test
+    - gulp start
+    - gulp stop
