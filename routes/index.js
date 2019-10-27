@@ -29,14 +29,14 @@ router.post('/inscripcion', function(req, res, next) {
   correo2 = body.participante2.correo;
   categoria = body.categoria;
 
+  try {
+    vpt.inscribir_pareja(nombre1, dni1, telefono1, correo1, nombre2, dni2, telefono2, correo2, categoria);
+    res.sendStatus(201);
+  }
+  catch(e) {
+    throw e;
+  }
 
-
-  vpt.inscribir_pareja(nombre1, dni1, telefono1, correo1, nombre2, dni2, 
-    telefono2, correo2, categoria, function(err){
-      if(err) throw err;
-  });
-
-  res.sendStatus(201);
 });
 
 /**
@@ -47,9 +47,14 @@ router.delete('/cancelacion', function(req, res, next) {
   dni1 = body.dni1;
   dni2 = body.dni2;
 
-  vpt.cancelar_inscripcion(dni1,dni2);
+  try {
+    vpt.cancelar_inscripcion(dni1,dni2);
+    res.sendStatus(200);
+  }
+  catch(e) {
+    throw e;
+  }
 
-  res.sendStatus(200);
 });
 
 
