@@ -11,6 +11,6 @@ install:
   - npm install         # instalamos dependencias
 
 scripts:
+  - npm test            # ejecución de tests unitarios
   - npm start           # para desplegar microservicio
   - npm stop           # para detener microservicio
-  - npm test            # ejecución de tests unitarios
