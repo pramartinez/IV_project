@@ -6,7 +6,7 @@ const shell = require('gulp-shell');
 
 gulp.task('test', () => (
     gulp.src('test', {read: false})
-        .pipe(jest())
+        .pipe(jest({reporter:'default'}))
 ));
 
 gulp.task('start', function () {
