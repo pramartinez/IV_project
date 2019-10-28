@@ -8,7 +8,7 @@ node_js:
 
 build:
   pre_ci:
-    - npm install --global gulp-cli
+    - npm install -g gulp-cli
   ci:
     - gulp install
     - gulp test            # ejecución de tests unitarios
