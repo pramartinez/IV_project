@@ -7,17 +7,13 @@ node_js:
   - 12.10.0
 
 before_install:
-  - npm install gulp
+  - npm install gulp -g
 
 # Construcción para CI
 install:
-#  - npm install         # instalamos dependencias
   - gulp install
 
 scripts:
   - gulp test            # ejecución de tests unitarios
   - gulp start           # para desplegar microservicio
   - gulp stop           # para detener microservicio
-#  - npm test            # ejecución de tests unitarios
-#  - npm start           # para desplegar microservicio
-#  - npm stop           # para detener microservicio

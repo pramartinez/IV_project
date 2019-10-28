@@ -6,16 +6,9 @@ node_js:
   - 10.16.2
   - 12.10.0
 
-#build:
-#  ci: # Construcción para CI
-#    - npm install         # para instalar dependencias
-#    - npm run test        # para ejecutar los test unitarios
-#    - npm start           # para desplegar microservicio
-#    - npm stop           # para detener microservicio
-
 build:
   ci:
-    - npm install gulp
+    - npm install gulp -g
     - gulp install
     - gulp test            # ejecución de tests unitarios
     - gulp start           # para desplegar microservicio
