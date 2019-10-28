@@ -15,5 +15,5 @@ install:
 
 script:
   - gulp test            # ejecución de tests unitarios
-  - gulp start           # para desplegar microservicio
+  - gulp start &          # para desplegar microservicio
   - gulp stop           # para detener microservicio
