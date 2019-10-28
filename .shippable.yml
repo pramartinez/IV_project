@@ -7,8 +7,9 @@ node_js:
   - 12.10.0
 
 build:
-  ci:
+  pre_ci:
     - npm install gulp
+  ci:
     - gulp install
     - gulp test            # ejecución de tests unitarios
     - gulp start           # para desplegar microservicio
