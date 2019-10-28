@@ -14,9 +14,8 @@ node_js:
 #    - npm stop           # para detener microservicio
 
 build:
-  pre_ci:
-    - npm install gulp
   ci:
+    - npm install gulp
     - gulp install
     - gulp test            # ejecución de tests unitarios
     - gulp start           # para desplegar microservicio

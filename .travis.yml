@@ -15,9 +15,9 @@ install:
   - gulp install
 
 scripts:
-#  - npm test            # ejecución de tests unitarios
-#  - npm start           # para desplegar microservicio
-#  - npm stop           # para detener microservicio
   - gulp test            # ejecución de tests unitarios
   - gulp start           # para desplegar microservicio
   - gulp stop           # para detener microservicio
+#  - npm test            # ejecución de tests unitarios
+#  - npm start           # para desplegar microservicio
+#  - npm stop           # para detener microservicio
