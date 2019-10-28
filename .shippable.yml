@@ -8,7 +8,7 @@ node_js:
 
 build:
   ci:
-    - npm install gulp -g
+    - npm install gulp
     - gulp install
     - gulp test            # ejecución de tests unitarios
     - gulp start           # para desplegar microservicio
