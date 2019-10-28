@@ -3,6 +3,7 @@ var jest = require('gulp-jest').default;
 const pm2 = require('pm2');
 const shell = require('gulp-shell');
 
+gulp.task('install', shell.task(['npm install']));
 
 gulp.task('test', () => (
     gulp.src('test', {read: false})
@@ -23,4 +24,4 @@ gulp.task('start', function () {
   });
 });
 
-gulp.task('stop', shell.task(['pm2 stop VPTournaments' ]));
+gulp.task('stop', shell.task(['pm2 stop VPTournaments']));

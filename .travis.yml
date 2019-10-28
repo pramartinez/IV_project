@@ -6,11 +6,18 @@ node_js:
   - 10.16.2
   - 12.10.0
 
+before_install:
+  - npm install -g gulp-cli
+
 # Construcción para CI
 install:
-  - npm install         # instalamos dependencias
+#  - npm install         # instalamos dependencias
+  - gulp install
 
 scripts:
-  - npm test            # ejecución de tests unitarios
-  - npm start           # para desplegar microservicio
-  - npm stop           # para detener microservicio
+#  - npm test            # ejecución de tests unitarios
+#  - npm start           # para desplegar microservicio
+#  - npm stop           # para detener microservicio
+  - gulp test            # ejecución de tests unitarios
+  - gulp start           # para desplegar microservicio
+  - gulp stop           # para detener microservicio
