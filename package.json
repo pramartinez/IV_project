@@ -17,7 +17,8 @@
     "jade": "~1.11.0",
     "jsdoc": "^3.6.3",
     "jsdoc-to-markdown": "^5.0.1",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "swagger": "^0.7.5"
   },
   "devDependencies": {
     "express": "~4.16.1",
