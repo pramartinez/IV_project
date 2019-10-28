@@ -13,7 +13,7 @@ before_install:
 install:
   - gulp install
 
-scripts:
+script:
   - gulp test            # ejecución de tests unitarios
   - gulp start           # para desplegar microservicio
   - gulp stop           # para detener microservicio
