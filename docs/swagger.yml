@@ -1,0 +1,475 @@
+openapi: 3.0.0
+info:
+  title: VPTournaments
+  description: Beach-Volley tournaments manager
+  version: "3.0.0"
+tags:
+  - name: Couples
+    description: "API to manage couples in a competition"
+  - name: Status
+    description: "Status of the microservice"
+  
+paths:
+  /inscripcion:
+    post:
+      tags:
+        [Couples]
+      summary: Releases a couple in the competition
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Inscripcion'
+      responses:
+        '201':
+          description: A new couple is on tournament
+        '404':
+          description: Error saving the couple
+
+  /cancelacion:
+    delete:
+      tags:
+        [Couples]
+      summary: Removes a couple of the competition
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cancelacion'
+      responses:
+        '200':
+          description: A couple has been removed
+        '404':
+          description: Error deleting the couple
+  
+  /modificacion:
+    put:
+      tags:
+        [Couples]
+      summary: Modifies a couple in the competition
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Modificacion'
+      responses:
+        '200':
+          description: The couple has been modified
+        '404':
+          description: Error modifying the couple
+
+  /categoria/{categoria}:
+    get:
+      tags:
+        [Couples]
+      summary: Gets couples in a cathegody
+      parameters:
+        - in: path
+          name: categoria
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A JSON object with couples in cathegory
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  participante1:
+                    properties:
+                      nombre:
+                        type: string
+                        example: "Laura"
+                      dni:
+                        type: string
+                        example: "2222"
+                      telefono:
+                        type: string
+                        example: "664"
+                      correo:
+                        type: string
+                        example: "laura@laura.com"
+                  participante2:
+                    properties:
+                      nombre:
+                        type: string
+                        example: "Marcos"
+                      dni:
+                        type: string
+                        example: "2242"
+                      telefono:
+                        type: string
+                        example: "668"
+                      correo:
+                        type: string
+                        example: "marcos@marcos.com"
+                  categoria:
+                    type: string
+                    example: "mixta"
+        '404':
+          description: Error getting couples
+
+  /parejas:
+    get:
+      tags:
+        [Couples]
+      summary: Gets couples in competition
+      responses:
+        '200':
+          description: A JSON object with couples in competition
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  participante1:
+                    properties:
+                      nombre:
+                        type: string
+                        example: "Laura"
+                      dni:
+                        type: string
+                        example: "2222"
+                      telefono:
+                        type: string
+                        example: "664"
+                      correo:
+                        type: string
+                        example: "laura@laura.com"
+                  participante2:
+                    properties:
+                      nombre:
+                        type: string
+                        example: "Marcos"
+                      dni:
+                        type: string
+                        example: "2242"
+                      telefono:
+                        type: string
+                        example: "668"
+                      correo:
+                        type: string
+                        example: "marcos@marcos.com"
+                  categoria:
+                    type: string
+                    example: "mixta"
+                type: object
+                properties:
+                  participante1:
+                    properties:
+                      nombre:
+                        type: string
+                        example: "Juan Manuel"
+                      dni:
+                        type: string
+                        example: "22892"
+                      telefono:
+                        type: string
+                        example: "664666"
+                      correo:
+                        type: string
+                        example: "juan@manuel.com"
+                  participante2:
+                    properties:
+                      nombre:
+                        type: string
+                        example: "Ana"
+                      dni:
+                        type: string
+                        example: "224992"
+                      telefono:
+                        type: string
+                        example: "669998"
+                      correo:
+                        type: string
+                        example: "ana@robles.com"
+                  categoria:
+                    type: string
+                    example: "mixta"
+        '404':
+          description: Error getting couples
+
+  /categoria_pareja/{nombre1}/{nombre2}:
+    get:
+      tags:
+        [Couples]
+      summary: Gets the cathegory of a couple
+      parameters:
+        - in: path
+          name: nombre1
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: nombre2
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A JSON object with the cathegory
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  participante1:
+                    properties:
+                      categoria:
+                        type: string
+                        example: "femenina"
+        '404':
+          description: Error getting the cathegory
+
+  /pareja_integrante/{nombre}:
+    get:
+      tags:
+        [Couples]
+      summary: Gets the partner of a participant
+      parameters:
+        - in: path
+          name: nombre
+          required: true
+          schema:
+            type: string          
+      responses:
+        '200':
+          description: A JSON object with the partner
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                    example: "Manuel"
+                  dni:
+                    type: string
+                    example: "459666688P"
+                  telefono:
+                    type: string
+                    example: "69969693"
+                  correo:
+                    type: string 
+                    example: manuel@manolo.es  
+        '404':
+          description: Error getting the partner
+
+  /pareja_integrante/{categoria}/{nombre}:
+    get:
+      tags:
+        [Couples]
+      summary: Gets the partner of a participant in a cathegory
+      parameters:
+        - in: path
+          name: categoria
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: nombre
+          required: true
+          schema:
+            type: string         
+      responses:
+        '200':
+          description: A JSON object with the partner
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                    example: "Manuel"
+                  dni:
+                    type: string
+                    example: "459666688P"
+                  telefono:
+                    type: string
+                    example: "69969693"
+                  correo:
+                    type: string 
+                    example: manuel@manolo.es  
+        '404':
+          description: Error getting the partner
+
+  /plazas/{categoria}:
+    get:
+      tags:
+        [Couples]
+      summary: Gets avaible plazes in competition
+      parameters:
+        - in: path
+          name: categoria
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A JSON object with the number of avaible plazes
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  plazas:
+                    type: int
+                    example: 19
+        '404':
+          description: Error getting the number of avaible plazes
+
+  /status:
+    get:
+      tags:
+        [Status]
+      summary: Check status
+      responses:
+        '200':
+          description: Checkout done
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+        '400':
+          description: Error checking status
+
+  /:
+    get:
+      tags:
+        [Status]
+      summary: Check status
+      responses:
+        '200':
+          description: Checkout done
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+        '400':
+          description: Error checking status
+
+components:
+    schemas:
+      Inscripcion:
+        type: object
+        properties:
+          participante1:
+            properties:
+              nombre:
+                type: string
+              dni:
+                type: string
+              telefono:
+                type: string
+              correo:
+                type: string
+          participante2:
+            properties:
+              nombre:
+                type: string
+              dni:
+                type: string
+              telefono:
+                type: string
+              correo:
+                type: string
+          categoria:
+            type: string
+        required:  
+          - participante1
+          - participante2
+          - categoria
+      Cancelacion:
+        type: object
+        properties:
+          dni1:
+            type: string
+          dni2:
+            type: string
+        required:  
+          - dni1
+          - dni2
+      Modificacion:
+        type: object
+        properties:
+          participante1:
+              type: string
+          participante2:
+              type: string
+          modificacion:
+            properties:
+              participante1:
+                properties:
+                  nombre:
+                    type: string
+                  dni:
+                    type: string
+                  telefono:
+                    type: string
+                  correo:
+                    type: string
+              participante2:
+                properties:
+                  nombre:
+                    type: string
+                  dni:
+                    type: string
+                  telefono:
+                    type: string
+                  correo:
+                    type: string
+        required:  
+          - participante1
+          - participante2
+          - modificacion
+
+      Pareja:
+        type: object
+        properties:
+          nombre1:
+            type: string
+          nombre2:
+            type: string
+        required:  
+          - nombre1
+          - nombre2
+      
+      Nombre:
+        type: object
+        properties:
+          nombre:
+            type: string
+        required:  
+          - nombre
+
+      Plazas:
+        type: object
+        properties:
+          plazas:
+            type: string
+      
+      Participante:
+        type: object
+        properties:
+          nombre:
+            type: string
+          dni:
+            type: string
+          telefono:
+            type: string
+          correo:
+            type: string

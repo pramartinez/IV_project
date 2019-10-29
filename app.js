@@ -1,13 +1,19 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var swaggerUi = require('swagger-ui-express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const YAML = require('yamljs');
+//var swaggerDoc = YAML.load(path.join(__dirname, "docs/swagger.yml"));
+//var swaggerDoc = require("docs/swagger.yml");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+//app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

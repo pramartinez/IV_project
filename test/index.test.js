@@ -107,11 +107,7 @@ describe( "GET parejas de la competición", function() {
 describe( "GET categoría de pareja", function() {
     it('Should get the cathegory of a couple', function(done) {
         request(app)
-            .get('/categoria_pareja')
-            .send({
-                    "nombre1":"alba",
-                    "nombre2":"famita"
-                  })
+            .get('/categoria_pareja/alba/famita')
             .expect('Content-Type', /json/)
             .expect(200, done);
     });
@@ -120,9 +116,7 @@ describe( "GET categoría de pareja", function() {
 describe( "GET pareja de participante", function() {
     it('Should get the couple of a player in a cathegory', function(done) {
         request(app)
-            .get('/pareja_integrante').send({
-                "nombre":"alba"
-              })
+            .get('/pareja_integrante/alba')
             .expect('Content-Type', /json/)
             .expect(200, done);
     });
@@ -131,9 +125,7 @@ describe( "GET pareja de participante", function() {
 describe( "GET pareja de participante en categoría", function() {
     it('Should get the couple of a player in a cathegory', function(done) {
         request(app)
-            .get('/pareja_integrante/femenina').send({
-                "nombre":"alba"
-              })
+            .get('/pareja_integrante/femenina/alba')
             .expect('Content-Type', /json/)
             .expect(200, done);
     });

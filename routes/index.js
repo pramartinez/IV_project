@@ -122,12 +122,11 @@ router.get('/parejas', function(req, res, next) {
 /**
  * GET: Consultar categoría de una pareja.
  */
-router.get('/categoria_pareja', function(req, res, next) {
+router.get('/categoria_pareja/:nombre1/:nombre2', function(req, res, next) {
   
   try {
-    var body = req.body;
-    nombre1 = body.nombre1;
-    nombre2 = body.nombre2;
+    var nombre1 = req.params.nombre1;
+    var nombre2 = req.params.nombre2;
     categoria = vpt.consultar_categoria_pareja(nombre1, nombre2);
     obj = {"categoria":categoria}
     res.status(200).json(obj);
@@ -142,11 +141,10 @@ router.get('/categoria_pareja', function(req, res, next) {
 /**
  * GET: Consultar pareja de un integrante.
  */
-router.get('/pareja_integrante', function(req, res, next) {
+router.get('/pareja_integrante/:nombre', function(req, res, next) {
 
   try {
-    var body = req.body;
-    nombre = body.nombre;
+    var nombre = req.params.nombre;
   
     pareja = vpt.consultar_pareja_integrante(nombre);
   
@@ -170,12 +168,11 @@ router.get('/pareja_integrante', function(req, res, next) {
 /**
  * GET: Consultar pareja de un participante en una categoría concreta.
  */
-router.get('/pareja_integrante/:categoria', function(req, res, next) {
+router.get('/pareja_integrante/:categoria/:nombre', function(req, res, next) {
 
   try {
     var categoria = req.params.categoria;
-    var body = req.body;
-    nombre = body.nombre;
+    var nombre = req.params.nombre;
   
     pareja = vpt.consultar_pareja_categoria(nombre, categoria);
   

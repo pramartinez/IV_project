@@ -21,7 +21,10 @@
     "jsdoc-to-markdown": "^5.0.1",
     "morgan": "~1.9.1",
     "string": "^3.3.3",
-    "swagger": "^0.7.5"
+    "swagger": "^0.7.5",
+    "swagger-jsdoc": "^3.4.0",
+    "swagger-ui-express": "^4.1.2",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "express": "~4.16.1",
@@ -44,7 +47,8 @@
   },
   "keywords": [
     "nodejs",
-    "javascript"
+    "javascript",
+    "jest"
   ],
   "author": "Práxedes Martínez Moreno",
   "license": "GPL-3.0",
