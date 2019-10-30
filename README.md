@@ -88,7 +88,7 @@ Para ejecutar los tests tanto funcionales como unitarios tenemos que ejecutar:
 
     $ gulp test
 
-**Puede consultar la documentación de los tests funcionales en el siguiente enlace: [Documentación de los tests de la API Rest](https://github.com/pramartinez/IV_project/docs/tests_funcionales_doc.md).**
+**Puede consultar la documentación de los tests funcionales en el siguiente enlace: [Documentación de los tests de la API Rest](https://github.com/pramartinez/IV_project/blob/master/docs/tests_funcionales_doc.md).**
 
 <a name="desplegamos-microservicio"></a>
 
