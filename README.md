@@ -82,7 +82,7 @@ Instalamos las dependencias con:
 
     $ gulp teamos-la-clase"></a>
 
-## ¿Cómo testeamos la clase principal y el microservicio?
+## ¿Cómo testeamos el microservicio?
 
 Para ejecutar los tests tanto funcionales como unitarios tenemos que ejecutar:
 
