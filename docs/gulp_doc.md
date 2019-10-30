@@ -5,8 +5,6 @@ ___________________________________
 Índice
 ======
 <!--ts-->
-- [Herramienta de Construcción GULP](#herramienta-de-construcci%c3%b3n-gulp)
-- [Índice](#%c3%8dndice)
   - [Install task](#install-task)
   - [Test task](#test-task)
   - [Start task](#start-task)
@@ -35,7 +33,7 @@ Para testear tanto la clase principal como la API Rest, se usa la siguiente tare
 
 ## Start task
 
-Si lo que queremos es arrancar el microservicio, esta tarea se encarga de ello. Start emplea pm2 para 
+Si lo que queremos es arrancar el microservicio, esta tarea se encarga de ello. Start emplea pm2 para realizar el despliegue local y lanza cuatro instancias.
 
     gulp.task('start', function () {
       pm2.connect(true, function () {
@@ -51,11 +49,21 @@ Si lo que queremos es arrancar el microservicio, esta tarea se encarga de ello. 
       });
     });
 
+Lo recomendable es usar la tarea de la siguiente forma:
+
+    $ gulp start &
+
+para poder seguir trabajando aunque el arranque se haya llevado a cabo. 
+
 ## Stop task
+
+Detiene el microservicio que ha debido de ser arrancado previamente. Para esto se recurre a *shell.task* que se encarga de ejectura el comando de pm2:
 
     gulp.task('stop', shell.task(['pm2 stop VPTournaments']));
 
 ## Redoc task
+
+Esta tarea adicional la uso para generar la documentación del proyecto:
 
     gulp.task('redoc', function(done) {
       exec('jsdoc ./app/funcionalidades.js -d ./docs/vpt-doc', function(err, stdout, stderr) {
@@ -69,3 +77,10 @@ Si lo que queremos es arrancar el microservicio, esta tarea se encarga de ello. 
         config: "./"}, 
         done);
     });
+
+Así, cada vez que la modifique simplemente uso
+
+    $ gulp redoc
+
+y se crea automáticamente, tanto la de la clase principal como la de la API Rest.
+
