@@ -4,6 +4,8 @@ ___________________________________
 Índice
 ======
 <!--ts-->
+  - [¿Por qué VPTournaments?](#%c2%bfpor-qu%c3%a9-vptournaments)
+  - [¿Cuáles son las funcionalidades principales?](#%c2%bfcu%c3%a1les-son-las-funcionalidades-principales)
   - [Uso de la clase dentro del servicio](#uso-de-la-clase-dentro-del-servicio)
   - [Indagando superficialmente en la implementación de la clase](#indagando-superficialmente-en-la-implementaci%c3%b3n-de-la-clase)
     - [Métodos para incluir información sobre las parejas](#m%c3%a9todos-para-incluir-informaci%c3%b3n-sobre-las-parejas)
@@ -15,6 +17,17 @@ ___________________________________
 __________________________________________
 
 >Esta visión de la clase principal del proyecto es simplemente para hacerse una idea sobre el funcionamiento de la misma, es decir, es muy global. Por tanto, si se desea conocer más a fondo sobre la implementación de dicha clase aquí se proporciona un enlace a la documentación del código en sí: [Class Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/class_doc.md).
+
+## ¿Por qué VPTournaments?
+
+Un torneo de voley playa se constituye de una serie de parejas de integrantes, ya sean mixtas, femeninas o masculinas. El objetivo es que aquellas personas que quieran inscribirse al torneo, puedan hacerlo gracias a ***VPTournaments*** y que, además, luego puedan consultar cualquier información referente a la competición. Por tanto, el microservicio a construir se encargará de gestionar este tipo de recursos para poder facilitar la organización de la competición.
+
+## ¿Cuáles son las funcionalidades principales?
+
+-   Inscribirse en la liga en una categoría concreta: mixta, femenina, masculina.
+-   Consultar información varia de cada categoría, pareja o de la competición.
+-   Modificar parejas en caso de error en los datos o por cambio de jugador.
+-   Cancelar inscripción de una pareja.
 
 ## Uso de la clase dentro del servicio
 

@@ -16,9 +16,9 @@
 #### Construcción para CI:
 
     before_install:
-      - npm install -g gulp  # para instalar herramienta de ejecución
+      - npm install -g gulp  # para instalar herramienta de construcción
 
     script:
       - gulp install         # para instalar dependencias
-      - gulp start &         # para desplegar microservicio
+      - gulp start &         # para arrancar microservicio
       - gulp stop            # para detener microservicio
