@@ -21,7 +21,7 @@ router.get('/status', function(req, res, next) {
 
 /**
  * @api {get} / Request Status information
- * @apiName GetStatus
+ * @apiName GetStatusRoot
  * @apiGroup Status
  *
  * @apiSuccessExample Success-Response:
