@@ -2,9 +2,9 @@
 
 - El lenguaje de programación a emplear para el proyecto será [Node.js](https://nodejs.org/es/about/).
 
-- Como web application framework usaremos [Adonis](https://adonisjs.com/).
+- Como web application framework usaremos [Express](https://expressjs.com/es/).
 
-- Para la realización de tests unitarios usamos el framework de testeo [Jest](https://jestjs.io/).
+- Para la realización de tests unitarios usamos el framework de testeo [Jest](https://jestjs.io/)y [Supertest](https://github.com/visionmedia/supertest) para tests funcionales.
 
 - Por otro lado, aunque esté por concretar, se tratará de usar una base de datos para almacenar la información sobre los participantes que se vayan uniendo a la competición. Por ejemplo: [PostgreSQL](https://www.postgresql.org/).
 

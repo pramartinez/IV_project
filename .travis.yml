@@ -3,15 +3,15 @@ language: node_js
 
 # Versiones del lenguaje 
 node_js:
-  - 10.16.2
+  - 10.16.2    # probamos con dos versiones
   - 12.10.0
 
 before_install:
-  - npm install gulp
+  - npm install gulp  # instalación herramienta de construcción
 
 # Construcción para CI
 install:
-  - gulp install
+  - gulp install         # instalamos dependencias
 
 script:
-  - gulp test            # ejecución de tests unitarios
+  - gulp test            # ejecución de tests unitarios y funcionales

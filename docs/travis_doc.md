@@ -9,17 +9,26 @@
 **Versiones del lenguaje:**
 
     node_js:
-     - 10.16.2
+     - 10.16.2    # Hacemos las pruebas para dos versiones del lenguaje 
      - 12.10.0
 
 #### Construcción para CI
 
+Instalación previa de la herramienta de construcción:
+
+    before_install:
+      - npm install gulp
+  
 Comandos para instalar dependencias:
 
-    install:    
-      - npm install
+    install:
+        - gulp install
 
 Comandos para ejecución de tests:
 
-    scripts:    
-      - npm test
+    script:
+        - gulp test   # ejecución de tests unitarios y funcionales
+
+
+
+

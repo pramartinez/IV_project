@@ -53,7 +53,7 @@ Un torneo de voley playa se constituye de una serie de parejas de integrantes, y
 - El lenguaje de programación a emplear para el proyecto será [Node.js](https://nodejs.org/es/about/).
 
 - Para la realización de tests unitarios usamos el framework de testeo [Jest](https://jestjs.io/).
-- Para la realización de los tests funcionales he empleado [Supertest]().
+- Para la realización de los tests funcionales he empleado [Supertest](https://github.com/visionmedia/supertest).
   
 - **En esta versión del proyecto he decido probar a usar otra herramienta de construcción, concretamente ha sido [Gulp](https://gulpjs.com/). Para saber cómo se ha configurado esta herramienta de construcción puede consultar el siguiente enlace: [Configuración de Gulp](https://github.com/pramartinez/IV_project/blob/master/docs/gulp_doc.md).**
 
@@ -98,7 +98,7 @@ Para testear tenemos que ejecutar:
 
     $ gulp test
 
-**Puede consultar la documentación de los tests funcionales en el siguiente enlace: [Documentación de los tests de la API]().**
+**Puede consultar la documentación de los tests funcionales en el siguiente enlace: [Documentación de los tests de la API](https://github.com/pramartinez/IV_project/blob/master/docs/tests_funcionales_doc.md).**
 
 <a name="desplegamos-microservicio"></a>
 

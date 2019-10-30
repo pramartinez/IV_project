@@ -9,13 +9,16 @@
 **Versiones del lenguaje:**
 
     node_js:
-    - 10.16.2
+    - 10.16.2   # Hacemos pruebas para dos versiones del lenguaje
     - 12.10.0
 
 
 #### Construcción para CI:
 
-    build:
-        ci:
-          - npm install        # Instalación de dependencias
-          - npm run test       # Ejecución de los tests
+    before_install:
+      - npm install -g gulp  # para instalar herramienta de ejecución
+
+    script:
+      - gulp install         # para instalar dependencias
+      - gulp start &         # para desplegar microservicio
+      - gulp stop            # para detener microservicio
