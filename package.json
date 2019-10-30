@@ -14,7 +14,7 @@
     "constantinople": "^4.0.1",
     "cookie-parser": "~1.4.4",
     "cross-env": "^6.0.3",
-    "debug": "~4.1.1",
+    "debug": "^4.1.1",
     "diff": "^4.0.1",
     "growl": "^1.10.5",
     "gulp-apidoc": "^0.2.8",
@@ -52,7 +52,11 @@
   "keywords": [
     "nodejs",
     "javascript",
-    "jest"
+    "jest",
+    "supertest",
+    "travis",
+    "shippable",
+    "express"
   ],
   "author": "Práxedes Martínez Moreno",
   "license": "GPL-3.0",

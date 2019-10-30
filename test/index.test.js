@@ -1,6 +1,7 @@
 var request = require('supertest');
 var app = require('../app');
 
+// Ejemplo de nueva pareja a inscribir
 var nueva_pareja = {
     "participante1": {
         "nombre": "Ana",
@@ -17,7 +18,7 @@ var nueva_pareja = {
     "categoria":"femenina"    
     };
 
-
+// Ejemplo de modificación
 var modificacion = {
     "participante1":"280898",
     "participante2":"290999",
@@ -38,6 +39,7 @@ var modificacion = {
     }   
     };
 
+// Checkea estado del microservicio
 describe( "GET status", function() {
     it('Should get OK status', function(done) {
         request(app)
@@ -47,6 +49,7 @@ describe( "GET status", function() {
     });
 });
 
+// Hace lo mismo que GET status pero en la ruta raíz
 describe( "GET home page", function() {
     it('Should get OK status', function(done) {
         request(app)
@@ -56,6 +59,7 @@ describe( "GET home page", function() {
     });
 });
 
+// Inscribe una nueva pareja que se incluye en el body de la petición
 describe( "POST inscripción", function() {
     it('Should create a new inscription', function(done) {
         request(app)
@@ -65,6 +69,7 @@ describe( "POST inscripción", function() {
     });
 });
 
+// Elimina la inscripción de una pareja indicando los dnis de los integrantes en el body
 describe( "DELETE cancelación", function() {
     it('Should delete an inscription', function(done) {
         request(app)
@@ -77,6 +82,7 @@ describe( "DELETE cancelación", function() {
     });
 });
 
+// Modifica la información de una pareja indicando sus dnis y la nueva información
 describe( "PUT modificación", function() {
     it('Should modify an inscription', function(done) {
         request(app)
@@ -86,6 +92,7 @@ describe( "PUT modificación", function() {
     });
 });
 
+// Obtiene las parejas de la categoria femenina
 describe( "GET parejas de categoría", function() {
     it('Should get the couples of a cathegory', function(done) {
         request(app)
@@ -95,6 +102,7 @@ describe( "GET parejas de categoría", function() {
     });
 });
 
+// Obtiene las parejas de la competición
 describe( "GET parejas de la competición", function() {
     it('Should get the couples of the competition', function(done) {
         request(app)
@@ -104,6 +112,7 @@ describe( "GET parejas de la competición", function() {
     });
 });
 
+// Obtiene la categoria de la pareja alba-famita
 describe( "GET categoría de pareja", function() {
     it('Should get the cathegory of a couple', function(done) {
         request(app)
@@ -113,6 +122,7 @@ describe( "GET categoría de pareja", function() {
     });
 });
 
+// Obtiene la pareja del participante 'alba'
 describe( "GET pareja de participante", function() {
     it('Should get the couple of a player in a cathegory', function(done) {
         request(app)
@@ -122,6 +132,7 @@ describe( "GET pareja de participante", function() {
     });
 });
 
+// Obtiene la pareja del participante 'alba' en la categoría femenina
 describe( "GET pareja de participante en categoría", function() {
     it('Should get the couple of a player in a cathegory', function(done) {
         request(app)
@@ -131,6 +142,7 @@ describe( "GET pareja de participante en categoría", function() {
     });
 });
 
+// Obtiene el número de plazas que quedan en la categoria femenina
 describe( "GET número de plazas", function() {
     it('Should get the number os avaible plazes', function(done) {
         request(app)
