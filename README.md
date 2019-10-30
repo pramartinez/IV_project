@@ -17,7 +17,7 @@ ___________________________________
   - [¿Cómo funciona la clase principal del proyecto?](#clase-principal-del-proyecto)
   - [¿Cómo funciona la API del proyecto?](#API-proyecto)
   - [¿Cómo instalamos las dependencias del proyecto?](#instalamos-la-clase-del-proyecto)
-  - [¿Cómo testeamos la clase principal y el microservicio?](#testeamos-la-clase)
+  - [¿Cómo testeamos el microservicio?](#testeamos-la-clase)
   - [¿Cómo desplegamos localmente el microservicio?](#desplegamos-microservicio)
 <!--te-->
 
@@ -80,9 +80,7 @@ Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la 
 
 Instalamos las dependencias con:
 
-    $ gulp install
-
-<a name="testeamos-la-clase"></a>
+    $ gulp teamos-la-clase"></a>
 
 ## ¿Cómo testeamos la clase principal y el microservicio?
 
