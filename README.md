@@ -3,7 +3,7 @@
 
 *Proyecto de la asignatura Infraestructura Virtual*
 
-[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v0.3.1-blue)](https://github.com/pramartinez/IV_project) [![Build Status](https://travis-ci.org/pramartinez/IV_project.svg?branch=master)](https://travis-ci.org/pramartinez/IV_project) [![Run Status](https://api.shippable.com/projects/5d9a289f029be100073e11e9/badge?branch=master)]()
+[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v4.0.0-blue)](https://github.com/pramartinez/IV_project) [![Build Status](https://travis-ci.org/pramartinez/IV_project.svg?branch=master)](https://travis-ci.org/pramartinez/IV_project) [![Run Status](https://api.shippable.com/projects/5d9a289f029be100073e11e9/badge?branch=master)]()
 
 ___________________________________
 
@@ -63,13 +63,13 @@ Puedes ver el resto de herramientas y servicios aquí: [Herramientas y servicios
 
 Antes de continuar, tal vez, le intesaría tener una **visión más global de la funcionalidad** de la clase principal del proyecto, si es así, puede indagar un poco más en esta documentación adicional: [Descripción de la Clase Principal](https://github.com/pramartinez/IV_project/blob/master/docs/descripcion_clase.md). 
 
-Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la **documentación del código** actual de la misma: [Class Documentation](https://pramartinez.github.io/IV_project/vpt-doc/Funcionalidades.html).
+Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la **documentación del código** de la misma: [Class Documentation](https://pramartinez.github.io/IV_project/vpt-doc/Funcionalidades.html).
 
 <a name="API-proyecto"></a>
 
 ## ¿Cómo funciona la API Rest del proyecto?
 
-**Si desea explorar el funcionamiento de esta, aquí se proporciona la documentación del código actual de la misma: [API Rest Documentation](https://pramartinez.github.io/IV_project/api-doc/index.html).**
+**Si desea explorar el funcionamiento de esta, aquí se proporciona la documentación del código de la misma: [API Rest Documentation](https://pramartinez.github.io/IV_project/api-doc/index.html).**
 
 **También puede arrancar el microservicio como se explica en el apartado [¿Cómo desplegamos localmente el microservicio?](#desplegamos-microservicio) y consultar la documentación generada con [Swagger](https://swagger.io/), que permite además hacer pruebas del funcionamiento. Para ello, una vez realizado el arranque, accedemos a https://localhost:3000/docs.**
 
@@ -90,13 +90,13 @@ Para ejecutar los tests tanto funcionales como unitarios tenemos que ejecutar:
 
     $ gulp test
 
-**Puede consultar la documentación de los tests funcionales en el siguiente enlace: [Documentación de los tests de la API](https://github.com/pramartinez/IV_project/docs/tests_funcionales_doc.md).**
+**Puede consultar la documentación de los tests funcionales en el siguiente enlace: [Documentación de los tests de la API Rest](https://github.com/pramartinez/IV_project/docs/tests_funcionales_doc.md).**
 
 <a name="desplegamos-microservicio"></a>
 
 ## ¿Cómo desplegamos localmente el microservicio?
 
-Para iniciarlo usamos el siguiente comando:
+Para arrancarlo usamos el siguiente comando:
 
     $ gulp start &
 

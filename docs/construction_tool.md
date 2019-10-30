@@ -5,7 +5,7 @@
 
     {
     "name": "vptournaments",     # Nombre del microservicio
-    "version": "3.0.1",          # Versión del proyecto
+    "version": "4.0.0",          # Versión del proyecto
     "description": "Gestor de torneos de voley playa",    # Breve descripción del microservicio
     "main": "./app/funcionalidades.js",     # Clase principal del microservicio
 
@@ -43,17 +43,17 @@
       "jest": "^24.9.0",        #  Para realización de tests unitarios
       "jsdoc": "^3.6.3",        #  Para crear y generar la documentación de la clase
       "jsdoc-to-markdown": "^5.0.1"    #  Para pasar la documentación creada a formato Markdown
-      "express": "~4.16.1",
-      "gulp": "^4.0.2",
+      "express": "~4.16.1",     # Web framework
+      "gulp": "^4.0.2",         # Herramienta de construcción
       "gulp-jest": "^4.0.3",
       "gulp-shell": "^0.7.1",
-      "jest": "^24.9.0",
+      "jest": "^24.9.0",        # Unit Test Framework
       "jest-cli": "^24.9.0",
-      "pm2": "^4.1.2",
-      "supertest": "^4.0.2"
+      "pm2": "^4.1.2",          # gestor de procesos
+      "supertest": "^4.0.2"     # Funcional test framework
     },
 
-###  Comandos que ejecutará la herramienta de construcción
+###  Comandos para la herramienta de construcción
     "scripts": { 
         "test": "node_modules/.bin/jest --verbose ../test", # tests
         "start": "pm2 start bin/www",   # arranque del microservicio
@@ -83,7 +83,7 @@
 ### Apartado para la documentación de la API Rest  
     "apidoc": {
         "name": "VPTournaments",
-        "version": "3.0.0",
+        "version": "4.0.0",
         "description": "apiDoc documentation for VPTournaments",
         "title": "VPTournaments documentation",
         "url": "https://pramartinez.github.io/IV_project/"

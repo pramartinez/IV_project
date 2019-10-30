@@ -14,7 +14,7 @@ ___________________________________
 
 __________________________________________
 
-Veamos a continuación las tareas que encontramos en el archivo gulpfile.yml. Estas son las que emplearemos para construir nuestro microservicio, arrancarlo, detenerlo, etc.
+Veamos a continuación las tareas que encontramos en el archivo gulpfile.yml y que emprenderá Gulp como herramienta de construcción para instalar el microservicio, arrancarlo, detenerlo, etc.
 
 ## Install task
 
@@ -24,7 +24,7 @@ Esta tarea se encarga de instalar las dependecias del proyecto, para ello recurr
 
 ## Test task
 
-Para testear tanto la clase principal como la API Rest, se usa la siguiente tarea, que recurre a jest para llevar a cabo las comprobaciones necesarias:
+Para testear tanto la clase principal como la API Rest, se usa la siguiente tarea, que recurre a ```Jest``` para llevar a cabo las comprobaciones necesarias:
 
     gulp.task('test', () => (
         gulp.src('test', {read: false})
@@ -33,7 +33,7 @@ Para testear tanto la clase principal como la API Rest, se usa la siguiente tare
 
 ## Start task
 
-Si lo que queremos es arrancar el microservicio, esta tarea se encarga de ello. Start emplea **pm2** para realizar el despliegue local: lanza ```bin/www``` y se indica el nombre del microservicio (```VPTournaments```), el modo de ejecución (```cluster```) y el número de instancias (cuatro). Además, imprime todos los logs que pueda generar *pm2* e imprime un mensaje informativo para indicar que se ha desplegado localmente: 
+Si lo que queremos es arrancar el microservicio, esta tarea se encarga de ello. Start emplea **pm2** para realizar el despliegue local: ejecuta ```bin/www``` y se indica el nombre del microservicio (```VPTournaments```), el modo de ejecución (```cluster```) y el número de instancias (```4```). Además, imprime todos los logs que pueda generar *pm2* e imprime un mensaje informativo para indicar que se ha desplegado localmente: 
 
     gulp.task('start', function () {
       pm2.connect(true, function () {
@@ -57,7 +57,7 @@ para poder seguir trabajando aunque el arranque se haya llevado a cabo.
 
 ## Stop task
 
-Detiene el microservicio que ha debido de ser arrancado previamente. Para esto se recurre a *shell.task* que se encarga de ejecutar el comando de *pm2* desde recurriendo al shell:
+Detiene el microservicio que ha debido de ser arrancado previamente. Para esto se recurre a ```shell.task``` que se encarga de ejecutar el comando de ```pm2``` desde recurriendo al shell:
 
     gulp.task('stop', shell.task(['pm2 stop VPTournaments']));
 
@@ -78,9 +78,9 @@ Esta tarea adicional la uso para generar o actualizar la documentación del proy
         done);
     });
 
-Así, cada vez que la modifique algún archivo simplemente uso
+Así, cada vez que se modifique algún archivo que influya en la documentación se ejecuta
 
     $ gulp redoc
 
-y se crea automáticamente la documentación tanto la de la clase principal como la de la API Rest.
+que la creará automáticamente tanto para de la clase principal como para la de la API Rest.
 
