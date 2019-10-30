@@ -5,15 +5,16 @@ var swaggerUi = require('swagger-ui-express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const YAML = require('yamljs');
-//var swaggerDoc = YAML.load(path.join(__dirname, "docs/swagger.yml"));
-//var swaggerDoc = require("docs/swagger.yml");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-//app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+try{
+  var swaggerDoc = YAML.load(path.join(__dirname, "./docs/swagger.yml"));
+  app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+} catch(e){}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,5 +44,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

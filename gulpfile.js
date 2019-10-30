@@ -2,6 +2,8 @@ const gulp = require('gulp');
 var jest = require('gulp-jest').default;
 const pm2 = require('pm2');
 const shell = require('gulp-shell');
+var apidoc = require('gulp-apidoc');
+var exec = require('child_process').exec;
 
 gulp.task('install', shell.task(['npm install']));
 
@@ -25,3 +27,16 @@ gulp.task('start', function () {
 });
 
 gulp.task('stop', shell.task(['pm2 stop VPTournaments']));
+
+gulp.task('redoc', function(done) {
+  exec('jsdoc ./app/funcionalidades.js -d ./docs/vpt-doc', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    done(err);
+  });
+  apidoc({
+    src: "./routes",
+    dest: "./docs/api-doc",
+    config: "./"}, 
+    done);
+});

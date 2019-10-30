@@ -535,7 +535,7 @@ class Funcionalidades {
      */
     consultar_plazas_disponibles(categoria){
         var obj = {"plazas":this.plazas[categoria]};
-        
+
         return obj;
     }
 }

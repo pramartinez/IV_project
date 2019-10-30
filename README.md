@@ -15,8 +15,9 @@ ___________________________________
   - [¿Cuáles son las funcionalidades principales?](#funcionalidades-principales)
   - [¿Qué herramientas y servicios se usarán?](#herramientas-y-servicios)
   - [¿Cómo funciona la clase principal del proyecto?](#clase-principal-del-proyecto)
-  - [¿Cómo instalamos la clase del proyecto?](#instalamos-la-clase-del-proyecto)
+  - [¿Cómo instalamos las dependencias del proyecto?](#instalamos-la-clase-del-proyecto)
   - [¿Cómo testeamos la clase?](#testeamos-la-clase)
+  - [¿Cómo desplegamos el microservicio localmente?](#desplegamos-microservicio)
 <!--te-->
 
 __________________________________________
@@ -47,19 +48,23 @@ Un torneo de voley playa se constituye de una serie de parejas de integrantes, y
 
 ## ¿Qué herramientas y servicios se usarán?
 
+**buildtool**: gulpfile.yml
+
 - El lenguaje de programación a emplear para el proyecto será [Node.js](https://nodejs.org/es/about/).
 
 - Para la realización de tests unitarios usamos el framework de testeo [Jest](https://jestjs.io/).
-- Para saber **cómo se ha configurado la herramienta de construcción (npm)** puede consultar el siguiente enlace: [¿Qué encontramos en *package.json*?](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md).
+- Para la realización de los tests funcionales he empleado [Supertest]().
+  
+- **En esta versión del proyecto he decido probar a usar otra herramienta de construcción, concretamente ha sido [Gulp](). Para saber cómo se ha configurado esta herramienta de construcción puede consultar el siguiente enlace: [Configuración de Gulp]().**
 
-- Respecto a la integración continua, se emplea [Travis-CI](https://travis-ci.org/). 
+
+- **Respecto a la integración continua, se emplea [Travis-CI](https://travis-ci.org/) y [Shippable](https://app.shippable.com/). En esta versión del proyecto he decidido repartir las tareas entre ambos sistemas de integración continua. Travis se encarga de pasar los tests de la clase principal y de la API, y Shippable se encarga de comprobar que el despliegue local del microservicio se lleva a cabo con éxito.**  
   - Para saber **cómo se ha configurado Travis-CI** pulse aquí: [¿Cómo se ha configurado *Travis-CI*?](https://github.com/pramartinez/IV_project/blob/master/docs/travis_doc.md).
-
-- Como herramienta alternativa a Travis-CI, se usa [Shippable](https://app.shippable.com/).
   - Para saber **cómo se ha configurado Shippable** pulse aquí: [¿Cómo se ha configurado *Shippable*?](https://github.com/pramartinez/IV_project/blob/master/docs/shippable_doc.md).
 
+- Para saber cómo se ha configuró la herramienta de construcción (npm) puede consultar el siguiente enlace: [¿Qué encontramos en *package.json*?](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md).
 
-**Puedes ver el resto de herramientas y servicios aquí:** [Herramientas y servicios](https://github.com/pramartinez/IV_project/blob/master/docs/tools_services.md). 
+Puedes ver el resto de herramientas y servicios aquí: [Herramientas y servicios](https://github.com/pramartinez/IV_project/blob/master/docs/tools_services.md). 
 
 
 <a name="clase-principal-del-proyecto"></a>
@@ -70,30 +75,45 @@ Antes de continuar, tal vez, le intesaría tener una **visión más global de la
 
 Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la **documentación del código** actual de la misma: [Class Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/class_doc.md).
 
+<a name="API-proyecto"></a>
+
+## ¿Cómo funciona la API del proyecto?
+
+**Si desea explorar el funcionamiento del microservicio, aquí se proporciona la documentación del código actual del mismo: [API Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/api_doc.md).**
+
+
 <a name="instalamos-la-clase-del-proyecto"></a>  
 
-## ¿Cómo instalamos la clase del proyecto?
-
+## ¿Cómo instalamos las dependencias del proyecto?
 
 Instalamos las dependencias con:
 
-    $ npm install
+    $ gulp install
 
 <a name="testeamos-la-clase"></a>
 
-## ¿Cómo testeamos la clase?
+## ¿Cómo testeamos la clase principal y el microservicio?
 
-Para testear la clase simplemente tenemos que ejecutar:
+Para testear tenemos que ejecutar:
 
-    $ npm run test
+    $ gulp test
 
-## Build tools
+**Puede consultar la documentación de los tests funcionales en el siguiente enlace: [Documentación de los tests de la API]().**
 
-buildtool: gulp
+<a name="desplegamos-microservicio"></a>
 
-o 
+## ¿Cómo desplegamos localmente el microservicio?
 
-buildtool: packaje.json
+Para iniciarlo usamos el siguiente comando:
+
+    $ gulp start &
+
+y para detenerlo:
+
+    $ gulp stop
+
+**Una vez arrancado el microservicio puede comprobar su funcionamiento empleando la herramienta [Swagger]() incluida en la ruta: http://localhost:3000/docs. Ahí podrá probar los distintos decoradores y ver cómo funcionan, qué parámetros piden, los tipos de peticiones que hacen...**
+
 
 
 
