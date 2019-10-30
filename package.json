@@ -14,7 +14,7 @@
     "constantinople": "^4.0.1",
     "cookie-parser": "~1.4.4",
     "cross-env": "^6.0.3",
-    "debug": "^3.0.0",
+    "debug": "^3.1.0",
     "diff": "^4.0.1",
     "growl": "^1.10.5",
     "gulp-apidoc": "^0.2.8",
