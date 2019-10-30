@@ -617,7 +617,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/",
+    "url": "/status",
     "title": "Request Status information",
     "name": "GetStatus",
     "group": "Status",
@@ -645,9 +645,9 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/status",
+    "url": "/",
     "title": "Request Status information",
-    "name": "GetStatus",
+    "name": "GetStatusRoot",
     "group": "Status",
     "success": {
       "examples": [
