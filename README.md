@@ -71,7 +71,7 @@ Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la 
 
 **Si desea explorar el funcionamiento de esta, aquí se proporciona la documentación del código de la misma: [API Rest Documentation](https://pramartinez.github.io/IV_project/api-doc/index.html).**
 
-**También puede arrancar el microservicio como se explica en el apartado [¿Cómo desplegamos localmente el microservicio?](#desplegamos-microservicio) y consultar la documentación generada con [Swagger](https://swagger.io/), que permite además hacer pruebas del funcionamiento. Para ello, una vez realizado el arranque, accedemos a https://localhost:3000/docs.**
+**También puede arrancar el microservicio como se explica en el apartado [¿Cómo desplegamos localmente el microservicio?](#desplegamos-microservicio) y consultar la documentación generada con [Swagger](https://swagger.io/), que permite además hacer pruebas del funcionamiento. Para ello, una vez realizado el arranque, accedemos a ```localhost:3000/docs```.**
 
 
 <a name="instalamos-la-clase-del-proyecto"></a>  
