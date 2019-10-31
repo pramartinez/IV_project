@@ -86,6 +86,5 @@
         "version": "4.0.0",
         "description": "apiDoc documentation for VPTournaments",
         "title": "VPTournaments documentation",
-        "url": "https://pramartinez.github.io/IV_project/"
     }
     }
