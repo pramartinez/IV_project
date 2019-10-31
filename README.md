@@ -81,7 +81,7 @@ Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la 
 
 Instalamos las dependencias con:
 
-    $ gulp teamos-la-clase"></a>
+    $ gulp install
 
 ## ¿Cómo testeamos el microservicio?
 
