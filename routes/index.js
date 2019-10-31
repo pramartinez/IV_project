@@ -9,6 +9,9 @@ var fs = require('fs');
  * @apiName GetStatus
  * @apiGroup Status
  *
+ * @apiExample Example usage:
+ * curl -i http://localhost:3000/status
+ * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *
@@ -23,6 +26,9 @@ router.get('/status', function(req, res, next) {
  * @api {get} / Request Status information
  * @apiName GetStatusRoot
  * @apiGroup Status
+ * 
+ * @apiExample Example usage:
+ * curl -i http://localhost:3000/
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
@@ -49,6 +55,23 @@ router.get('/', function(req, res, next) {
  * @apiParam {String} correo2 Email of the second person in the couple.
  * @apiParam {String} categoria Cathegory of the couple.
  *
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *       "participante1": {
+ *         "nombre": "Laura",
+ *         "dni": "2222",
+ *         "telefono": "664",
+ *         "correo": "laura@laura.com"
+ *       },
+ *       "participante2": {
+ *         "nombre": "Marcos",
+ *         "dni": "2242",
+ *         "telefono": "668",
+ *         "correo": "marcos@marcos.com"
+ *       },
+ *       "categoria": "mixta"
+ *     }
+ * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 201 OK
  *
@@ -85,6 +108,12 @@ router.post('/inscripcion', function(req, res, next) {
  * @apiParam {String} dni1 DNI of the first person in the couple.
  * @apiParam {String} dni2 DNI of the second person in the couple.
  *
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *       "dni1": "2222",
+ *       "dni2": "2242"
+ *     }
+ * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *
@@ -122,6 +151,26 @@ router.delete('/cancelacion', function(req, res, next) {
  * @apiParam {String} ncorreo1 New or old email of the first person in the couple.
  * @apiParam {String} ncorreo2 New or old email of the second person in the couple.
  *
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *        "participante1": 2222,
+ *        "participante2": 2242,
+ *        "modificacion": {
+ *           "participante1": {
+ *             "nombre": "Laura",
+ *             "dni": "2222",
+ *             "telefono": "664",
+ *             "correo": "nuevo_laura@laura.com"
+ *           },
+ *           "participante2": {
+ *             "nombre": "Marcos",
+ *             "dni": "2242",
+ *             "telefono": "668",
+ *             "correo": "nuevo_marcos@marcos.com"
+ *           }
+ *         }
+ *      }
+ * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *
@@ -157,6 +206,9 @@ router.put('/modificacion', function(req, res, next) {
  *
  * @apiParam {String} categoria Cathegory of the couples.
  *
+ * @apiExample Example usage:
+ * curl -i http://localhost:3000/categoria/mixta
+ * 
  * @apiDescription Returns a list of the couples that compose the specified cathegory.
  *
  * @apiSuccessExample Success-Response:
@@ -203,6 +255,9 @@ router.get('/categoria/:categoria', function(req, res, next) {
  * @apiGroup Couples
  *
  * @apiDescription Returns a list of the couples
+ * 
+ * @apiExample Example usage:
+ * curl -i http://localhost:3000/parejas
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
@@ -253,7 +308,7 @@ router.get('/parejas', function(req, res, next) {
  * @apiParam {String} nombre2 name of the second person of the couple.
  *
  * @apiExample Example usage:
- * curl -i http://localhost/categoria_pareja/Ana/Paula
+ * curl -i http://localhost:3000/categoria_pareja/Ana/Paula
  * 
  * @apiDescription Returns the cathegory of the couple
  * 
@@ -294,7 +349,7 @@ router.get('/categoria_pareja/:nombre1/:nombre2', function(req, res, next) {
  * @apiParam {String} nombre Name of the player
  *
  * @apiExample Example usage:
- * curl -i http://localhost/pareja_integrante/Ana
+ * curl -i http://localhost:3000/pareja_integrante/Ana
  * 
  * @apiDescription Returns the partner of the player
  * 
@@ -349,7 +404,7 @@ router.get('/pareja_integrante/:nombre', function(req, res, next) {
  * @apiParam {String} nombre Name of the player
  *
  * @apiExample Example usage:
- * curl -i http://localhost/pareja_integrante/femenina/Ana
+ * curl -i http://localhost:3000/pareja_integrante/femenina/Ana
  * 
  * @apiDescription Returns the partner of the player
  * 
@@ -405,7 +460,7 @@ router.get('/pareja_integrante/:categoria/:nombre', function(req, res, next) {
  * @apiParam {String} categoria Cathegory of the couple
  *
  * @apiExample Example usage:
- * curl -i http://localhost/plazas/femenina
+ * curl -i http://localhost:3000/plazas/femenina
  * 
  * @apiDescription Returns the number of avaible plazes in a cathegory
  * 
