@@ -38,7 +38,7 @@ Aquí se puede encontrar una descripción más detallada del objetivo, la motiva
 
 ## ¿Qué herramientas y servicios se usarán?
 
-buildtool: gulpfile.yml
+buildtool: gulpfile.js
 
 - El lenguaje de programación del proyecto es [Node.js](https://nodejs.org/es/about/).
 
