@@ -1,6 +1,6 @@
 <a name="funcionalidades"></a>
 
-## Funcionalidades  
+## Main Class  
 ***Clase que representa una competición: sus funcionalidades.***
 
 **Kind**: global class  

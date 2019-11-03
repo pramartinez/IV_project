@@ -1,7 +1,7 @@
 
 
 /** Clase que representa una competición: sus funcionalidades.*/
-class Funcionalidades {
+class mainClass {
 
     /**
      * Crea una competición.
@@ -540,4 +540,4 @@ class Funcionalidades {
     }
 }
 
-module.exports = Funcionalidades;
+module.exports = mainClass;

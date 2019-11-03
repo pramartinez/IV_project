@@ -2,7 +2,7 @@
   "name": "vptournaments",
   "version": "3.0.1",
   "description": "Gestor de torneos de voley playa",
-  "main": "./app/funcionalidades.js",
+  "main": "./app/mainClass.js",
   "directories": {
     "app": "app",
     "dist": "dist",

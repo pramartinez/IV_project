@@ -66,7 +66,7 @@ Detiene el microservicio que ha debido de ser arrancado previamente. Para esto s
 Esta tarea adicional la uso para generar o actualizar la documentación del proyecto:
 
     gulp.task('redoc', function(done) {
-      exec('jsdoc ./app/funcionalidades.js -d ./docs/vpt-doc', function(err, stdout, stderr) {
+      exec('jsdoc ./app/mainClass.js -d ./docs/vpt-doc', function(err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         done(err);

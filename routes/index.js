@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var VPTournaments = require('../app/funcionalidades.js');
+var VPTournaments = require('../app/mainClass.js');
 var vpt = new VPTournaments("Torneo2019","app/data/integrantes_tmp.json");
 var fs = require('fs');
 

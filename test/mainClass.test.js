@@ -1,11 +1,11 @@
 var Initialize_Database = require('../app/initialize_database.js')
-var Funcionalidades = require('../app/funcionalidades.js');
+var mainClass = require('../app/mainClass.js');
 var path = "app/data/integrantes_tmp.json";
 var fs = require('fs');
 var init = new Initialize_Database();
 init.initialize();
 
-var funcionalidades = new Funcionalidades("Torneo2019",path);
+var mainClass = new mainClass("Torneo2019",path);
 
 
 test('Inscribe new couple in competition',() => {
@@ -37,7 +37,7 @@ test('Inscribe new couple in competition',() => {
     if (obj_filtred[0] == undefined) {
         //console.log("testing: La pareja no existe aún.")
         try {
-            funcionalidades.inscribir_pareja("pra","1","1","1","pilar","2","2","2","femenina");    
+            mainClass.inscribir_pareja("pra","1","1","1","pilar","2","2","2","femenina");    
         }
         catch(e) {
             if (e.message == 'La pareja ya existe, no se puede reinscribir.') {
@@ -65,7 +65,7 @@ test('Inscribe new couple in competition',() => {
 
 test('Remove couple inscription',() => {
     try {
-        funcionalidades.cancelar_inscripcion("1","2");  
+        mainClass.cancelar_inscripcion("1","2");  
     }
     catch(e) {
         expect(e.message).toEqual('La pareja no existe, no se puede cancelar la inscripción.');
@@ -90,7 +90,7 @@ test('Modify a couple',() => {
     && o.participante2.dni == "10");
 
     // Si la pareja que vamos a modificar para el testeo no existe ya, la inscribimos
-    funcionalidades.inscribir_pareja("julia","9","9","9","lorena","10","10","10","femenina");
+    mainClass.inscribir_pareja("julia","9","9","9","lorena","10","10","10","femenina");
 
     var modificacion = {
         "participante1": {
@@ -112,7 +112,7 @@ test('Modify a couple',() => {
 
     try {
         // Modificamos la pareja
-        funcionalidades.modificar_pareja("9","10","marta","paca","9","11","9","11","9","11");
+        mainClass.modificar_pareja("9","10","marta","paca","9","11","9","11","9","11");
     }
     catch(e) {
         expect(e.message).toEqual('La pareja no existe, no se puede modificar la inscripción.');
@@ -134,7 +134,7 @@ test('Modify a couple',() => {
 
 test('Consulting couples in a cathegory',() => {
     try {
-        response = funcionalidades.consultar_parejas_categoria("femenina");
+        response = mainClass.consultar_parejas_categoria("femenina");
     }
     catch(e) {
         expect(e.message).toEqual('Categoría vacía.');        
@@ -152,7 +152,7 @@ test('Consulting couples in a cathegory',() => {
 
 test('Consulting all the couples in the competition',() => {
     try {
-        response = funcionalidades.consultar_parejas_totales();
+        response = mainClass.consultar_parejas_totales();
     }
     catch(e) {
         expect(e.message).toEqual('Competición sin parejas.');        
@@ -171,7 +171,7 @@ test('Consulting all the couples in the competition',() => {
 test('Consulting the couple of a member',() => {
     
     try {
-        response = funcionalidades.consultar_pareja_integrante("nanu");
+        response = mainClass.consultar_pareja_integrante("nanu");
     }
     catch(e) {
         expect(e.message).toEqual('Pareja inexistente.');                
@@ -188,7 +188,7 @@ test('Consulting the couple of a member',() => {
 
 test('Consulting the couple of a member in a cathegory',() => {
     try {
-        response = funcionalidades.consultar_pareja_categoria("nanu", "masculina");
+        response = mainClass.consultar_pareja_categoria("nanu", "masculina");
     }
     catch(e) {
         expect(e.message).toEqual('Pareja inexistente.');                        
@@ -204,7 +204,7 @@ test('Consulting the couple of a member in a cathegory',() => {
 });
 
 test('Consulting avaible plazes',() => {
-    response = funcionalidades.consultar_plazas_disponibles("femenina");
+    response = mainClass.consultar_plazas_disponibles("femenina");
 
     var data = fs.readFileSync(path,'utf8',function(err){
         if(err) throw err;

@@ -34,7 +34,7 @@ gulp.task('stop', shell.task(['pm2 stop VPTournaments']));
 
 // Tarea para generar la documentación del proyecto
 gulp.task('redoc', function(done) {
-  exec('jsdoc ./app/funcionalidades.js -d ./docs/vpt-doc', function(err, stdout, stderr) {
+  exec('jsdoc ./app/mainClass.js -d ./docs/vpt-doc', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     done(err);

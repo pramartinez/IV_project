@@ -64,7 +64,7 @@ Puedes ver el resto de herramientas y servicios aquí: [Herramientas y servicios
 
 Antes de continuar, tal vez, le intesaría tener una **visión más global de la funcionalidad** de la clase principal del proyecto, si es así, puede indagar un poco más en esta documentación adicional: [Descripción de la Clase Principal](https://github.com/pramartinez/IV_project/blob/master/docs/descripcion_clase.md). 
 
-Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la **documentación del código** de la misma: [Class Documentation](https://pramartinez.github.io/IV_project/vpt-doc/Funcionalidades.html).
+Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la **documentación del código** de la misma: [Class Documentation](https://pramartinez.github.io/IV_project/vpt-doc/mainClass.html).
 
 <a name="API-proyecto"></a>
 
