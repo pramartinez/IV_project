@@ -70,7 +70,7 @@ Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la 
 
 ## ¿Cómo funciona la API Rest del proyecto?
 
-**Si desea explorar el funcionamiento de esta, aquí se proporciona la documentación del código de la misma: [API Rest Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/api_doc.md).**
+**Si desea explorar el funcionamiento de esta, aquí se proporciona la documentación de la misma: [API Rest Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/api_doc.md).**
 
 **Si, en cambio, desea explorar el funcionamiento del código en sí, aquí se proporciona la documentación del mismo: [API Rest Code Documentation](https://pramartinez.github.io/IV_project/api-doc/index.html).**
 
