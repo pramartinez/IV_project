@@ -48,10 +48,10 @@ buildtool: gulpfile.js
 - **En esta versión del proyecto se ha decido usar otra herramienta de construcción, concretamente [Gulp](https://gulpjs.com/). Para saber cómo se ha configurado esta herramienta de construcción puede consultar el siguiente enlace: [Configuración de Gulp](https://github.com/pramartinez/IV_project/blob/master/docs/gulp_doc.md).**
 
 
-- Respecto a la integración continua, se emplea [Travis-CI](https://travis-ci.org/) y [Shippable](https://app.shippable.com/). En esta versión del proyecto se ha decidido repartir las tareas entre ambos sistemas de integración continua. Travis se encarga de pasar los tests de la clase principal y de la API Rest, y Shippable se encarga de comprobar que el despliegue local del microservicio se lleva a cabo con éxito. 
-  - Para saber cómo se ha configurado Travis-C pulse aquí: [¿Cómo se ha configurado *Travis-CI*?](https://github.com/pramartinez/IV_project/blob/master/docs/travis_doc.md).
+- **Respecto a la integración continua, se emplea [Travis-CI](https://travis-ci.org/) y [Shippable](https://app.shippable.com/). En esta versión del proyecto se ha decidido repartir las tareas entre ambos sistemas de integración continua. Travis se encarga de pasar los tests de la clase principal y de la API Rest, y Shippable se encarga de comprobar que el despliegue local del microservicio se lleva a cabo con éxito.** 
+  - **Para saber cómo se ha configurado Travis-C pulse aquí: [¿Cómo se ha configurado *Travis-CI*?](https://github.com/pramartinez/IV_project/blob/master/docs/travis_doc.md).**
   
-  - Para saber cómo se ha configurado Shippabl pulse aquí: [¿Cómo se ha configurado *Shippable*?](https://github.com/pramartinez/IV_project/blob/master/docs/shippable_doc.md).
+  - **Para saber cómo se ha configurado Shippabl pulse aquí: [¿Cómo se ha configurado *Shippable*?](https://github.com/pramartinez/IV_project/blob/master/docs/shippable_doc.md).**
 
 - Para saber qué contiene *package.json* o cómo se configuró la herramienta de construcción (npm) puede consultar el siguiente enlace: [¿Qué encontramos en *package.json*?](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md).
 
