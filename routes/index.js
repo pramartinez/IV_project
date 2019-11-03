@@ -9,11 +9,16 @@ var fs = require('fs');
  * @apiName GetStatus
  * @apiGroup Status
  *
+ * @apiDescription Devuelve un JSON con estado 200 si el servicio se ha desplegado correctamente (local).
+ * 
  * @apiExample Example usage:
  * curl -i http://localhost:3000/status
  * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
+ *     {
+ *        "status":"OK"
+ *     }
  *
  * @apiErrorExample Error-Response:
  *     HTTP/1.1 404 Not Found
@@ -27,11 +32,16 @@ router.get('/status', function(req, res, next) {
  * @apiName GetStatusRoot
  * @apiGroup Status
  * 
+ * @apiDescription Devuelve un JSON con estado 200 si el servicio se ha desplegado correctamente (local).
+ * 
  * @apiExample Example usage:
  * curl -i http://localhost:3000/
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
+ *     {
+ *        "status":"OK"
+ *     }
  *
  * @apiErrorExample Error-Response:
  *     HTTP/1.1 404 Not Found
@@ -45,6 +55,9 @@ router.get('/', function(req, res, next) {
  * @apiName Inscripcion
  * @apiGroup Couples
  *
+ * @apiDescription Recibe un JSON con la información de una nueva pareja y la inscribe
+ * en la categoría indicada. Luego devuelve un status 201.
+ * 
  * @apiParam {String} nombre1 Name of the first person in the couple.
  * @apiParam {String} nombre2 Name of the second person in the couple.
  * @apiParam {String} dni1 DNI of the first person in the couple.
@@ -105,6 +118,9 @@ router.post('/inscripcion', function(req, res, next) {
  * @apiName Cancelacion
  * @apiGroup Couples
  *
+ * @apiDescription Recibe un JSON con los DNIs de los integrantes de la pareja y da de baja su
+ * inscripción. Luego devuelve un estado de éxito 200. 
+ * 
  * @apiParam {String} dni1 DNI of the first person in the couple.
  * @apiParam {String} dni2 DNI of the second person in the couple.
  *
@@ -140,6 +156,9 @@ router.delete('/cancelacion', function(req, res, next) {
  * @apiName Modificacion
  * @apiGroup Couples
  *
+ * @apiDescription Recibe un JSON con los DNIs de los integrantes de la pareja y con los datos de la
+ * modificación. Así, aquella pareja cuyos DNIs sean los indicados se verá modificada con los nuevos datos.
+ * 
  * @apiParam {String} participante1 DNI of the first person in the couple.
  * @apiParam {String} participante2 DNI of the second person in the couple.
  * @apiParam {String} nnombre1 New or old name of the first person in the couple.
@@ -204,12 +223,12 @@ router.put('/modificacion', function(req, res, next) {
  * @apiName ParejasCategoria
  * @apiGroup Couples
  *
+ * @apiDescription Recibe por parámetro en la ruta una categoría y devuelve las parejas que la constituyen.
+ * 
  * @apiParam {String} categoria Cathegory of the couples.
  *
  * @apiExample Example usage:
  * curl -i http://localhost:3000/categoria/mixta
- * 
- * @apiDescription Returns a list of the couples that compose the specified cathegory.
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
@@ -254,7 +273,7 @@ router.get('/categoria/:categoria', function(req, res, next) {
  * @apiName Parejas
  * @apiGroup Couples
  *
- * @apiDescription Returns a list of the couples
+ * @apiDescription Devuelve un JSON con todas las parejas de la competición.
  * 
  * @apiExample Example usage:
  * curl -i http://localhost:3000/parejas
@@ -300,17 +319,18 @@ router.get('/parejas', function(req, res, next) {
  * GET: Consultar categoría de una pareja.
  */
 /**
- * @api {get} /categoria_pareja/:nombre1/:nombre2 Get cathegory of a couple
+ * @api {get} /categoria_pareja/:nombre1/:nombre2 Get the cathegory of a couple
  * @apiName CategoriaPareja
  * @apiGroup Couples
  *
+ * @apiDescription Recibe los nombres de los integrantes de una pareja por parámetros incluidos en la ruta
+ * de la petición y devuelve en qué categoría se ha inscrito dicha pareja.
+ * 
  * @apiParam {String} nombre1 name of the first person of the couple.
  * @apiParam {String} nombre2 name of the second person of the couple.
  *
  * @apiExample Example usage:
  * curl -i http://localhost:3000/categoria_pareja/Ana/Paula
- * 
- * @apiDescription Returns the cathegory of the couple
  * 
  * @apiSuccess {String} categoria Cathegory of the couple.
  *
@@ -346,12 +366,12 @@ router.get('/categoria_pareja/:nombre1/:nombre2', function(req, res, next) {
  * @apiName Pareja
  * @apiGroup Couples
  *
+ * @apiDescription Recibe el nombre de un integrante de la pareja y devuelve el del compañero.
+ *
  * @apiParam {String} nombre Name of the player
  *
  * @apiExample Example usage:
  * curl -i http://localhost:3000/pareja_integrante/Ana
- * 
- * @apiDescription Returns the partner of the player
  * 
  * @apiSuccess {String} nombre Name of the partner.
  * @apiSuccess {String} dni DNI of the partner.
@@ -400,13 +420,13 @@ router.get('/pareja_integrante/:nombre', function(req, res, next) {
  * @apiName ParejaCategoria
  * @apiGroup Couples
  *
+ * @apiDescription Recibe el nombre de un integrante de la pareja y devuelve el del compañero en una categoría concreta.
+ *
  * @apiParam {String} categoria Cathegory of the couple
  * @apiParam {String} nombre Name of the player
  *
  * @apiExample Example usage:
  * curl -i http://localhost:3000/pareja_integrante/femenina/Ana
- * 
- * @apiDescription Returns the partner of the player
  * 
  * @apiSuccess {String} nombre Name of the partner.
  * @apiSuccess {String} dni DNI of the partner.
@@ -457,12 +477,12 @@ router.get('/pareja_integrante/:categoria/:nombre', function(req, res, next) {
  * @apiName Plazas
  * @apiGroup Couples
  *
+ * @apiDescription Recibe una categoría por parámetro en la ruta y devuelve el número de plazas disponibles en la misma.
+ *
  * @apiParam {String} categoria Cathegory of the couple
  *
  * @apiExample Example usage:
  * curl -i http://localhost:3000/plazas/femenina
- * 
- * @apiDescription Returns the number of avaible plazes in a cathegory
  * 
  * @apiSuccess {String} plazas Avaible plazes of the cathegory.
  *

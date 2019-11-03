@@ -45,13 +45,13 @@ buildtool: gulpfile.js
 - Para la realización de tests unitarios usamos el framework de testeo [Jest](https://jestjs.io/).
 - Para la realización de los tests funcionales se ha empleado [Supertest](https://github.com/visionmedia/supertest).
   
-- **En esta versión del proyecto se ha decido usar otra herramienta de construcción, concretamente [Gulp](https://gulpjs.com/). Para saber cómo se ha configurado esta herramienta de construcción puede consultar el siguiente enlace: [Configuración de Gulp](https://github.com/pramartinez/IV_project/blob/master/docs/gulp_doc.md).**
+- En esta versión del proyecto se ha decido usar otra herramienta de construcción, concretamente [Gulp](https://gulpjs.com/). Para saber cómo se ha configurado esta herramienta de construcción puede consultar el siguiente enlace: [Configuración de Gulp](https://github.com/pramartinez/IV_project/blob/master/docs/gulp_doc.md).
 
 
-- **Respecto a la integración continua, se emplea [Travis-CI](https://travis-ci.org/) y [Shippable](https://app.shippable.com/). En esta versión del proyecto se ha decidido repartir las tareas entre ambos sistemas de integración continua. Travis se encarga de pasar los tests de la clase principal y de la API Rest, y Shippable se encarga de comprobar que el despliegue local del microservicio se lleva a cabo con éxito.**  
-  - Para saber **cómo se ha configurado Travis-CI** pulse aquí: [¿Cómo se ha configurado *Travis-CI*?](https://github.com/pramartinez/IV_project/blob/master/docs/travis_doc.md).
+- Respecto a la integración continua, se emplea [Travis-CI](https://travis-ci.org/) y [Shippable](https://app.shippable.com/). En esta versión del proyecto se ha decidido repartir las tareas entre ambos sistemas de integración continua. Travis se encarga de pasar los tests de la clase principal y de la API Rest, y Shippable se encarga de comprobar que el despliegue local del microservicio se lleva a cabo con éxito. 
+  - Para saber cómo se ha configurado Travis-C pulse aquí: [¿Cómo se ha configurado *Travis-CI*?](https://github.com/pramartinez/IV_project/blob/master/docs/travis_doc.md).
   
-  - Para saber **cómo se ha configurado Shippable** pulse aquí: [¿Cómo se ha configurado *Shippable*?](https://github.com/pramartinez/IV_project/blob/master/docs/shippable_doc.md).
+  - Para saber cómo se ha configurado Shippabl pulse aquí: [¿Cómo se ha configurado *Shippable*?](https://github.com/pramartinez/IV_project/blob/master/docs/shippable_doc.md).
 
 - Para saber qué contiene *package.json* o cómo se configuró la herramienta de construcción (npm) puede consultar el siguiente enlace: [¿Qué encontramos en *package.json*?](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md).
 
@@ -70,9 +70,9 @@ Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la 
 
 ## ¿Cómo funciona la API Rest del proyecto?
 
-**Si desea explorar el funcionamiento de esta, aquí se proporciona la documentación del código de la misma: [API Rest Documentation](https://pramartinez.github.io/IV_project/api-doc/index.html).**
+**Si desea explorar el funcionamiento de esta, aquí se proporciona la documentación del código de la misma: [API Rest Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/api-doc.md).**
 
-**También puede arrancar el microservicio como se explica en el apartado [¿Cómo desplegamos localmente el microservicio?](#desplegamos-microservicio) y consultar la documentación generada con [Swagger](https://swagger.io/), que permite además hacer pruebas del funcionamiento. Para ello, una vez realizado el arranque, accedemos a ```localhost:3000/docs```.**
+También puede arrancar el microservicio como se explica en el apartado [¿Cómo desplegamos localmente el microservicio?](#desplegamos-microservicio) y consultar la documentación generada con [Swagger](https://swagger.io/), que permite además hacer pruebas del funcionamiento. Para ello, una vez realizado el arranque, accedemos a ```localhost:3000/docs```.
 
 
 <a name="instalamos-la-clase-del-proyecto"></a>  

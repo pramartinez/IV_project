@@ -57,7 +57,7 @@ para poder seguir trabajando aunque el arranque se haya llevado a cabo.
 
 ## Stop task
 
-Detiene el microservicio que ha debido de ser arrancado previamente. Para esto se recurre a ```shell.task``` que se encarga de ejecutar el comando de ```pm2``` desde recurriendo al shell:
+Detiene el microservicio que ha debido de ser arrancado previamente. Para esto se recurre a ```shell.task``` que se encarga de ejecutar el comando de ```pm2``` recurriendo al shell:
 
     gulp.task('stop', shell.task(['pm2 stop VPTournaments']));
 
