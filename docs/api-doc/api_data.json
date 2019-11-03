@@ -5,6 +5,7 @@
     "title": "Delete a couple of the competition",
     "name": "Cancelacion",
     "group": "Couples",
+    "description": "<p>Recibe un JSON con los DNIs de los integrantes de la pareja y da de baja su inscripción. Luego devuelve un estado de éxito 200.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -57,9 +58,10 @@
   {
     "type": "get",
     "url": "/categoria_pareja/:nombre1/:nombre2",
-    "title": "Get cathegory of a couple",
+    "title": "Get the cathegory of a couple",
     "name": "CategoriaPareja",
     "group": "Couples",
+    "description": "<p>Recibe los nombres de los integrantes de una pareja por parámetros incluidos en la ruta de la petición y devuelve en qué categoría se ha inscrito dicha pareja.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -87,7 +89,6 @@
         "type": "json"
       }
     ],
-    "description": "<p>Returns the cathegory of the couple</p>",
     "success": {
       "fields": {
         "Success 200": [
@@ -127,6 +128,7 @@
     "title": "Post a new couple in the competition",
     "name": "Inscripcion",
     "group": "Couples",
+    "description": "<p>Recibe un JSON con la información de una nueva pareja y la inscribe en la categoría indicada. Luego devuelve un status 201.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -231,6 +233,7 @@
     "title": "Modify a couple",
     "name": "Modificacion",
     "group": "Couples",
+    "description": "<p>Recibe un JSON con los DNIs de los integrantes de la pareja y con los datos de la modificación. Así, aquella pareja cuyos DNIs sean los indicados se verá modificada con los nuevos datos.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -342,6 +345,7 @@
     "title": "Get the partner of a player",
     "name": "Pareja",
     "group": "Couples",
+    "description": "<p>Recibe el nombre de un integrante de la pareja y devuelve el del compañero.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -362,7 +366,6 @@
         "type": "json"
       }
     ],
-    "description": "<p>Returns the partner of the player</p>",
     "success": {
       "fields": {
         "Success 200": [
@@ -423,6 +426,7 @@
     "title": "Get the partner of a player in a cathegory",
     "name": "ParejaCategoria",
     "group": "Couples",
+    "description": "<p>Recibe el nombre de un integrante de la pareja y devuelve el del compañero en una categoría concreta.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -450,7 +454,6 @@
         "type": "json"
       }
     ],
-    "description": "<p>Returns the partner of the player</p>",
     "success": {
       "fields": {
         "Success 200": [
@@ -511,7 +514,7 @@
     "title": "Get couples of the competition",
     "name": "Parejas",
     "group": "Couples",
-    "description": "<p>Returns a list of the couples</p>",
+    "description": "<p>Devuelve un JSON con todas las parejas de la competición.</p>",
     "examples": [
       {
         "title": "Example usage:",
@@ -547,6 +550,7 @@
     "title": "Get couples of a cathegory",
     "name": "ParejasCategoria",
     "group": "Couples",
+    "description": "<p>Recibe por parámetro en la ruta una categoría y devuelve las parejas que la constituyen.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -567,7 +571,6 @@
         "type": "json"
       }
     ],
-    "description": "<p>Returns a list of the couples that compose the specified cathegory.</p>",
     "success": {
       "examples": [
         {
@@ -596,6 +599,7 @@
     "title": "Get the plazes of a cathegory",
     "name": "Plazas",
     "group": "Couples",
+    "description": "<p>Recibe una categoría por parámetro en la ruta y devuelve el número de plazas disponibles en la misma.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -616,7 +620,6 @@
         "type": "json"
       }
     ],
-    "description": "<p>Returns the number of avaible plazes in a cathegory</p>",
     "success": {
       "fields": {
         "Success 200": [
@@ -656,6 +659,7 @@
     "title": "Request Status information",
     "name": "GetStatus",
     "group": "Status",
+    "description": "<p>Devuelve un JSON con estado 200 si el servicio se ha desplegado correctamente (local).</p>",
     "examples": [
       {
         "title": "Example usage:",
@@ -667,7 +671,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\":\"OK\"\n}",
           "type": "json"
         }
       ]
@@ -691,6 +695,7 @@
     "title": "Request Status information",
     "name": "GetStatusRoot",
     "group": "Status",
+    "description": "<p>Devuelve un JSON con estado 200 si el servicio se ha desplegado correctamente (local).</p>",
     "examples": [
       {
         "title": "Example usage:",
@@ -702,7 +707,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\":\"OK\"\n}",
           "type": "json"
         }
       ]

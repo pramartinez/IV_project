@@ -3,6 +3,21 @@
 >A continuación se detalla **cómo se ha creado la API Rest del proyecto**, concretamente, qué pasos se han seguido y por qué. Si lo que se desea es ver la documentación del código en sí (parámetros de entrada y su utilización, respuestas de éxito y de error, ejemplos de uso...) puede consultarla en el **siguiente enlace: 
 [API Rest Code Documentation](https://pramartinez.github.io/IV_project/api-doc/index.html).**
 
+___________________________________
+
+Index
+======
+<!--ts-->
+  - [Get status information](#get-status-information)
+  - [Post a new couple](#post-a-new-couple)
+  - [Delete a couple](#delete-a-couple)
+  - [Modify (put) a couple](#modify-put-a-couple)
+  - [Get information about the competition](#get-information-about-the-competition)
+    - [Get the cathegory of a couple](#get-the-cathegory-of-a-couple)
+<!--te-->
+
+__________________________________________
+
 ### Get status information
 
 Se han creado dos decoradores para comprobar el correcto despliegue local de la API Rest. Lo que hacen ambos es devolver un JSON indicando un *status 200 "Accepted"* siempre que, como se ha dicho, el despligue se haya llevado a cabo correctamente. Uno de los decoradores se ha asociado a la ruta ```/ruta``` y otro a la ruta raíz. 
@@ -40,7 +55,7 @@ En el caso de la modificación de parejas ya existentes en la competición, se p
     res.sendStatus(200);
 ```
 
-### Get information about the competion
+### Get information about the competition
 
 El resto de decoradores se han creado para obtener información sobre las parejas de la competición y sobre las plazas disponibles en las distintas categorías. Al fin y al cabo, todos funcionan de forma muy similar, así pues, veamos el funcionamiento de alguno de los ellos:
 

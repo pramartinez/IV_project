@@ -33,7 +33,7 @@ Para testear tanto la clase principal como la API Rest, se usa la siguiente tare
 
 ## Start task
 
-Si lo que queremos es arrancar el microservicio, esta tarea se encarga de ello. Start emplea **pm2** para realizar el despliegue local: ejecuta ```bin/www``` y se indica el nombre del microservicio (```VPTournaments```), el modo de ejecución (```cluster```) y el número de instancias (```4```). Además, imprime todos los logs que pueda generar *pm2* e imprime un mensaje informativo para indicar que se ha desplegado localmente: 
+Si lo que queremos es arrancar el microservicio, esta tarea se encarga de ello. Start emplea **pm2** para realizar el despliegue local: ejecuta ```bin/www``` y se indica el nombre del microservicio (```VPTournaments```), el modo de ejecución (```cluster```) y el número de instancias (```4```). Además, imprime todos los logs que pueda generar *pm2* y un mensaje informativo para indicar que se ha desplegado localmente: 
 
     gulp.task('start', function () {
       pm2.connect(true, function () {
