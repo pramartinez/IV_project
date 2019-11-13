@@ -42,8 +42,8 @@
   },
   "scripts": {
     "test": "node_modules/.bin/jest --verbose ../test",
-    "stop": "node_modules/.bin/pm2 stop bin/www",
-    "start": "node bin/www"
+    "start": "nnode_modules/.bin/pm2 start bin/www",
+    "stop": "node_modules/.bin/pm2 stop bin/www"
   },
   "repository": {
     "type": "git",
