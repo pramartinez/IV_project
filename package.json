@@ -48,7 +48,6 @@
     "start": "node bin/www",
     "start_": "node_modules/.bin/pm2 start bin/www",
     "stop_": "node_modules/.bin/pm2 stop bin/www",
-    "build": "npm install"
   },
   "repository": {
     "type": "git",
