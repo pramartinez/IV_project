@@ -42,8 +42,8 @@
   },
   "scripts": {
     "test": "node_modules/.bin/jest --verbose ../test",
-    "start": "gulp start",
-    "stop": "gulp stop"
+    "start": "node bin/www",
+    "stop": "node_modules/.bin/pm2 stop bin/www"
   },
   "repository": {
     "type": "git",
