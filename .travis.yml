@@ -11,7 +11,8 @@ before_install:
 
 # Construcción para CI
 install:
-  - gulp install         # instalamos dependencias
+  - npm install         # instalamos dependencias
+#  - gulp install         # instalamos dependencias
 
 script:
   - gulp test            # ejecución de tests unitarios y funcionales

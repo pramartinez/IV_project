@@ -10,6 +10,7 @@ before_install:
   - npm install -g gulp    # instalamos herramienta de construcción
 
 script:
-  - gulp install          # instalamos dependencias
+  - npm install          # instalamos dependencias
+  #- gulp install          # instalamos dependencias
   - gulp start &          # para desplegar microservicio
   - gulp stop             # para detener microservicio
