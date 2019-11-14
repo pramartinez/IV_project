@@ -27,7 +27,21 @@ var fs = require('fs');
  *     HTTP/1.1 404 Not Found
  */
 router.get('/status', function(req, res, next) {
-  res.status(200).json({"status":"OK"});
+  var ejemplo = {
+    "status":"OK",
+    "ejemplo":
+    {
+      "ruta":"/pareja_integrante/femenina/Ana",
+      "valor":
+        {
+          "nombre": "Paula",
+          "dni": "290999",
+          "telefono": "66666630",
+          "correo": "paula_nuevo@correo.com"
+        }
+    }
+  }
+  res.status(200).json(ejemplo);
 });
 
 /**
