@@ -1,6 +1,5 @@
 var request = require('supertest');
-var path = require('path');
-var app = require(path.join(__dirname,'app'));
+var app = require('../app');
 
 // Ejemplo de nueva pareja a inscribir
 var nueva_pareja = {
