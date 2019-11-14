@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var VPTournaments = require('../app/mainClass.js');
+//var VPTournaments = require('../app/mainClass.js');
+var VPTournaments = require(path.join(__dirname, "app/mainClass.js"));
 //var vpt = new VPTournaments("Torneo2019","app/data/integrantes_tmp.json");
-var vpt = new VPTournaments("Torneo2019", path.join(__dirname, "../app/data/integrantes_tmp.json"));
+var vpt = new VPTournaments("Torneo2019", path.join(__dirname, "app/data/integrantes_tmp.json"));
 
 var fs = require('fs');
 
@@ -195,7 +196,7 @@ router.delete('/cancelacion', function(req, res, next) {
  * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
- *femenina
+ *
  * @apiErrorExample Error-Response:
  *     HTTP/1.1 404 Not Found
  */

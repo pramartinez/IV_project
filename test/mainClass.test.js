@@ -1,11 +1,13 @@
-var Initialize_Database = require('../app/initialize_database.js')
-var mainClass = require('../app/mainClass.js');
-var path = "app/data/integrantes_tmp.json";
+
+var path = require('path');
+var Initialize_Database = require(path.join(__dirname,'app/initialize_database.js'))
+var mainClass = require(path.join(__dirname,'app/mainClass.js'));
+var db_path = "app/data/integrantes_tmp.json";
 var fs = require('fs');
 var init = new Initialize_Database();
 init.initialize();
 
-var mainClass = new mainClass("Torneo2019",path);
+var mainClass = new mainClass("Torneo2019",db_path);
 
 
 test('Inscribe new couple in competition',() => {
@@ -28,7 +30,7 @@ test('Inscribe new couple in competition',() => {
         "categoria":"femenina"
         };
 
-    var data = fs.readFileSync(path,'utf8',function(err){
+    var data = fs.readFileSync(db_path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -53,7 +55,7 @@ test('Inscribe new couple in competition',() => {
                 throw e;
             }
         }
-        var data = fs.readFileSync(path,'utf8',function(err){
+        var data = fs.readFileSync(db_path,'utf8',function(err){
             if(err) throw err;
         });
         obj = JSON.parse(data);
@@ -72,7 +74,7 @@ test('Remove couple inscription',() => {
 
     }
 
-    var data = fs.readFileSync(path,'utf8',function(err){
+    var data = fs.readFileSync(db_path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -82,7 +84,7 @@ test('Remove couple inscription',() => {
 });
 
 test('Modify a couple',() => {
-    var data = fs.readFileSync(path,'utf8',function(err){
+    var data = fs.readFileSync(db_path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -118,7 +120,7 @@ test('Modify a couple',() => {
         expect(e.message).toEqual('La pareja no existe, no se puede modificar la inscripción.');
     }
 
-    var data = fs.readFileSync(path,'utf8',function(err){
+    var data = fs.readFileSync(db_path,'utf8',function(err){
                 if(err) throw err;
             });
     obj = JSON.parse(data);
@@ -140,7 +142,7 @@ test('Consulting couples in a cathegory',() => {
         expect(e.message).toEqual('Categoría vacía.');        
     }
 
-    var data = fs.readFileSync(path,'utf8',function(err){
+    var data = fs.readFileSync(db_path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -158,7 +160,7 @@ test('Consulting all the couples in the competition',() => {
         expect(e.message).toEqual('Competición sin parejas.');        
     }
     
-    var data = fs.readFileSync(path,'utf8',function(err){
+    var data = fs.readFileSync(db_path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -177,7 +179,7 @@ test('Consulting the couple of a member',() => {
         expect(e.message).toEqual('Pareja inexistente.');                
     }
 
-    var data = fs.readFileSync(path,'utf8',function(err){
+    var data = fs.readFileSync(db_path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -194,7 +196,7 @@ test('Consulting the couple of a member in a cathegory',() => {
         expect(e.message).toEqual('Pareja inexistente.');                        
     }
 
-    var data = fs.readFileSync(path,'utf8',function(err){
+    var data = fs.readFileSync(db_path,'utf8',function(err){
                 if(err) throw err;
             });
     var obj = JSON.parse(data);
@@ -206,7 +208,7 @@ test('Consulting the couple of a member in a cathegory',() => {
 test('Consulting avaible plazes',() => {
     response = mainClass.consultar_plazas_disponibles("femenina");
 
-    var data = fs.readFileSync(path,'utf8',function(err){
+    var data = fs.readFileSync(db_path,'utf8',function(err){
         if(err) throw err;
     });
     var obj = JSON.parse(data);
