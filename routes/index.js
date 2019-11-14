@@ -195,7 +195,7 @@ router.delete('/cancelacion', function(req, res, next) {
  * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
- *
+ *femenina
  * @apiErrorExample Error-Response:
  *     HTTP/1.1 404 Not Found
  */
