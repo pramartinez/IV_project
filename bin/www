@@ -4,8 +4,7 @@
  * Module dependencies.
  */
 
-//var app = require('../app');
-var app = require(path.join(__dirname, "app"));
+var app = require('../app');
 var debug = require('debug')('vptournaments:server');
 var http = require('http');
 
