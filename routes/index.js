@@ -64,7 +64,8 @@ router.get('/status', function(req, res, next) {
  *     HTTP/1.1 404 Not Found
  */
 router.get('/', function(req, res, next) {
-  res.status(200).json({"status":"OK"});
+  //res.status(200).json({"status":"OK"});
+  res.status(200).send("Consulte /status para ver un ejemplo de uso.");
 });
 
 /**

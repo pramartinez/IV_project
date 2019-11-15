@@ -1,14 +1,25 @@
 # Heroku deployment
 
+___________________________________
+
+> Índice
+
+<!--ts-->
+- [Heroku deployment](#heroku-deployment)
+- [Continuous deployment: GitHub](#continuous-deployment-github)
+<!--te-->
+
+__________________________________________
+
 A continuación se muestran los pasos seguidos para el despliegue con Heroku.
 
-En primer lugar instalamos heroku:
+En primer lugar instalamos Heroku:
 
 ```shell
 $ sudo snap install heroku --classic
 ```
 
-Y hacemos login y creamos aplicación en heroku, así preparamos heroku para que la reciba:
+Y hacemos login y creamos aplicación en Heroku, así preparamos Heroku para que la reciba:
 
 ```shell
 $ heroku login
@@ -22,7 +33,7 @@ Creamos un Procfile que contenga el comando que queremos que se ejecute para ini
 web: gulp start
 ```
 
-Y hacemos push al remoto de heroku para desplegar nuestro código:
+Y hacemos push al remoto de Heroku para desplegar nuestro código:
 
 ```shell
 $ git push heroku master
@@ -58,5 +69,6 @@ Si queremos conocer los errores durante el despliegue, podemos recurrir a:
 $ heroku logs --tail
 ```
 
+# Continuous deployment: GitHub
 
-https://devcenter.heroku.com/articles/getting-started-with-nodejs#scale-the-app
+Aquí se encuentra el procedimiento seguido para habilitar el despliegue continuo: [Heroku Continuous Deployment](https://github.com/pramartinez/IV_project/blob/master/docs/heroku_continuous_deployment.md)

@@ -7,18 +7,20 @@
 
 ___________________________________
 
-Índice
-======
+> Índice
+
 <!--ts-->
-  - [¿Cuál es el objetivo de este proyecto?](#objetivo-de-este-proyecto)
-  - [¿Por qué VPTournaments?](#vptournaments)
-  - [¿Cuáles son las funcionalidades principales?](#funcionalidades-principales)
-  - [¿Qué herramientas y servicios se usarán?](#herramientas-y-servicios)
-  - [¿Cómo funciona la clase principal del proyecto?](#clase-principal-del-proyecto)
-  - [¿Cómo funciona la API del proyecto?](#API-proyecto)
-  - [¿Cómo instalamos las dependencias del proyecto?](#instalamos-la-clase-del-proyecto)
-  - [¿Cómo testeamos el microservicio?](#testeamos)
-  - [¿Cómo desplegamos localmente el microservicio?](#desplegamos-microservicio)
+- [VPTournaments](#vptournaments)
+  - [*Microservicio de gestión de torneos de voley playa*](#microservicio-de-gesti%c3%b3n-de-torneos-de-voley-playa)
+  - [¿Cuál es el objetivo de este proyecto VPTournaments?](#%c2%bfcu%c3%a1l-es-el-objetivo-de-este-proyecto-vptournaments)
+  - [¿Qué herramientas y servicios se usarán?](#%c2%bfqu%c3%a9-herramientas-y-servicios-se-usar%c3%a1n)
+  - [¿Cómo funciona la clase principal del proyecto?](#%c2%bfc%c3%b3mo-funciona-la-clase-principal-del-proyecto)
+  - [¿Cómo funciona la API Rest del proyecto?](#%c2%bfc%c3%b3mo-funciona-la-api-rest-del-proyecto)
+  - [¿Cómo instalamos las dependencias del proyecto?](#%c2%bfc%c3%b3mo-instalamos-las-dependencias-del-proyecto)
+  - [¿Cómo testeamos el microservicio?](#%c2%bfc%c3%b3mo-testeamos-el-microservicio)
+  - [¿Cómo desplegamos localmente el microservicio?](#%c2%bfc%c3%b3mo-desplegamos-localmente-el-microservicio)
+  - [Despliegue del microservicio en Azure](#despliegue-del-microservicio-en-azure)
+  - [Despliegue del microservicio en Heroku](#despliegue-del-microservicio-en-heroku)
 <!--te-->
 
 __________________________________________
@@ -26,13 +28,9 @@ __________________________________________
 
 <a name="objetivo-de-este-proyecto"></a>
 
-## ¿Cuál es el objetivo de este proyecto?
+## ¿Cuál es el objetivo de este proyecto [VPTournaments](https://github.com/pramartinez/IV_project/blob/master/docs/descripcion_clase.md)?
 
 VPTournaments consistirá en un microservicio de gestión de torneos de voley playa, donde se diferenciará en distintas categorías de juego.
-
-Aquí se puede encontrar una descripción más detallada del objetivo, la motivación y el funcionamiento de la clase principal del proyecto: [VPTournaments Project](https://github.com/pramartinez/IV_project/blob/master/docs/descripcion_clase.md).
-
-
 
 <a name="herramientas-y-servicios"></a>
 
@@ -40,41 +38,28 @@ Aquí se puede encontrar una descripción más detallada del objetivo, la motiva
 
 buildtool: gulpfile.js
 
-- El lenguaje de programación del proyecto es [Node.js](https://nodejs.org/es/about/).
-
-- Para la realización de tests unitarios usamos el framework de testeo [Jest](https://jestjs.io/).
-- Para la realización de los tests funcionales se ha empleado [Supertest](https://github.com/visionmedia/supertest).
-  
-- **En esta versión del proyecto se ha decido usar otra herramienta de construcción, concretamente [Gulp](https://gulpjs.com/). Para saber cómo se ha configurado esta herramienta de construcción puede consultar el siguiente enlace: [Configuración de Gulp](https://github.com/pramartinez/IV_project/blob/master/docs/gulp_doc.md).**
-
-
-- **Respecto a la integración continua, se emplea [Travis-CI](https://travis-ci.org/) y [Shippable](https://app.shippable.com/). En esta versión del proyecto se ha decidido repartir las tareas entre ambos sistemas de integración continua. Travis se encarga de pasar los tests de la clase principal y de la API Rest, y Shippable se encarga de comprobar que el despliegue local del microservicio se lleva a cabo con éxito.** 
-  - **Para saber cómo se ha configurado Travis-C pulse aquí: [¿Cómo se ha configurado *Travis-CI*?](https://github.com/pramartinez/IV_project/blob/master/docs/travis_doc.md).**
-  
-  - **Para saber cómo se ha configurado Shippabl pulse aquí: [¿Cómo se ha configurado *Shippable*?](https://github.com/pramartinez/IV_project/blob/master/docs/shippable_doc.md).**
-
-- Para saber qué contiene *package.json* o cómo se configuró la herramienta de construcción (npm) puede consultar el siguiente enlace: [¿Qué encontramos en *package.json*?](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md).
-
-Puedes ver el resto de herramientas y servicios aquí: [Herramientas y servicios](https://github.com/pramartinez/IV_project/blob/master/docs/tools_services.md). 
+Puedes las de herramientas y servicios usados en el proyecto aquí: [Herramientas y servicios](https://github.com/pramartinez/IV_project/blob/master/docs/tools_services.md). 
 
 
 <a name="clase-principal-del-proyecto"></a>
 
 ## ¿Cómo funciona la clase principal del proyecto?
 
-Antes de continuar, tal vez, le intesaría tener una **visión más global de la funcionalidad** de la clase principal del proyecto, si es así, puede indagar un poco más en esta documentación adicional: [Descripción de la Clase Principal](https://github.com/pramartinez/IV_project/blob/master/docs/descripcion_clase.md). 
+[Descripción de la Clase Principal](https://github.com/pramartinez/IV_project/blob/master/docs/descripcion_clase.md). 
 
-Si, en cambio, desea explorar más a fondo dicha clase, aquí se proporciona la **documentación del código** de la misma: [Class Documentation](https://pramartinez.github.io/IV_project/vpt-doc/mainClass.html).
+[Class Documentation](https://pramartinez.github.io/IV_project/vpt-doc/mainClass.html).
 
 <a name="API-proyecto"></a>
 
 ## ¿Cómo funciona la API Rest del proyecto?
 
-**Si desea explorar el funcionamiento de esta, aquí se proporciona la documentación de la misma: [API Rest Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/api_doc.md).**
+[API Rest Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/api_doc.md).
 
-**Si, en cambio, desea explorar el funcionamiento del código en sí, aquí se proporciona la documentación del mismo: [API Rest Code Documentation](https://pramartinez.github.io/IV_project/api-doc/index.html).**
+[API Rest Code Documentation](https://pramartinez.github.io/IV_project/api-doc/index.html).
 
-También puede arrancar el microservicio como se explica en el apartado [¿Cómo desplegamos localmente el microservicio?](#desplegamos-microservicio) y consultar la documentación generada con [Swagger](https://swagger.io/), que permite además hacer pruebas del funcionamiento. Para ello, una vez realizado el arranque, accedemos a ```localhost:3000/docs```.
+[¿Cómo desplegamos localmente el microservicio?](#desplegamos-microservicio) 
+
+Documentación generada con [Swagger](https://swagger.io/): una vez realizado el arranque, accedemos a ```localhost:3000/docs```.
 
 
 <a name="instalamos-la-clase-del-proyecto"></a>  
@@ -83,7 +68,7 @@ También puede arrancar el microservicio como se explica en el apartado [¿Cómo
 
 Instalamos las dependencias con:
 
-    $ gulp install
+    $ npm install
 
 <a name="testeamos"></a>  
 
@@ -93,7 +78,7 @@ Para ejecutar los tests tanto funcionales como unitarios tenemos que ejecutar:
 
     $ gulp test
 
-**Puede consultar la documentación de los tests funcionales en el siguiente enlace: [Documentación de los tests de la API Rest](https://github.com/pramartinez/IV_project/blob/master/docs/tests_funcionales_doc.md).**
+[Documentación de los tests de la API Rest.](https://github.com/pramartinez/IV_project/blob/master/docs/tests_funcionales_doc.md)
 
 <a name="desplegamos-microservicio"></a>
 
@@ -107,10 +92,19 @@ y para detenerlo:
 
     $ gulp stop
 
-## ¿Cómo desplegamos el microservicio en Azure?
+## Despliegue del microservicio en Azure
+
+<a name="desplegamos-azure"></a>
 
 Despliegue: http://vptournaments.azurewebsites.net/
 
-## ¿Cómo desplegamos el microservicio en Heroku?
+**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Azure: [Despliegue en Microsoft Azure](https://github.com/pramartinez/IV_project/blob/master/docs/azure_deployment.md) y [Azure Continuous Deployment.](https://github.com/pramartinez/IV_project/blob/master/docs/azure_continuous_deployment.md)**
 
-Despliegue: https://vptournaments.herokuapp.com/
+
+## Despliegue del microservicio en Heroku
+
+<a name="desplegamos-heroku"></a>
+
+Despliegue alternativo: https://vptournaments.herokuapp.com/
+
+**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Heroku: [Despliegue en Heroku](https://github.com/pramartinez/IV_project/blob/master/docs/heroku_deployment.md) y [Heroku Continuous Deployment.](https://github.com/pramartinez/IV_project/blob/master/docs/heroku_continuous_deployment.md)**

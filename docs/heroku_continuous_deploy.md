@@ -6,7 +6,7 @@ Como lo que nos interesa es no tener que estar trabajando con dos repositorios a
 
 <img src="images/h1.png" width="500" height="550" />
 
-####  Vamos a ```Deployment method``` e conectamos con GitHub:
+####  Vamos a ```Deployment method``` y conectamos con GitHub:
 
 <img src="images/h2.png" width="500" height="550" />
 

@@ -45,12 +45,3 @@ gulp.task('redoc', function(done) {
     config: "./"}, 
     done);
 });
-
-// Tarea para desplegar el microservicio
-gulp.task('build', function (done) {
-  exec('npm start', function(err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    done(err);
-  });
-});
