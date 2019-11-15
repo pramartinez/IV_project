@@ -25,7 +25,7 @@ web: npm run start
 Añadimos el buildpack de node.js:
 
 ```shell
-$ heroku buildpacks:set heroku/node.js
+$ heroku buildpacks:set heroku/nodejs
 ```
 
 Y hacemos push al remoto de heroku para desplegar nuestro código:
