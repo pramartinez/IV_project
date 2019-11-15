@@ -48,7 +48,7 @@ gulp.task('redoc', function(done) {
 
 // Tarea para desplegar el microservicio
 gulp.task('build', function () {
-  exec('npm start', function(err, stdout, stderr) {
+  exec('node bin/www', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     done(err);
