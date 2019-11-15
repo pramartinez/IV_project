@@ -19,13 +19,7 @@ $ heroku create
 Creamos un Procfile que contenga el comando que queremos que se ejecute para iniciar la aplicación, es decir, indicamos:
 
 ```shell
-web: npm run start
-```
-
-Añadimos el buildpack de node.js:
-
-```shell
-$ heroku buildpacks:set heroku/nodejs
+web: gulp start
 ```
 
 Y hacemos push al remoto de heroku para desplegar nuestro código:

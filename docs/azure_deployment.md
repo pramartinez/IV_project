@@ -152,3 +152,13 @@ $ az webapp start --name vptournaments -g myResourceGroup
 
 $ az webapp stop --name vptournaments -g myResourceGroup
 ```
+
+# Despliegue con la herramienta de construcción Gulp
+
+Hasta el momento, la aplicación funciona correctamente empleando como script de inicio del mircroservicio: ```npm run start```, pero lo que nos interesa es emplear la herramienta de construcción que hemos venido usando: ```Gulp```. Es por esto que realizamos lo siguiente:
+
+- Generamos un archivo ```.deployment``` que contenga:
+```shell
+[config]
+command = gulp start
+```
