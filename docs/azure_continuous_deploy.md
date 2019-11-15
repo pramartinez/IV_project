@@ -3,31 +3,31 @@
 Como lo que nos interesa es no tener que estar trabajando con dos repositorios a la vez, es decir, el remoto de Azure y el nuestro propio, vamos a recurrir a la configuración que se ofrece en la web de Azure para habilitar el despliegue automático con GitHub. A continuación se muestran los pasos seguidos:
 
 #### Accedemos a los ajustes de los servicios de aplicaciones y seleccionamos nuestra aplicación:   
-<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/1.png" width="500" height="550" />
+![](./images/1.png)
 
 
 ####  Vamos a ```Deployment Center```:
 
-<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/2.png" width="500" height="550" />
+![](./images/2.png)
 
 #### Seleccionamos GitHub:
 
-<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/4.png" width="500" height="500" />
+![](./images/4.png)
 
 #### Autorizamos la aplicación en GitHub:
 
-<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/5.png" width="400" height="350" />
+![](./images/5.png)
 
 #### Seleccionamos App Service build service:
 
-<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/6.png" width="500" height="550" />
+![](./images/6.png)
 
 #### Especificamos los datos del repositorio:
 
-<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/8.png" width="500" height="550" />
+![](./images/8.png)
 
 #### Comprobamos que se ha realizado correctamente:
 
-<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/9.png" width="500" height="550" />
+![](./images/9.png)
 
 
