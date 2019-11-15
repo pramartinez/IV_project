@@ -1,2 +1,2 @@
 [config]
-command = sh deploy.sh
+command = eval './node_modules/.bin/gulp build &'
