@@ -6,6 +6,8 @@ Como lo que nos interesa es no tener que estar trabajando con dos repositorios a
 
 <img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/h1.png" width="500" height="550" />
 
+![]("https://github.com/pramartinez/IV_project/blob/master/docs/images/h1.png" )
+
 ####  Vamos a ```Deployment method``` y conectamos con GitHub:
 
 <img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/h2.png" width="500" height="550" />
