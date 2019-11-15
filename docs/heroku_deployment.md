@@ -71,4 +71,4 @@ $ heroku logs --tail
 
 # Continuous deployment: GitHub
 
-Aquí se encuentra el procedimiento seguido para habilitar el despliegue continuo: [Heroku Continuous Deployment](https://github.com/pramartinez/IV_project/blob/master/docs/heroku_continuous_deployment.md)
+Aquí se encuentra el procedimiento seguido para habilitar el despliegue continuo: [Heroku Continuous Deployment](https://github.com/pramartinez/IV_project/blob/master/docs/heroku_continuous_deploy.md)
