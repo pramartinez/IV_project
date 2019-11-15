@@ -1,2 +1,2 @@
 [config]
-command = npm install gulp && gulp star
+command = npm install && gulp star
