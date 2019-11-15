@@ -1,2 +1,2 @@
 [config]
-command = eval './node_modules/.bin/gulp build &'
+command = node_modules/.bin/gulp build &
