@@ -19,7 +19,7 @@ En primer lugar instalamos Heroku:
 $ sudo snap install heroku --classic
 ```
 
-Y hacemos login y creamos aplicación en Heroku, así preparamos Heroku para que la reciba:
+Hacemos login y creamos la aplicación en Heroku, así lo preparamos para que la reciba:
 
 ```shell
 $ heroku login

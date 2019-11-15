@@ -146,13 +146,13 @@ Primero creamos un usuario de despliegue con el siguiente comando:
 $ az webapp deployment user set --user-name {your-username} --password {your-password}
 ```
 
-Y a continuación, ejecutamos el comando que a continuación se muestra para recuperar el endpoint de Git del que insertamos el código de la aplicación:
+Y a continuación, ejecutamos este comando para recuperar el endpoint de Git del que insertamos el código de la aplicación:
 
 ```shell
 $ az webapp deployment source config-local-git --name vptournaments -g myResourceGroup
 ```
 
-Lo que nos devolverá la siguiente información:
+Que nos devolverá la siguiente información:
 
 ```JSON
 {
@@ -174,7 +174,7 @@ $ git push azure master
 
 Ahora, si todo se ha llevado a cabo correctamente... ¡ya tendríamos desplegada la aplicación en Azure!
 
-Si en cambio, no es así, podemos consultar los logs para comprobar qué está fallando:
+Si, en cambio, no es así podemos consultar los logs para comprobar qué está fallando:
 
 ```shell
 $ az webapp log tail --name vptournaments -g myResourceGroup
