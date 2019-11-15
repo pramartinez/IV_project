@@ -1,10 +1,8 @@
-echo "-----------------Variables---------------------------------"
+echo "-----------------Variables----------------------"
 echo "DEPLOYMENT_SOURCE = $DEPLOYMENT_SOURCE"
 echo "DEPLOYMENT_TARGET = $DEPLOYMENT_TARGET"
 echo "NEXT_MANIFEST_PATH = $NEXT_MANIFEST_PATH"
 echo "PREVIOUS_MANIFEST_PATH = $PREVIOUS_MANIFEST_PATH"
-echo "KUDU_SYNC_CMD = $appdata$\npm\kuduSync.cmd"
-echo "-----------------Variables END ---------------------------------"
 echo ""
 echo ""
 
