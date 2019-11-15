@@ -8,7 +8,6 @@ echo "-----------------Variables END ---------------------------------"
 echo ""
 echo ""
 
-
 echo =======  Executing gulp task release  ======= 
 if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then
     echo "Running gulp start"
