@@ -47,4 +47,16 @@ gulp.task('redoc', function(done) {
 });
 
 // Tarea para desplegar el microservicio
-gulp.task('build', shell.task(['npm start']));
+gulp.task('build', function () {
+  pm2.connect(true, function () {
+    pm2.start({
+      name: 'VPTournaments',
+      script: 'bin/www',
+      exec_mode: 'cluster',
+      instances: 1
+    }, function () {
+         console.log('Arrancando VPTournaments.');
+         pm2.streamLogs('all', 0);
+       });
+  });
+});

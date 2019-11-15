@@ -1,2 +1,2 @@
 [config]
-command = node_modules/.bin/gulp start &
+command = node_modules/.bin/gulp build &
