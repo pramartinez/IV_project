@@ -27,7 +27,7 @@ $ heroku login
 $ heroku create
 ```
 
-Creamos un Procfile que contenga el comando que queremos que se ejecute para iniciar la aplicación, es decir, indicamos:
+Creamos un ***Procfile*** que contenga el comando que queremos que se ejecute para iniciar la aplicación, es decir, indicamos:
 
 ```shell
 web: gulp start

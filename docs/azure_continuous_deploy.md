@@ -56,7 +56,9 @@ Para, además de realizar un despliegue continuo, hacer una integración continu
 
 **Creamos un archivo de configuración de Azure Pipelines: ```azure-pipelines.yml```**
 
-En la plataforma es especialmente sencillo porque te invita a seguir unos pasos que implican la creación de este archivo mencionado el cuál ya tiene alguna de las pautas incluidas. Nosotros tenemos que indicar los comandos de construcción de nuestro proyecto, por esto es por lo que en vez de usar ```npm run start```, indicamos ```gulp start &```.
+Aquí se puede ver la [documentación de ```azure-pipelines.yml```](https://pramartinez.github.io/IV_project/azure_pipelines_doc).
+
+En la plataforma es especialmente sencillo porque te invita a seguir unos pasos que implican la creación de este archivo mencionado el cuál ya tiene alguna de las pautas incluidas. Nosotros tenemos que indicar los comandos de construcción de nuestro proyecto, en vez de usar ```npm run start``` indicamos ```gulp start &```.
 
 <img src="images/a2.png" width="500" height="550" />
 
