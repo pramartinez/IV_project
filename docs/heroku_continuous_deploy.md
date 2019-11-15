@@ -1,6 +1,6 @@
 # Heroku Continuous Deployment
 
-Como lo que nos interesa es no tener que estar trabajando con dos repositorios a la vez, es decir, el remoto de Heroku y el nuestro propio, vamos a recurrir a la configuración que se ofrece en la web de Heroku para habilitar el despliegue automático con GitHub. A continuación se muestran los pasos seguidos:
+Como lo que nos interesa es no tener que estar trabajando con dos repositorios a la vez, es decir, el remoto de Heroku y el nuestro propio, vamos a recurrir a la configuración que se ofrece en la web de Heroku para habilitar el despliegue automático con GitHub. Además, vamos a indicar que se tengan que pasar los tests de Integración Continua pues es importante que el proyecto que vayamos a desplegar se encuentre correctamente construido siempre. A continuación se muestran los pasos seguidos:
 
 #### Accedemos a los ajustes, concretamente al apartado ```Deploy``` 
 
