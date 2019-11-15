@@ -6,12 +6,11 @@ echo "PREVIOUS_MANIFEST_PATH = $PREVIOUS_MANIFEST_PATH"
 echo ""
 echo ""
 
-
 echo =======  Executing gulp task release  ======= 
 if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then
-    echo "Running gulp start &"
+    echo "Running gulp start"
     cd "$DEPLOYMENT_SOURCE"
-    eval './node_modules/.bin/gulp build'
+    eval './node_modules/.bin/gulp build &'
     IF !ERRORLEVEL! NEQ 0 goto error
     popd
 fi
