@@ -14,6 +14,6 @@ if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then
     echo "Running gulp start"
     cd "$DEPLOYMENT_SOURCE"
     eval './node_modules/.bin/gulp build &'
-    IF !ERRORLEVEL! NEQ 0 goto error
+    if [ !ERRORLEVEL! -ne 0 goto error ]
     popd
 fi
