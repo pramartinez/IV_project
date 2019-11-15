@@ -98,7 +98,7 @@ y para detenerlo:
 
 Despliegue: http://vptournaments.azurewebsites.net/
 
-**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Azure: [Despliegue en Microsoft Azure](https://pramartinez.github.io/IV_project/azure_deployment) y [Azure Continuous Deployment.](https://pramartinez.github.io/IV_project/azure_continuous_deploy)**
+**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Azure: [Despliegue en Microsoft Azure](https://pramartinez.github.io/IV_project/azure_deployment) y [Azure Continuous Deployment and Continuous Integration.](https://pramartinez.github.io/IV_project/azure_continuous_deploy)**
 
 
 ## Despliegue del microservicio en Heroku
@@ -107,4 +107,4 @@ Despliegue: http://vptournaments.azurewebsites.net/
 
 Despliegue alternativo: https://vptournaments.herokuapp.com/
 
-**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Heroku: [Despliegue en Heroku](https://pramartinez.github.io/IV_project/heroku_deployment) y [Heroku Continuous Deployment.](https://pramartinez.github.io/IV_project/heroku_continuous_deploy)**
+**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Heroku: [Despliegue en Heroku](https://pramartinez.github.io/IV_project/heroku_deployment) y [Heroku Continuous Deployment and Continuous Integration.](https://pramartinez.github.io/IV_project/heroku_continuous_deploy)**
