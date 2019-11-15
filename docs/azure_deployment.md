@@ -198,4 +198,4 @@ $ az webapp stop --name vptournaments -g myResourceGroup
 <a name="git"></a>
 
 
-Aquí se encuentra el procedimiento seguido para habilitar el despliegue continuo: [Azure Continuous Deployment](https://github.com/pramartinez/IV_project/blob/master/docs/azure_continuous_deploy.md)
+Aquí se encuentra el procedimiento seguido para habilitar el despliegue continuo: [Azure Continuous Deployment](https://pramartinez.github.io/IV_project/azure_continuous_deploy)

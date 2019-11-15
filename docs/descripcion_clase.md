@@ -16,7 +16,7 @@ ___________________________________
 
 __________________________________________
 
->Esta visión de la clase principal del proyecto es simplemente para hacerse una idea sobre el funcionamiento de la misma, es decir, es muy global. Por tanto, si se desea conocer más a fondo sobre la implementación de dicha clase aquí se proporciona un enlace a la documentación del código en sí: [Class Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/class_doc.md).
+>Esta visión de la clase principal del proyecto es simplemente para hacerse una idea sobre el funcionamiento de la misma, es decir, es muy global. Por tanto, si se desea conocer más a fondo sobre la implementación de dicha clase aquí se proporciona un enlace a la documentación del código en sí: [Class Documentation](https://pramartinez.github.io/IV_project/class_doc).
 
 ## ¿Por qué VPTournaments?
 

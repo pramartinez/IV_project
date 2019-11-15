@@ -18,7 +18,7 @@ Veamos a continuación las tareas que encontramos en el archivo gulpfile.yml y q
 
 ## Install task
 
-Esta tarea se encarga de instalar las dependecias del proyecto, para ello recurre a ```npm install```, que usa el [package.json](https://github.com/pramartinez/IV_project/blob/master/docs/construction_tool.md) para saber qué dependencias ha de instalar:
+Esta tarea se encarga de instalar las dependecias del proyecto, para ello recurre a ```npm install```, que usa el [package.json](https://pramartinez.github.io/IV_project/construction_tool) para saber qué dependencias ha de instalar:
 
     gulp.task('install', shell.task(['npm install']));
 
