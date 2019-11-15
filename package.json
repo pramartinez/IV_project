@@ -4,7 +4,7 @@
   "description": "Gestor de torneos de voley playa",
   "main": "./app/mainClass.js",
   "engines": {
-    "node": ">10.15.0"
+    "node": "10.x"
   },
   "directories": {
     "app": "app",

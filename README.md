@@ -106,3 +106,11 @@ Para arrancarlo usamos el siguiente comando:
 y para detenerlo:
 
     $ gulp stop
+
+## ¿Cómo desplegamos el microservicio en Azure?
+
+Despliegue: http://vptournaments.azurewebsites.net/
+
+## ¿Cómo desplegamos el microservicio en Heroku?
+
+Despliegue: https://vptournaments.herokuapp.com/
