@@ -61,7 +61,7 @@ Aquí se puede ver la [documentación de ```azure-pipelines.yml```](https://pram
 
 En la plataforma es especialmente sencillo porque te invita a seguir unos pasos que implican la creación de este archivo mencionado el cuál ya tiene alguna de las pautas incluidas. Nosotros tenemos que indicar los comandos de construcción de nuestro proyecto, en vez de usar ```npm run start``` indicamos ```gulp start &```.
 
-<img src="images/a2.png" width="500" height="550" />
+<img src="images/a2.png" />
 
 **Hacemos un commit al repositorio del proyecto con el archivo de configuración de Azure Pipelines y ya se comenzarían a hacer la construcción y el testeo:**
 
