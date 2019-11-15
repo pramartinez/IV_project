@@ -4,21 +4,21 @@ Como lo que nos interesa es no tener que estar trabajando con dos repositorios a
 
 #### Accedemos a los ajustes, concretamente al apartado ```Deploy``` 
 
-<img src="./images/h1.png" width="500" height="550" />
+<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/h1.png" width="500" height="550" />
 
 ####  Vamos a ```Deployment method``` y conectamos con GitHub:
 
-<img src="./images/h2.png" width="500" height="550" />
+<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/h2.png" width="500" height="550" />
 
 #### Autorizamos la aplicación en GitHub:
 
-<img src="./images/h3.png" width="400" height="450" />
+<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/h3.png" width="400" height="450" />
 
 #### Ahora indicamos la aplicación que queremos conectar en ```App connected to GitHub```:
 
-<img src="./images/h4.png" width="500" height="550" />
+<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/h4.png" width="500" height="550" />
 
 #### En ```Automatic deploys``` indicamos la rama concreta (master) y marcamos que se tengan que pasar los tests de integración continua antes del despliegue:
 
-<img src="./images/h7.png" width="500" height="550" />
+<img src="https://github.com/pramartinez/IV_project/blob/master/docs/images/h7.png" width="500" height="550" />
 
