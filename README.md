@@ -28,7 +28,7 @@ __________________________________________
 
 <a name="objetivo-de-este-proyecto"></a>
 
-## ¿Cuál es el objetivo de este proyecto [VPTournaments](https://github.com/pramartinez/IV_project/blob/master/docs/descripcion_clase.md)?
+## ¿Cuál es el objetivo de este proyecto [VPTournaments](https://pramartinez.github.io/IV_project/descripcion_clase)?
 
 VPTournaments consistirá en un microservicio de gestión de torneos de voley playa, donde se diferenciará en distintas categorías de juego.
 
@@ -38,14 +38,14 @@ VPTournaments consistirá en un microservicio de gestión de torneos de voley pl
 
 buildtool: gulpfile.js
 
-Puedes las de herramientas y servicios usados en el proyecto aquí: [Herramientas y servicios](https://github.com/pramartinez/IV_project/blob/master/docs/tools_services.md). 
+Puedes las de herramientas y servicios usados en el proyecto aquí: [Herramientas y servicios](https://pramartinez.github.io/IV_project/tools_services). 
 
 
 <a name="clase-principal-del-proyecto"></a>
 
 ## ¿Cómo funciona la clase principal del proyecto?
 
-[Descripción de la Clase Principal](https://github.com/pramartinez/IV_project/blob/master/docs/descripcion_clase.md). 
+[Descripción de la Clase Principal](https://pramartinez.github.io/IV_project/descripcion_clase). 
 
 [Class Documentation](https://pramartinez.github.io/IV_project/vpt-doc/mainClass.html).
 
@@ -53,7 +53,7 @@ Puedes las de herramientas y servicios usados en el proyecto aquí: [Herramienta
 
 ## ¿Cómo funciona la API Rest del proyecto?
 
-[API Rest Documentation](https://github.com/pramartinez/IV_project/blob/master/docs/api_doc.md).
+[API Rest Documentation](https://pramartinez.github.io/IV_project/api_doc).
 
 [API Rest Code Documentation](https://pramartinez.github.io/IV_project/api-doc/index.html).
 
@@ -78,7 +78,7 @@ Para ejecutar los tests tanto funcionales como unitarios tenemos que ejecutar:
 
     $ gulp test
 
-[Documentación de los tests de la API Rest.](https://github.com/pramartinez/IV_project/blob/master/docs/tests_funcionales_doc.md)
+[Documentación de los tests de la API Rest.](https://pramartinez.github.io/IV_project/tests_funcionales_doc)
 
 <a name="desplegamos-microservicio"></a>
 
@@ -98,7 +98,7 @@ y para detenerlo:
 
 Despliegue: http://vptournaments.azurewebsites.net/
 
-**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Azure: [Despliegue en Microsoft Azure](https://github.com/pramartinez/IV_project/blob/master/docs/azure_deployment.md) y [Azure Continuous Deployment.](https://github.com/pramartinez/IV_project/blob/master/docs/azure_continuous_deploy.md)**
+**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Azure: [Despliegue en Microsoft Azure](https://pramartinez.github.io/IV_project/azure_deployment) y [Azure Continuous Deployment.](https://pramartinez.github.io/IV_project/azure_continuous_deploy)**
 
 
 ## Despliegue del microservicio en Heroku
@@ -107,4 +107,4 @@ Despliegue: http://vptournaments.azurewebsites.net/
 
 Despliegue alternativo: https://vptournaments.herokuapp.com/
 
-**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Heroku: [Despliegue en Heroku](https://github.com/pramartinez/IV_project/blob/master/docs/heroku_deployment.md) y [Heroku Continuous Deployment.](https://github.com/pramartinez/IV_project/blob/master/docs/heroku_continuous_deploy.md)**
+**Aquí puedes encontrar la documentación sobre el procedimiento seguido para desplegar la aplicación en Heroku: [Despliegue en Heroku](https://pramartinez.github.io/IV_project/heroku_deployment) y [Heroku Continuous Deployment.](https://pramartinez.github.io/IV_project/heroku_continuous_deploy)**
