@@ -1,2 +1,2 @@
 [config]
-command = gulp star
+command = node_modules/.bin/gulp star
