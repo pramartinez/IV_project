@@ -54,7 +54,6 @@ describe( "GET home page", function() {
     it('Should get OK status', function(done) {
         request(app)
             .get('/')
-            .expect('Content-Type', /json/)
             .expect(200, done);
     });
 });
