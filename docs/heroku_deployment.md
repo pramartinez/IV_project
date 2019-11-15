@@ -6,10 +6,18 @@ ___________________________________
 
 <!--ts-->
 - [Heroku deployment](#heroku-deployment)
+  - [¿Por qué Heroku?](#%c2%bfpor-qu%c3%a9-heroku)
+  - [Pasos seguidos para construcción, configuración y despliegue:](#pasos-seguidos-para-construcci%c3%b3n-configuraci%c3%b3n-y-despliegue)
 - [Continuous deployment: GitHub](#continuous-deployment-github)
 <!--te-->
 
 __________________________________________
+
+## ¿Por qué Heroku?
+
+He elegido Heroku como PaaS alternativo por su simplicidad a la hora de configurarlo y su facil uso. Además, como Microsoft Azure, tiene una documentación muy útil que te guía durante casi todo el procedimiento. Por otro lado, Heroku es muy sencillo de escalar inicialmente (Dynos) y goza de un gran soporte de plugins.
+
+## Pasos seguidos para construcción, configuración y despliegue:
 
 A continuación se muestran los pasos seguidos para el despliegue con Heroku.
 
@@ -71,4 +79,4 @@ $ heroku logs --tail
 
 # Continuous deployment: GitHub
 
-Aquí se encuentra el procedimiento seguido para habilitar el despliegue continuo: [Heroku Continuous Deployment](https://pramartinez.github.io/IV_project/heroku_continuous_deploy)
+Aquí se encuentra el procedimiento seguido para habilitar el despliegue continuo y la integración continua con Heroku: [Heroku Continuous Deployment and Continuous Integration](https://pramartinez.github.io/IV_project/heroku_continuous_deploy)
