@@ -27,7 +27,7 @@ En primer lugar instalamos Heroku:
 $ sudo snap install heroku --classic
 ```
 
-Hacemos login para hacer loguearnos en el Heroku CLI. Este comando abre una ventana del buscador que tengamos por defecto y nos pedirá que iniciemos sesión en la página web de Heroku. Además es necesario para que tanto el comando ```heroku``` como el comando ```git``` funcionen correctamente.
+Hacemos ```login``` en el Heroku CLI. Este comando abre una ventana del buscador que tengamos por defecto y nos pedirá que iniciemos sesión en la página web de Heroku. Además es necesario para que tanto el comando ```heroku``` como el comando ```git``` funcionen correctamente.
 
 ```shell
 $ heroku login
@@ -47,7 +47,7 @@ Creamos un ***Procfile***, que es un archivo de texto simple que contiene el com
 web: gulp start
 ```
 
-De esta forma, se declara un proceso: web, y el comando necesario para correrlo. Es importante usar el nombre ```web```, pues de esta forma se indica que dicho proceso se adjuntará a la pila de enrutamiento de HTTP de Heroku y recibirá el tráfico web cuando se implemente.
+De esta forma, se declara un proceso: ```web```, y el comando necesario para correrlo. Es importante usar el nombre ```web```, pues de esta forma se indica que dicho proceso se adjuntará a la pila de enrutamiento de HTTP de Heroku y recibirá el tráfico web cuando se implemente.
 
 Y hacemos push al remoto de Heroku para desplegar nuestro código:
 
@@ -55,7 +55,7 @@ Y hacemos push al remoto de Heroku para desplegar nuestro código:
 $ git push heroku master
 ```
 
-Escalamos nuestra Dyno (al menos una instancia):
+Escalamos nuestra dyno (al menos una instancia):
 
 ```shell
 $ heroku ps:scale web=1
@@ -73,7 +73,7 @@ Y ya podemos acceder a la URL de la aplicación o ejecutar:
 $ heroku open
 ```
 
-Si queremos detener el despliegue reescalamos la Dyno:
+Si queremos detener el despliegue reescalamos la dyno:
 
 ```shell
 $ heroku ps:scale web=0

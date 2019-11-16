@@ -62,7 +62,7 @@ $ sudo apt-get install azure-cli
 <a name="cuenta"></a>
 
 
-Para continuar, usamos el comando ```login```, que abre una ventana del buscador por defecto y elegimos la cuenta con la que queremos trabajar. Una vez echo esto, en el terminal aparece la información en formato JSON asociada a dicha cuenta y a la subscriptción, por tanto, es importante comprobar que es correcta:
+Para continuar, usamos el comando ```login```, que abre una ventana del buscador por defecto y elegimos la cuenta con la que queremos trabajar. Una vez hecho esto, en el terminal aparece la información en formato JSON asociada a dicha cuenta y a la subscriptción, por tanto, es importante comprobar que es correcta:
 ```JSON
 [
   {
