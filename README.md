@@ -39,7 +39,7 @@ VPTournaments consistirá en un microservicio de gestión de torneos de voley pl
 
 buildtool: gulpfile.js
 
-Puedes las de herramientas y servicios usados en el proyecto aquí: [Herramientas y servicios](https://pramartinez.github.io/IV_project/tools_services). 
+Puedes consultar las de herramientas y servicios usados en el proyecto aquí: [Herramientas y servicios](https://pramartinez.github.io/IV_project/tools_services). 
 
 
 <a name="clase-principal-del-proyecto"></a>
