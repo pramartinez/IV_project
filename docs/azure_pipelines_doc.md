@@ -18,7 +18,7 @@ Ahora indicamos la configuración del lenguaje que empleamos (versión y el nomb
         versionSpec: '10.x'
       displayName: 'Install Node.js'
     
-Por último se incluyen los scripts que se van a ejecutar:
+Por último se incluyen los comandos que se van a ejecutar:
 
     - script: |
         npm install

@@ -35,20 +35,23 @@ A continuación se muestran los pasos seguidos para el despliegue con Azure.
 
 Para poder comenzar con el despliegue, es necesaria la instalación de Azure CLI, para ello, se sigue el siguiente procedimiento:
 
-- Obtenemos paquetes necesarios para el proceso de instalación:
-```shell
-$ sudo apt-get update
-$ sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
-```  
-- Descargamos e instalamos la clave de firma de Microsoft:  
-```shell
-$ curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
-```
-- Agregamos repositorio de software de la CLI de Azure:
-```shell
-$ AZ_REPO=$(lsb_release -cs) echo "deb [arch=amd64] https://packages.microsoft.com/reposazure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-```
-- Actualizamos información del repositorio e instalamos ```azure-cli```:
+> Esta parte es opcional:
+>
+>- Obtenemos paquetes necesarios para el proceso de instalación:
+>```shell
+>$ sudo apt-get update
+>$ sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
+>```  
+>- Descargamos e instalamos la clave de firma de Microsoft:  
+>```shell
+>$ curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
+>```
+>- Agregamos repositorio de software de la CLI de Azure:
+>```shell
+>$ AZ_REPO=$(lsb_release -cs) echo "deb [arch=amd64] https://packages.microsoft.com/reposazure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+>```
+
+- Actualizamos e instalamos ```azure-cli```:
 ```shell
 $ sudo apt-get update
 $ sudo apt-get install azure-cli
@@ -59,7 +62,7 @@ $ sudo apt-get install azure-cli
 <a name="cuenta"></a>
 
 
-Para continuar, ahora usamos el comando ```login``` y elegimos la cuenta con la que queremos trabajar. Una vez echo esto, en el terminal aparece la información asociada a dicha cuenta, por tanto, es importante comprobar que es correcta:
+Para continuar, usamos el comando ```login```, que abre una ventana del buscador por defecto y elegimos la cuenta con la que queremos trabajar. Una vez echo esto, en el terminal aparece la información en formato JSON asociada a dicha cuenta y a la subscriptción, por tanto, es importante comprobar que es correcta:
 ```JSON
 [
   {
@@ -82,11 +85,11 @@ Para continuar, ahora usamos el comando ```login``` y elegimos la cuenta con la 
 
 <a name="appserv"></a>
 
+Ahora vamos a proceder a usar Azure CLI que se ha instalado en el paso anterior para crear el Azure App Service para hostear el código de la aplicación.
 
 #### Resource Group
 
 <a name="g"></a>
-
 
 Primero creamos el grupo de recursos que es básicamente una colección de recursos de una aplicación en Azure:
 
@@ -94,9 +97,11 @@ Primero creamos el grupo de recursos que es básicamente una colección de recur
 $ az group create --name myResourceGroup --location westeurope
 ```
 
-Nuevamente obtenemos información para comprobar que se ha realizado con éxito lo que queríamos (ocurre lo mismo en los siguientes pasos).
+De esta forma estamos creando un grupo de recursos llamado ```myResourceGroup``` que está situado en Europa Oeste (```westeurope```).
 
-Este grupo podemos incluirlo como el grupo por defecto:
+Nuevamente obtenemos información en formato JSON con los detalles del grupo de recursos para comprobar que se ha realizado con éxito lo que queríamos (ocurre lo mismo en los siguientes pasos).
+
+Este grupo y su localización podemos incluirlos como valores por defecto:
 
 ```shell
 $ az configure --defaults gruop=myResourceGroup location=westeurope
@@ -106,19 +111,17 @@ $ az configure --defaults gruop=myResourceGroup location=westeurope
 
 <a name="p"></a>
 
-
-Lo creamos de la siguiente forma:
+Una vez tenemos el grupo de recursos pasamos a crear un plan de servicio de aplicaciones que defina la máquina virtual subyacente utilizada por el App Service. Lo hacemos de la siguiente forma:
 
 ```shell
 $ az appservice plan create -g myResourceGroup --name myPlan --sku F1
 ```
 
-Concretamente, con ```--sku F1``` especificamos un plan de hosting gratis.
+Concretamente, con ```--sku F1``` especificamos un plan de hosting gratis el cual usa una máquina virtual compartida y se ha llamado: ```myPlan```.
 
 #### Creación del App Service
 
 <a name="ap"></a>
-
 
 Ahora ya podemos pasar a crear el servicio de aplicaciones en sí, para ello recurrimos a:
 
@@ -126,9 +129,7 @@ Ahora ya podemos pasar a crear el servicio de aplicaciones en sí, para ello rec
 $ az webapp create --name vptournaments --plan myPlan -g myResourceGroup --runtime "node|10.15"
 ```
 
-He elegido la versión 10.15.0 de Node porque es la última con la que se puede trabajar en la plataforma.
-
-Además, en el package.json he incluido un apartado como el siguiente:
+He elegido la versión 10.15.0 de Node porque es la última con la que se puede trabajar en Heroku y como uso los dos PaaS lo he adaptado así, pues intenté usar la misma que tenía en el proyecto y no me lo permitió. Además, en el package.json he incluido un apartado como el siguiente para indicar la versión con la correrá la aplicación tanto en Heroku como en Azure:
 
 ```JSON
   "engines": {
@@ -142,24 +143,24 @@ Una vez llegados a este punto, ya podríamos ir al navegador a poner nuestro lin
 $ az webapp browse -g myResourceGroup --name vptournaments
 ```
 
-Aunque ahora mismo no veremos la funcionalidad de nuestro microservicio. Para poder hacer esto tenemos que continuar.
+Aunque ahora mismo, si accedemos a la URL no veremos más que una páquina de prueba y no la funcionalidad de nuestro microservicio. Para poder hacer esto tenemos que continuar con el despliegue del código del proyecto.
 
 #### Despligue de la aplicación en el App Service
 
 <a name="deploy"></a>
 
-Primero creamos un usuario de despliegue con el siguiente comando:
+En primera instancia, como ya tenemos creado nuestro repositorio de git con todo el código y la funcionalidad de la aplicación, podemos pasar directamente a crear un usuario de despliegue con el siguiente comando:
+
 ```shell
 $ az webapp deployment user set --user-name {your-username} --password {your-password}
 ```
-
-Y a continuación, ejecutamos este comando para recuperar el endpoint de Git del que insertamos el código de la aplicación:
+Y a continuación, ejecutamos este comando para indicar el endpoint de Git en el que queremos insertar el código de la aplicación:
 
 ```shell
 $ az webapp deployment source config-local-git --name vptournaments -g myResourceGroup
 ```
 
-Que nos devolverá la siguiente información:
+La ejecución de este comando nos devolverá la siguiente información:
 
 ```JSON
 {
@@ -167,7 +168,7 @@ Que nos devolverá la siguiente información:
 }
 ```
 
-Dicha información la utilizamos para establecer el nuevo repositorio remoto de Git llamado ```azure```:
+Dicha información, que es la URL del repositorio remoto de azure con el que trabajaremos, la utilizamos para añadirlo llamándolo ```azure```:
 
 ```shell
 $ git remote add azure https://praxedes@vptournaments.scm.azurewebsites.net/vptournaments.git
@@ -203,6 +204,5 @@ $ az webapp stop --name vptournaments -g myResourceGroup
 # Continuous deployment: GitHub
 
 <a name="git"></a>
-
 
 Aquí se encuentra el procedimiento seguido para habilitar el despliegue continuo: [Azure Continuous Deployment](https://pramartinez.github.io/IV_project/azure_continuous_deploy)
