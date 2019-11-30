@@ -18,7 +18,7 @@ A continuación se explica el procedimiento seguido para usar Docker en nuestro 
 
 Para comenzar, lo que tenemos que hacer es darnos de alta en la web de Docker Hub, pues lo necesitaremos para luego poder realizar el despliegue. Una vez hecho esto, vamos a crear un ```Dockerfile``` y un ```.dockerignore```.
 
-### Creación del *Dockerfile* y del *.dockerignore*
+## Creación del *Dockerfile* y del *.dockerignore*
 
 <a name="dockerfile"></a>
 
@@ -75,7 +75,7 @@ Para comenzar, lo que tenemos que hacer es darnos de alta en la web de Docker Hu
 	npm-debug.log
 	```   
 
-### Despliegue de imagen en Docker Hub
+## Despliegue de imagen en Docker Hub
 
 <a name="dockerhub"></a>
 
@@ -115,7 +115,7 @@ Entonces si pulsamos en ```Save and Build```, se procederá al despliegue:
 
 
 
-### Integración continua
+## Integración continua
 
 <a name="ci"></a>
 
@@ -132,7 +132,7 @@ Hemos conseguido realizar el despliegue, pero de la forma en que lo hemos hecho,
 	```  
 	Es decir, indicamos un apartado ```deploy``` para que se pueda testear este también. Dicho apartado contiene el comando que se ha de ejecutar para poder realizarlo. 
 	
-	#### docker_push
+	### docker_push
 	
 	<a name="dp"></a>
 
@@ -164,7 +164,7 @@ Como podemos ver, en el primer paso, se ha recurrido a las credenciales del usua
 Ahora ya tendríamos realizado correctamente nuestro despliegue en Docker Hub. Cada vez que hagamos ```push``` localmente en nuestro repositorio, se desplegará una imagen de la aplicación en Docker Hub **pasando previamente los tests de integración continua de Travis CI.**
 
 
-### Docker pull image
+## Docker pull image
 
 <a name="dpi"></a>
 
