@@ -121,15 +121,12 @@ Despliegue alternativo: https://vptournaments.herokuapp.com/
 
 <a name="docker"></a>
 
-
-### Documentación:
-
-- **[Docker y Docker Hub](https://pramartinez.github.io/IV_project/docker_steps).**
-
 Contenedor: https://vptournaments-docker.azurewebsites.net/
-
-- **[Docker image deployment on Azure](https://pramartinez.github.io/IV_project/docker_azure).**
 
 Contenedor alternativo: https://vptournaments.herokuapp.com/
 
+### Documentación:
+
+- **[Docker y Docker Hub](https://pramartinez.github.io/IV_project/docker_steps).**  
+- **[Docker image deployment on Azure](https://pramartinez.github.io/IV_project/docker_azure).** 
 - **[Docker image deployment on Heroku](https://pramartinez.github.io/IV_project/docker_heroku).**
