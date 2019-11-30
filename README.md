@@ -103,7 +103,7 @@ y para detenerlo:
 Despliegue: http://vptournaments.azurewebsites.net/
 
 - [Despliegue en Microsoft Azure.](https://pramartinez.github.io/IV_project/azure_deployment)
-- 
+
 - [Azure Continuous Deployment and Continuous Integration.](https://pramartinez.github.io/IV_project/azure_continuous_deploy)
 
 
