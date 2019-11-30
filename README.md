@@ -22,6 +22,8 @@ ___________________________________
   - [¿Cómo desplegamos localmente el microservicio?](#%c2%bfc%c3%b3mo-desplegamos-localmente-el-microservicio)
   - [Despliegue del microservicio en Azure](#despliegue-del-microservicio-en-azure)
   - [Despliegue del microservicio en Heroku](#despliegue-del-microservicio-en-heroku)
+  - [Usando contenedores para el microservicio](#usando-contenedores-para-el-microservicio)
+    - [Documentación:](#documentaci%c3%b3n)
 <!--te-->
 
 __________________________________________
@@ -126,7 +128,8 @@ Despliegue alternativo: https://vptournaments.herokuapp.com/
 
 Contenedor: https://vptournaments-docker.azurewebsites.net/
 
-- **[](https://pramartinez.github.io/IV_project/).**
+- **[Docker image deployment on Azure](https://pramartinez.github.io/IV_project/docker_azure).**
 
-Contenedor alternativo: 
-- **[](https://pramartinez.github.io/IV_project/).**
+Contenedor alternativo: https://vptournaments.herokuapp.com/
+
+- **[Docker image deployment on Heroku](https://pramartinez.github.io/IV_project/docker_heroku).**

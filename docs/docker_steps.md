@@ -56,8 +56,8 @@ Para comenzar, lo que tenemos que hacer es darnos de alta en la web de Docker Hu
 
 	- Indicamos entonces el puerto, usamos la variable de entorno ```PORT``` y ```EXPORSE```. Esta última instrucción sirve para informar a Docker de que el contenedor escucha en un puerto de red concreto durante la ejecución:
 		```bash
-		ENV PORT 8080
-		EXPOSE 8080
+		ENV PORT 3000
+		EXPOSE 3000
 		```
 
 	- Por último, especificamos el comando de despliegue de nuestro microservicio:

@@ -26,6 +26,6 @@ Una vez realizado el log in, ya nos indica que podemos hacer push a nuestro repo
 
 ![](images/dheroku2.png)
 
-Ahora nuestra aplicación se construirá. 
+Ahora nuestra aplicación se construirá y podremos acceder a ella en esta [URL](https://vptournaments.herokuapp.com/). 
 
 
