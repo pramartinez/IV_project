@@ -78,26 +78,36 @@ npm-debug.log
 Ahora lo que queremos es desplegar una imagen de nuestro microservicio en Docker Hub. Como se indica en la propia web de este, Docker Hub es el mayor repositorio del mundo de contendores de imágenes con una gran variedad de fuentes de contenido. Además, los usuarios de esta plataforma tienen acceso a repositorios gratuitos para así almacenar o incluso compartir sus imágenes. Como nostros también queremos ser parte de esta comunidad de usuarios, procedemos con los siguientes pasos para ello:
 
 - En primer lugar tenemos que tener una cuenta de Docker Hub como ya indicábamos anteriormente. Por tanto, iniciamos sesión y accedemos al apartado de ```Repositories```:  
-![](images/docker1.png){width=50%}  
+ 
+<img src="images/docker1.png" width="500" height="550" />
+
 
 - A continuación, tenemos que crear un repositorio de Docker Hub, para ello, pulsamos a ```Create Repository +```:  
-![](images/docker2.png){width=75%}  
+
+![](images/docker2.png) 
 
 - Tenemos que indicar el nombre del mismo y que es público:
-![](images/docker3.png){width=50%}
+
+<img src="images/docker3.png" width="500" height="550" />
+
 
 - Además, conectamos nuestra cuenta de GitHub:  
 ![](images/docker4.png){with=50%} 
 
 - Una vez creado, vemos lo siguiente en nuestro perfil de Docker Hub:  
-![](images/docker5.png){width=50%}
+
+![](images/docker5.png)
 
 
 Hasta ahora hemos conseguido crear el repositorio donde desplegaremos la imagen de nuestro microservicio. Entonces, lo que tenemos que hacer a continuación es acceder a la configuración de la construcción, es decir, a ```Build configurations```. Aquí, en el apartado de ```BUILD RULES``` especificamos cómo se va a construir nuestro recurso. Para ello, especificamos la rama (```master```), la etiqueta de Docker (```latest```), la localización del Dockerfile y, por último y muy importante, tenemos que marcar que se lleve acabo un ```Autobuild```. De esta forma conseguimos que, cada vez que hagamos ```push``` en nuestro repositorio del microservicio, se realice el despliegue de la imagen en Docker Hub:
-![](images/docker6.png){width=50%}
+
+<img src="images/docker6.png" width="500" height="550" />
+
 
 Entonces si pulsamos en ```Save and Build```, se procederá al despliegue:
-![](images/docker7.png){width=50%}
+
+<img src="images/docker7.png" width="500" height="550" />
+
 
 
 ### Integración continua:
@@ -133,7 +143,9 @@ Es decir, indicamos un apartado ```deploy``` para que se pueda testear este tamb
 	```
 
 Como podemos ver, en el primer paso, se ha recurrido a las credenciales del usuria pero mediante variables de entorno. Dichas variable tenemos que definirlas en la plataforma de Travis CI. Para esto tenemos que acceder a las opciones sobre ```Enviroment Variables``` e indicamos el nombre de dichas variables y su valor secreto:  
-![](images/travis.png){width=50%}
+
+<img src="images/travis.png" width="500" height="550" />
+
 
 Ahora y tendríamos realizado correctamente nuestro despliegue en Docker Hub. Cada vez que hagamos ```push``` localmente en nuestro repositorio, se desplegará una imagen de la aplicación en Docker Hub pasando previamente los tests de integración continua de Travis CI.
 
