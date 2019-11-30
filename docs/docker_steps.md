@@ -83,7 +83,7 @@ Ahora lo que queremos es desplegar una imagen de nuestro microservicio en Docker
 
 - En primer lugar tenemos que tener una cuenta de ```Docker Hub``` como ya indicábamos anteriormente. Por tanto, iniciamos sesión y accedemos al apartado de ```Repositories```:  
  
-<img src="images/docker1.png" width="500" height="550" />
+	<img src="images/docker1.png" width="500" height="550" />
 
 
 - A continuación, tenemos que crear un repositorio de ```Docker Hub```, para ello, pulsamos a ```Create Repository +```:  

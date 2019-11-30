@@ -10,7 +10,7 @@ Veamos el procedimiento seguido para el despliegue en Heroku de una imagen de Do
       web: Dockerfile
   ```
 
-Así estamos especificando que se habrá de construir una imagen de Docker para el proceso ```web```. Además podríamos usar un subapartado ```run``` si quisiéramos indicar un comando de arranque específico para este caso, pero como queremos que se ejecute el mismo que indicamos en el Dockerfile en su momento, no es necesario.  
+  Así estamos especificando que se habrá de construir una imagen de Docker para el proceso ```web```. Además podríamos usar un subapartado ```run``` si quisiéramos indicar un comando de arranque específico para este caso, pero como queremos que se ejecute el mismo que indicamos en el Dockerfile en su momento, no es necesario.  
 
 - Ahora tenemos que hacer un commit al repositorio para poder incluir este nuevo archivo. Justo después vamos a establecer la pila de nuestra aplicación en el contenedor:
 
