@@ -5,10 +5,11 @@ WORKDIR /vptournaments
 
 # Bundle app source
 COPY app ./app
-COPY app.js .
 COPY bin ./bin
 COPY routes ./routes
-COPY gulpfile.js ./
+COPY *.js ./
+COPY Procfile ./
+COPY *.yml ./
 
 # Install dependencies
 COPY package*.json ./
