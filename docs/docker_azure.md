@@ -7,12 +7,14 @@ La idea es que nuestra imagen de Docker de nuestro microservicio esté disponibl
 
 Tenemos que indicar que se publica desde un contenedorde Docker. Además, es importante crear otro plan de servicio de aplicaciones porque si no, nos da un fallo.
 
-- Luego indicamos la configuración de Docker:  
+- Luego indicamos la configuración de Docker rellenando los siguientes apartados:  
 ![](images/dazure2.png){width=50%}
-
 
 - Cuando todo esté listo le pulsamos a revisar y crear y veríamos que se comienza a realizar el despliegue. 
 ![](images/dazure3.png){width=50%}  
+
+- Es importante comprobar en la configuración del contenedor que está marcado el despliegue continuo:  
+![](images/dazure88.png)
 
 - Ya estaría realizado el despliegue completo:  
 ![](images/dazure5.png){width=50%}  
