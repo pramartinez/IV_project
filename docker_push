@@ -3,7 +3,7 @@
 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
 docker build -t pramartinez/vptournaments .
-docker tag vpt pramartinez/vptournaments
+docker tag vptournaments pramartinez/vptournaments:latest
 
 docker push pramartinez/vptournaments
 

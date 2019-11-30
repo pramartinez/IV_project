@@ -1,15 +1,12 @@
 # Deploy Docker container on Azure
 
-La idea es que nuestra imagen de Docker de nuestro microservicio esté disponible en la plataforma de Azure. Para poder conseguir tenemos que crear una nueva aplicación e indicar que queremos que se despliegue desde Docker Hub. Lo que ocurre es que esto tenemos que hacerlo a través del portal de Azure, así podremos especificar los datos sobre el contenedor de Docker. 
+La idea es que una imagen de Docker de nuestro microservicio esté disponible en la plataforma de Azure. Para poder conseguir esto empleando Docker Hub, donde desplegábamos la imagen de nuestro microservicio previamente, tenemos que hacerlo a través de la web de Azure. Además, para poder llevarlo a cabo indicando que el despliegue es desde nuestro contenedor, tenemos que crear una aplicación web de Azure desde cero. Los pasos seguidos para realizar todo eso han sido los siguientes:  
 
-- Primero tenemos que acceder al portal de Azure y crear una nueva aplicación rellenando los campos correspondientes: 
+- Primero tenemos que acceder al portal de Azure y crear una nueva aplicación rellenando los campos correspondientes. Tenemos que indicar que se publica desde un contenedor de Docker. Además, es importante crear otro plan de servicio de aplicaciones, si no nos dará un error.
 
 <img src="images/dazure1.png" width="500" height="550" />
 
-
-Tenemos que indicar que se publica desde un contenedorde Docker. Además, es importante crear otro plan de servicio de aplicaciones porque si no, nos da un fallo.
-
-- Luego indicamos la configuración de Docker rellenando los siguientes apartados:  
+- Luego indicamos la configuración de Docker rellenando los apartados que podemos ver en la siguiente figura e indicando que se trata de un contenedor único, que la imagen se encuentra en Docker Hub, que el acceso es público y, por último, la imagen a desplegar su etiqueta correspondiente:
 
 ![](images/dazure2.png)
 
@@ -17,7 +14,7 @@ Tenemos que indicar que se publica desde un contenedorde Docker. Además, es imp
 
 ![](images/dazure3.png)  
 
-- Es importante comprobar en la configuración del contenedor que está marcado el despliegue continuo:  
+- Es importante comprobar en la configuración del contenedor que está marcado el despliegue continuo. De esta forma conseguimos que, cada vez que hagamos ```push``` en nuestro repositorio del microservicio, se realice el despliegue automático de la imagen en Azure:
 
 ![](images/dazure88.png)
 
