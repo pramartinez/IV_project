@@ -9,6 +9,7 @@ ___________________________________
 - [Despliegue de imagen en Docker Hub](#dockerhub)
 - [Integración continua](#ci)
   - [docker_push](#dp)
+- [Docker pull image](#dpi)
 <!--te-->
 
 __________________________________________
@@ -87,20 +88,20 @@ Ahora lo que queremos es desplegar una imagen de nuestro microservicio en Docker
 
 - A continuación, tenemos que crear un repositorio de ```Docker Hub```, para ello, pulsamos a ```Create Repository +```:  
 
-![](images/docker2.png) 
+	![](images/docker2.png) 
 
 - Tenemos que indicar el nombre del mismo y que es público:
 
-<img src="images/docker3.png" width="500" height="550" />
+	<img src="images/docker3.png" width="500" height="550" />
 
 
 - Además, conectamos nuestra cuenta de GitHub:  
   
-![](images/docker4.png) 
+	![](images/docker4.png) 
 
 - Una vez creado, vemos lo siguiente en nuestro perfil de Docker Hub:  
 
-![](images/docker5.png)
+	![](images/docker5.png)
 
 
 Hasta ahora hemos conseguido crear el repositorio donde desplegaremos la imagen de nuestro microservicio. Entonces, lo que tenemos que hacer a continuación es acceder a la configuración de la construcción, es decir, a ```Build configurations```. Aquí, en el apartado de ```BUILD RULES``` especificamos cómo se va a construir nuestro recurso. Para ello, especificamos la rama (```master```), la etiqueta de Docker (```latest```), la localización del Dockerfile y, por último y muy importante, tenemos que marcar que se lleve acabo un ```Autobuild```. De esta forma conseguimos que, cada vez que hagamos ```push``` en nuestro repositorio del microservicio, se realice el despliegue de la imagen en Docker Hub:
@@ -163,3 +164,41 @@ Como podemos ver, en el primer paso, se ha recurrido a las credenciales del usua
 Ahora ya tendríamos realizado correctamente nuestro despliegue en Docker Hub. Cada vez que hagamos ```push``` localmente en nuestro repositorio, se desplegará una imagen de la aplicación en Docker Hub **pasando previamente los tests de integración continua de Travis CI.**
 
 
+### Docker pull image
+
+<a name="dpi"></a>
+
+
+Si queremos ahora descargar la imagen de Docker Hub, tenemos que recurrir al comando para obtener la última versión:
+
+```bash
+$ sudo docker pull pramartinez/vptournaments
+```
+Si yo, por ejemplo, lo ejecuto ocurre lo siguiente:
+
+```bash
+Using default tag: latest
+latest: Pulling from pramartinez/vptournaments
+844c33c7e6ea: Already exists 
+ada5d61ae65d: Already exists 
+f8427fdf4292: Already exists 
+f025bafc4ab8: Already exists 
+7a9577c07934: Already exists 
+9b4289f800f5: Already exists 
+9b8b4aee1f5f: Already exists 
+44594f2195cd: Already exists 
+b0d47c2d812b: Already exists 
+2600e4eb9f85: Pull complete 
+9ca17106a2b0: Pull complete 
+05358e23a1ca: Pull complete 
+eecf76ae0a1c: Pull complete 
+39f11b853b8f: Pull complete 
+dfc4542ae618: Pull complete 
+2f98ee6aebe3: Pull complete 
+5c24cb7821c1: Pull complete 
+723afb851ea3: Pull complete 
+e2d860c10b89: Pull complete 
+Digest: sha256:cb0049e98a5c05137b7d5799a80b3952433a66c2ab6ae46d62152ae99c4afa7b
+Status: Downloaded newer image for pramartinez/vptournaments:latest
+docker.io/pramartinez/vptournaments:latest
+```
