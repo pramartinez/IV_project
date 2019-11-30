@@ -3,7 +3,8 @@
 
 *Proyecto de la asignatura Infraestructura Virtual*
 
-[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v5.0.0-blue)](https://github.com/pramartinez/IV_project) [![Build Status](https://travis-ci.org/pramartinez/IV_project.svg?branch=master)](https://travis-ci.org/pramartinez/IV_project) [![Run Status](https://api.shippable.com/projects/5d9a289f029be100073e11e9/badge?branch=master)]() [![Build Status](https://dev.azure.com/pramtnez/VPTournaments/_apis/build/status/pramartinez.IV_project?branchName=master)](https://dev.azure.com/pramtnez/VPTournaments/_build/latest?definitionId=1&branchName=master) ![Heroku](https://pyheroku-badge.herokuapp.com/?app=vptournaments&style=plastic)
+[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v5.0.0-blue)](https://github.com/pramartinez/IV_project) [![Build Status](https://travis-ci.org/pramartinez/IV_project.svg?branch=master)](https://travis-ci.org/pramartinez/IV_project) [![Run Status](https://api.shippable.com/projects/5d9a289f029be100073e11e9/badge?branch=master)]() [![Build Status](https://dev.azure.com/pramtnez/VPTournaments/_apis/build/status/pramartinez.IV_project?branchName=master)](https://dev.azure.com/pramtnez/VPTournaments/_build/latest?definitionId=1&branchName=master) ![Heroku](https://pyheroku-badge.herokuapp.com/?app=vptournaments&style=plastic) ![Docker Hub](https://dockeri.co/image/pramartinez/vptournaments) 
+
 
 
 ___________________________________
