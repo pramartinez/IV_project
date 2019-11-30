@@ -16,6 +16,6 @@ RUN npm install
 # Install buildtool
 RUN npm install -g gulp
 
-ENV PORT 8080
-EXPOSE 8080
+ENV PORT 3000
+EXPOSE 3000
 CMD [ "gulp", "start" ]

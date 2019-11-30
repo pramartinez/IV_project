@@ -135,7 +135,6 @@ Es decir, indicamos un apartado ```deploy``` para que se pueda testear este tamb
 Como podemos ver, en el primer paso, se ha recurrido a las credenciales del usuria pero mediante variables de entorno. Dichas variable tenemos que definirlas en la plataforma de Travis CI. Para esto tenemos que acceder a las opciones sobre ```Enviroment Variables``` e indicamos el nombre de dichas variables y su valor secreto:  
 ![](images/travis.png){width=50%}
 
-
-Ahora y tendríamos realizado correctamente nuestro despliegue en Docker Hub. Cada vez que hagamos push localmente en nuestro repositorio, se desplegará una imagen de la aplicación en Docker Hub pasando previamente los tests de integración continua de Travis CI.
+Ahora y tendríamos realizado correctamente nuestro despliegue en Docker Hub. Cada vez que hagamos ```push``` localmente en nuestro repositorio, se desplegará una imagen de la aplicación en Docker Hub pasando previamente los tests de integración continua de Travis CI.
 
 
