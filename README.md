@@ -126,6 +126,8 @@ Contenedor: https://vptournaments-docker.azurewebsites.net/
 
 Contenedor alternativo: https://vptournaments.herokuapp.com/
 
+Docker Hub: https://hub.docker.com/r/pramartinez/vptournaments
+
 ### Documentación:
 
 - **[Docker y Docker Hub](https://pramartinez.github.io/IV_project/docker_steps).**  
