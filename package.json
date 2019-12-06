@@ -42,6 +42,7 @@
     "supertest": "^4.0.2"
   },
   "devDependencies": {
+    "coveralls": "^3.0.9"
   },
   "scripts": {
     "test": "node_modules/.bin/jest --verbose ../test",

@@ -22,3 +22,9 @@ deploy:
   script: bash docker_push
   on:
     branch: master
+
+jobs:
+  include:
+    - stage: Produce Coverage
+      node_js: node
+      script: ./node_modules/coveralls/bin/jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
