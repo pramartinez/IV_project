@@ -1,0 +1,51 @@
+---
+- hosts: all
+  #become: yes
+  tasks:
+    - name: Install Node.js
+      apt: name=nodejs state=present
+
+    - name: Install git
+      apt: name=git state=present
+
+    - name: Install npm
+      apt: name=npm state=present
+
+    - name: Install gulp
+      npm: name=gulp state=present path=./
+
+    #- name: Copy gulpfile
+    #  copy:
+    #    src: ../gulpfile.js
+    #    dest: ./gulpfile.js
+
+    #- name: Copy package
+    #copy:
+    #  src: ../package.json
+    #  dest: ./package.json
+    #
+    #- name: Run npm install
+    #  shell: npm install
+
+    #- name: Create user
+    #  user:
+    #    name: azure
+    #    # password: azure
+    #    state: present
+    #    shell: /bin/bash # Defaults to /bin/bash
+    #    system: no       # Defaults to no
+    #    createhome: yes  # Defaults to yes
+    #    home: /home/azure
+      
+    #- name: Add public key for created user
+    #  authorized_key:
+    #    user: azure
+    #    state: present
+    #    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    
+    #- name: Run gulp start
+    #  shell: node_modules/.bin/gulp start & 
+      
+    #- name: Install gulp globally
+    #  npm: name=gulp global=yes state=present
+

@@ -1,0 +1,5 @@
+all:
+    children:
+        azure:
+            hosts:
+                mypublicdns-vm.westeurope.cloudapp.azure.com:

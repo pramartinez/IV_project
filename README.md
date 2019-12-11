@@ -3,7 +3,7 @@
 
 *Proyecto de la asignatura Infraestructura Virtual*
 
-[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v6.0.0-blue)](https://github.com/pramartinez/IV_project) [![Build Status](https://travis-ci.org/pramartinez/IV_project.svg?branch=master)](https://travis-ci.org/pramartinez/IV_project) [![Run Status](https://api.shippable.com/projects/5d9a289f029be100073e11e9/badge?branch=master)]() [![Build Status](https://dev.azure.com/pramtnez/VPTournaments/_apis/build/status/pramartinez.IV_project?branchName=master)](https://dev.azure.com/pramtnez/VPTournaments/_build/latest?definitionId=1&branchName=master) [![Coverage Status](https://coveralls.io/repos/github/pramartinez/IV_project/badge.svg?branch=master)](https://coveralls.io/github/pramartinez/IV_project?branch=master) ![Heroku](https://pyheroku-badge.herokuapp.com/?app=vptournaments&style=plastic) ![Docker Hub](https://dockeri.co/image/pramartinez/vptournaments) 
+[![license](https://img.shields.io/badge/license-GPLv3-brightgreen)](https://www.gnu.org/licenses/gpl-3.0.html)   [![version](https://img.shields.io/badge/version-v6.0.0-blue)](https://github.com/pramartinez/IV_project) [![Build Status](https://travis-ci.org/pramartinez/IV_project.svg?branch=master)](https://travis-ci.org/pramartinez/IV_project) [![Run Status](https://api.shippable.com/projects/5d9a289f029be100073e11e9/badge?branch=master)]() [![Build Status](https://dev.azure.com/pramtnez/VPTournaments/_apis/build/status/pramartinez.IV_project?branchName=master)](https://dev.azure.com/pramtnez/VPTournaments/_build/latest?definitionId=1&branchName=master) <!--[![Coverage Status](https://coveralls.io/repos/github/pramartinez/IV_project/badge.svg?branch=master)](https://coveralls.io/github/pramartinez/IV_project?branch=master)--> ![Heroku](https://pyheroku-badge.herokuapp.com/?app=vptournaments&style=plastic) ![Docker Hub](https://dockeri.co/image/pramartinez/vptournaments) 
 
 
 
@@ -13,7 +13,7 @@ ___________________________________
 
 <!--ts-->
 - [VPTournaments](#vptournaments)
-  - [*Microservicio de gestión de torneos de voley playa*](#microservicio-de-gesti%c3%b3n-de-torneos-de-voley-playa)
+  - [Microservicio de gestión de torneos de voley playa](#microservicio-de-gesti%c3%b3n-de-torneos-de-voley-playa)
   - [¿Cuál es el objetivo de este proyecto VPTournaments?](#%c2%bfcu%c3%a1l-es-el-objetivo-de-este-proyecto-vptournaments)
   - [¿Qué herramientas y servicios se usarán?](#%c2%bfqu%c3%a9-herramientas-y-servicios-se-usar%c3%a1n)
   - [¿Cómo funciona la clase principal del proyecto?](#%c2%bfc%c3%b3mo-funciona-la-clase-principal-del-proyecto)
@@ -24,7 +24,8 @@ ___________________________________
   - [Despliegue del microservicio en Azure](#despliegue-del-microservicio-en-azure)
   - [Despliegue del microservicio en Heroku](#despliegue-del-microservicio-en-heroku)
   - [Usando contenedores para el microservicio](#usando-contenedores-para-el-microservicio)
-    - [Documentación:](#documentaci%c3%b3n)
+  - [Creación, levantamiento y provisión de máquinas virtuales](#creaci%c3%b3n-levantamiento-y-provisi%c3%b3n-de-m%c3%a1quinas-virtuales)
+    - [Documentación](#documentaci%c3%b3n)
 <!--te-->
 
 __________________________________________
@@ -128,8 +129,21 @@ Contenedor alternativo: https://vptournaments.herokuapp.com/
 
 Docker Hub: https://hub.docker.com/r/pramartinez/vptournaments
 
-### Documentación:
+- [Docker y Docker Hub](https://pramartinez.github.io/IV_project/docker_steps).  
+- [Docker image deployment on Azure](https://pramartinez.github.io/IV_project/docker_azure). 
+- [Docker image deployment on Heroku](https://pramartinez.github.io/IV_project/docker_heroku).
 
-- **[Docker y Docker Hub](https://pramartinez.github.io/IV_project/docker_steps).**  
-- **[Docker image deployment on Azure](https://pramartinez.github.io/IV_project/docker_azure).** 
-- **[Docker image deployment on Heroku](https://pramartinez.github.io/IV_project/docker_heroku).**
+## Creación, levantamiento y provisión de máquinas virtuales
+
+provision: provision/myplaybook.yml
+
+Podemos usar el siguiente comando para invocar al gestor de tareas y realizar la provisión:
+
+```bash
+$ gulp provision
+```
+
+### Documentación
+
+- **[Creación y levantamiento de máquinas virtuales con Azure](https://pramartinez.github.io/IV_project/vm_creation).**  
+- **[Provisionamiento con Ansible y configurando Gulp](https://pramartinez.github.io/IV_project/ansible_doc).**  

@@ -45,3 +45,22 @@ gulp.task('redoc', function(done) {
     config: "./"}, 
     done);
 });
+
+// Tarea para levantar la MV
+gulp.task('up', function(done) {
+  exec( 'vagrant up --no-provision', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    done(err);
+  });
+});
+
+// Tarea para provisionar la MV
+gulp.task('provision', function(done) {
+  exec( 'ansible-playbook provision/myplaybook.yml', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    done(err);
+  });
+});
+

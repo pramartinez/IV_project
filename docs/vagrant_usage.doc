@@ -1,0 +1,147 @@
+## Crear una máquina virtual con Vagrant
+
+Para poder crear máquinas virtuales de forma automatizada, necesitamos crear un **Vagrantfile**. Este archivo se encarga de describir el tipo de máquinas que requerimos para nuestro proyecto y cómo configurarlas y provisionarlas. 
+
+Los criterios para elegir correctamente una Vagrant Box son los siguientes: es bastante recomendable que el nombre de usuario sea conocido, como por ejemplo *ubuntu*, ya que es más fiable que uno desconocido. El número de descargas es muy importante, boxes descargadas en gran cantidad de veces tienden a ser examinadas con mayor frecuencia por miembros de la comunidad. También es importante comprobar la fecha de lanzamiento puesto que aquellas que se actualizan de forma periódica tendrán un software más al día. Por útlimo, otro detalle importate es la disponibilidad de la descarga, es decir, si es publicamente accesible. Podemos encontrar las Vagrant Boxes disponibles en el [este enlace](https://app.vagrantup.com/boxes/search?provider=virtualbox).
+
+Teniendo en cuenta todos estos aspectos, he decidido utilizar la siguiente Vagrant Box: ```ubuntu/trusty64```. Es la que más descargas tiene, es de ubuntu, el último lanzamiento fue hace un mes...
+
+![ubuntu/trusty64](images/vagrantbox.png)
+
+Veamos como se ha configurado el ***Vagrantfile*** con esta decisión y las próximas que tomaremos:
+
+  1. En primer lugar tenemos que indicar las siguientes líneas que son las que necesitamos para poder empezar a hacer cualquier cosa:  
+      ```Vagrantfile
+      VAGRANTFILE_API_VERSION="2"
+
+      Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+      ```
+   
+
+  2. Ahora tenemos que indicar la box de Vagrant elegida:  
+      ```Vagrantfile
+      config.vm.define = "vagrant-vm"
+      config.vm.box = "ubuntu/trusty64"
+      ```
+   
+  3. Indicamos el provider de la máquina virtual, que en este caso va a ser VirtualBox ya que es el que se usa por defecto y además es gratis en todas las plataformas. Indicamos la memoria que queremos que tenga y podríamos indicar otras características como, por ejemplo, el número de cpus.  
+      ```Vagrantfile 
+      config.vm.provider "virtualbox" do |v|
+          v.memory = 2048
+      end
+      ```
+
+  4. Ahora podemos indicar la herramienta de provisionamiento para nuestra máquina virtual de Vagrant. En nuestro caso hemos elegido Ansible. Tenemos que indicar el *playbook* indicado y previamente creado para la ocasión:  
+      ```Vagrantfile
+      config.vm.provision "ansible" do |ansible|
+        ansible.playbook = "provision/myplaybook.yml"
+      end
+      ```
+
+
+
+
+__________
+
+Fuentes: [[1]](https://www.vagrantup.com/docs/vagrantfile/) [[2]](http://minimum-viable-automation.com/vagrant/setup-simple-vagrant-box-ansible-examples/#Getting_Started)
+
+
+vagrant plugin install libvirt
+
+
+https://github.com/Azure/vagrant-azure
+
+0742ef1e-9172-4d37-a4e0-9ff6ab96659e
+export AZURE_SUBSCRIPTION_ID="0742ef1e-9172-4d37-a4e0-9ff6ab96659e"
+export AZURE_TENANT_ID="c7a95d24-50ff-4804-ad9a-e4cba81ad10b"
+export AZURE_CLIENT_ID="04b07795-8ddb-461a-bbee-02f9e1bf7b46"
+
+
+https://github.com/terceranexus6/copylazyjacker
+
+
+
+For deployment using virtual machine, I will be configuring vagrant and Azure-cli.
+
+First of all I have to register in azure. Once it's done, I install vagrant:
+
+sudo apt-get install vagrant
+
+After installing vagrant, I install the azure-cli plugin for vagrant:
+
+vagrant box add azure https://github.com/azure/vagrant-azure/raw/v2.0/dummy.box --provider azure vagrant plugin install vagrant-azure
+
+Now I logged in in azure using:
+
+az login
+
+I initialize vagrant using:
+
+vagrant init ubuntu/xenial64
+
+Now I create the azure app:
+
+az ad sp create-for-rbac --name {appName} --password "{strong password}"
+
+If permmision error appears, check in the azure platform for the permmision settings, as specified in here.
+
+Once it's done, we look for the subscription id here:
+
+az account list --output table
+
+now we export to the Vagrantfile the login data using:
+
+export AZURE_TENANT_ID={tenant id}
+export AZURE_CLIENT_ID={AppId}
+export AZURE_SUBSCRIPTION_ID={subscription id}
+export AZURE_CLIENT_SECRET={strong password}
+Apart form other details of the VM configuration. When it's done:
+
+vagrant up --provider=azure
+
+Now we wanted to use Ansible and Fabric, what do we need to change?
+
+In the Vagrantfile we add:
+
+config.vm.provision "ansible" do |ansible|
+  ansible.become = true
+  ansible.verbose = "v"
+  ansible.playbook = "playbook.yml"
+  ansible.groups = {
+    "app" => ["104.42.15.162"]
+  }
+end
+And we write the playbook.yml. I decided to add the update, git and python installation in the playbook so not needed to rewrite it in the Fabric file fabfile.py, in which I included install, update and start app.
+
+Despliegue final: lazyjacker.westus.cloudapp.azure.com/status
+
+
+
+_________________________
+praxedes@praxedes-OMEN:~/Documents/ETSIIT/cuarto_curso/IV/IV_project$ vagrant init ubuntu/bionic64
+A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.
+
+praxedes@praxedes-OMEN:~/Documents/ETSIIT/cuarto_curso/IV/IV_project$ az ad sp create-for-rbac --name VPT-vm 
+Changing "VPT-vm" to a valid URI of "http://VPT-vm", which is the required format used for service principal names
+Creating a role assignment under the scope of "/subscriptions/0742ef1e-9172-4d37-a4e0-9ff6ab96659e"
+  Retrying role assignment creation: 1/36
+  Retrying role assignment creation: 2/36
+{
+  "appId": "518f9d83-efda-4975-a32c-453c817082cc",
+  "displayName": "VPT-vm",
+  "name": "http://VPT-vm",
+  "password": "c9399600-4aa2-42df-a04f-b45befa3522c",
+  "tenant": "c7a95d24-50ff-4804-ad9a-e4cba81ad10b"
+}
+praxedes@praxedes-OMEN:~/Documents/ETSIIT/cuarto_curso/IV/IV_project$ az account list --output table
+Name                    CloudName    SubscriptionId                        State    IsDefault
+----------------------  -----------  ------------------------------------  -------  -----------
+Azure para estudiantes  AzureCloud   0742ef1e-9172-4d37-a4e0-9ff6ab96659e  Enabled  True
+praxedes@praxedes-OMEN:~/Documents/ETSIIT/cuarto_curso/IV/IV_project$ 
+
+
+
+az vm list-skus -l westeurope --output table

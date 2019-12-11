@@ -1,0 +1,72 @@
+# Usando Ansible para provisionamiento
+
+Una vez instalado Ansible, tenemos que configurarlo incluyendo un archivo ```ansible.cfg``` con el siguiente contenido:
+
+```conf
+[defaults]
+# Permite que la conexión con nuevas máquinas virtuales por ssh no pregunte si se acepta
+# la clave nueva de una MAC detectada
+host_key_checking = False
+# Indica dónde se va a encontrar, por omisión, el fichero de inventario
+inventory = ./ansible_hosts
+```
+
+También tenemos que incluir en el inventario ```ansible_hosts``` qué hosts van a ser provisionados:
+
+```bash
+[azure]
+mypublicdns-vm.westeurope.cloudapp.azure.com
+
+[azure_simple]
+52.232.98.103
+```
+
+Como vemos, para la primera máquina, como nos preocupamos de estabelecer cada uno de los parámetros sobre el grupo de recursos, la conexión de red, el DNS... pues podemos acceder a ella por su URL. Sin embargo, para la segunda más simple, accedemos con su IP obtenida con Azure. También es cierto que podemos modificar esto y crear un alias DNS como hemos realizado para la otra máquina. 
+
+Por último, creamos un *playbook* indicando todo aquello que queremos que tengan las máquinas virtuales a provisionar:
+
+```yml
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install Node.js
+      apt: name=nodejs state=present
+
+    - name: Install git
+      apt: name=git state=present
+
+    - name: Install npm
+      apt: name=npm state=present
+
+    - name: Install gulp
+      npm: name=gulp state=present path=./
+
+    - name: Create user
+      user:
+        name: azure
+        # password: azure
+        state: present
+        shell: /bin/bash # Defaults to /bin/bash
+        system: no       # Defaults to no
+        createhome: yes  # Defaults to yes
+        home: /home/azure
+      
+    - name: Add public key for created user
+      authorized_key:
+        user: azure
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+```
+
+name: Set the username (the primary group they belong to will be the same).
+password: Set their password, we'll cover how this works in a minute.
+groups: Assign secondary groups. Here we add this user to groups "docker" and "sudo" (group sudo allows the user to run sudo commands on Ubuntu and Debian linux).
+state: Tell ansible we want the user to exist.
+shell: You can define any shell. The default is /bin/bash. I just re-iterate the default here.
+system: Set this to "yes" to make it a system user. No shell or home directory will be made unless specified otherwise.
+createhome: Yes to create a home directory, no to not create one
+home: If you don't want to use the default location, set it here
+
+________
+
+Fuentes: [[1]](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html) [[2]](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html) [[3]](https://docs.microsoft.com/es-es/azure/virtual-machines/linux/ansible-manage-linux-vm) [[4]](https://www.djouxtech.net/posts/install-vector-with-ansible/) [[5]](https://docs.ansible.com/ansible/latest/modules/copy_module.html) [[6]](https://serversforhackers.com/c/create-user-in-ansible) [[7]](https://docs.ansible.com/ansible/latest/modules/authorized_key_module.html)
