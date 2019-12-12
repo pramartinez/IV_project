@@ -23,7 +23,13 @@ Veamos como se ha configurado el ***Vagrantfile*** con esta decisión y las pró
       config.vm.define "VPTournamets"
       config.vm.box = "ubuntu/bionic64"
       ```  
-        En este ejemplo, vamos a crear una máquina virtual con Ubuntu basada en la LTS más reciente, esto lo he decidido así porque siempre es importante trabajar con una versión estable y más si esta se encuentra en su última actualización.
+        #### Elección de SO
+        En este ejemplo, vamos a crear una máquina virtual con Ubuntu basada en la LTS más reciente, esto lo he decidido así porque siempre es importante trabajar con una versión estable y más si esta se encuentra en su última actualización. Prestaciones de Ubuntu 18.04 LTS Bionic Beaver:  
+            - Cuenta con la última versión de GNOME (v3.28).  
+            - Mejor velocidad de arranque.  
+            - Opción de instalación mínima nueva incorporada.  
+            - Kernel 4.15.  
+            - Xorg por defecto.  
   
   3. Indicamos que no queremos que se actualice de forma automática, ya que nos interesará más hacerlo de forma manual cuando queramos hacerlo específicamente:
       ```javascript
