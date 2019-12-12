@@ -150,7 +150,7 @@ $ gulp provision_ansible
 
 #### Documentación  
 - **[Creación y levantamiento de máquinas virtuales con Azure](https://pramartinez.github.io/IV_project/vm_creation).**   
-- **[Provisionamiento con Ansible y configurando Gulp](https://pramartinez.github.io/IV_project/ansible_doc).**  
+- **[Provisionamiento con Ansible y configuración de Gulp](https://pramartinez.github.io/IV_project/ansible_doc).**  
 
 ### Creación, levantamiento de VMs con Vagrant + Aprovisionamiento con Ansible
 

@@ -22,7 +22,8 @@ Veamos como se ha configurado el ***Vagrantfile*** con esta decisión y las pró
       ```javascript
       config.vm.define "VPTournamets"
       config.vm.box = "ubuntu/bionic64"
-      ```
+      ```  
+        En este ejemplo, vamos a crear una máquina virtual con Ubuntu basada en la LTS más reciente, esto lo he decidido así porque siempre es importante trabajar con una versión estable y más si esta se encuentra en su última actualización.
   
   3. Indicamos que no queremos que se actualice de forma automática, ya que nos interesará más hacerlo de forma manual cuando queramos hacerlo específicamente:
       ```javascript
@@ -79,7 +80,7 @@ Se han incluido las siguientes dos nuevas tareas en el ```gulpfile.js```:
 Para esto, necesitamos ejecutar el siguiente comando en la línea de órdenes:
 
 ```javascript
-$ vagrant package --output gymmanager.box
+$ vagrant package --output vptournaments.box
 ```
 
 Y vemos que ocurre lo siguiente:
