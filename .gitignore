@@ -104,4 +104,4 @@ boxes/*
 
 vagran_hosts
 inventory.yml
-Vagrantfile_azure
+Vagranfile_azure
