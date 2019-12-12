@@ -9,7 +9,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.provider "virtualbox" do |vptournaments|
     vptournaments.memory = "1024"
-    # Hacemos que no se active la interfaz gráfica
     vptournaments.gui = false
     vptournaments.cpus=2
   end
