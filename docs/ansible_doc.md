@@ -40,6 +40,10 @@ Por último, creamos un *playbook* indicando todo aquello que queremos que tenga
 - hosts: all
   become: yes
   tasks:
+    - name: Actualiza lista de paquetes apt
+      apt:
+        update_cache: yes
+
     - name: Install Node.js
       apt: name=nodejs state=present
 
@@ -53,7 +57,7 @@ Por último, creamos un *playbook* indicando todo aquello que queremos que tenga
       npm: name=gulp state=present path=./
 ```
 
-Como vemos, estamos indicando que queremos provisionar todos los hosts del inventario con ```host: all```. Luego, declaramos las tareas, cada una implica (en este caso) la instalación de una herramienta o servicio: node.js, que es el lenguaje a emplear, git, npm y gulp. Como estas instalaciones no deben de darnos problemas ya que se realizan recurriendo a ```apt``` y ```npm```, podemos indicar ```become: yes``` de forma segura. Con esto lo que hacemos es permitir ejecutar dichas tareas con privilegios de root o con los permisos de otro usuario. Es importante saber distinguir entre las tareas que de verdad necesitan privilegios y aquellas que no necesitan, sobre todo por seguridad. 
+Como vemos, estamos indicando que queremos provisionar todos los hosts del inventario con ```host: all```. Luego, declaramos las tareas, cada una implica (en este caso) la instalación de una herramienta o servicio: node.js, que es el lenguaje a emplear, git, npm y gulp; excepto la primera, que se emplea para actualizar los paquetes antes de mencionadas instalaciones. Como estas no deben de darnos problemas ya que se realizan recurriendo a ```apt``` y ```npm```, podemos indicar ```become: yes``` de forma segura, además de que lo necesitamos sí o sí para realizar estas tasks. Con esto lo que hacemos es permitir ejecutar dichas tareas con privilegios de root o con los permisos de otro usuario. Es importante saber distinguir entre las tareas que de verdad necesitan privilegios y aquellas que no necesitan, sobre todo por seguridad. 
 
 Por otro lado, vemos todas las tareas consisten en instalaciones. En cada caso indicamos qué gestor de paquetes queremos emplear para dicha instalación; luego añadimos qué es lo que queremos instalar con ```name=``` y, por último, se incluye ```state=present``` para señalar que dicho paquete a instalar tiene que estar presente. A diferencia del resto, para poder instalar gulp de forma local, indicamos la ruta donde queremos alojarlo, ```path=```.
 
@@ -65,7 +69,7 @@ Una vez tenemos Ansible configurado. Lo siguiente sería configurar nuestro gest
 
 ```javascript
 // Tarea para provisionar la MV
-gulp.task('provision', function(done) {
+gulp.task('provision_ansible', function(done) {
   exec( 'ansible-playbook provision/myplaybook.yml', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);

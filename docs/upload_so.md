@@ -1,0 +1,1 @@
+https://app.vagrantup.com/praxedes/boxes/vm-azure-iv/versions/0.0.1

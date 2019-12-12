@@ -24,8 +24,11 @@ ___________________________________
   - [Despliegue del microservicio en Azure](#despliegue-del-microservicio-en-azure)
   - [Despliegue del microservicio en Heroku](#despliegue-del-microservicio-en-heroku)
   - [Usando contenedores para el microservicio](#usando-contenedores-para-el-microservicio)
-  - [Creación, levantamiento y provisión de máquinas virtuales](#creaci%c3%b3n-levantamiento-y-provisi%c3%b3n-de-m%c3%a1quinas-virtuales)
-    - [Documentación](#documentaci%c3%b3n)
+  - [Creación, levantamiento y aprovisionamiento de máquinas virtuales](#creaci%c3%b3n-levantamiento-y-aprovisionamiento-de-m%c3%a1quinas-virtuales)
+    - [Creación, levantamiento de VMs con Azure + Aprovisionamiento con Ansible](#creaci%c3%b3n-levantamiento-de-vms-con-azure--aprovisionamiento-con-ansible)
+      - [Documentación](#documentaci%c3%b3n)
+    - [Creación, levantamiento de VMs con Vagrant + Aprovisionamiento con Ansible](#creaci%c3%b3n-levantamiento-de-vms-con-vagrant--aprovisionamiento-con-ansible)
+      - [Documentación](#documentaci%c3%b3n-1)
 <!--te-->
 
 __________________________________________
@@ -133,17 +136,40 @@ Docker Hub: https://hub.docker.com/r/pramartinez/vptournaments
 - [Docker image deployment on Azure](https://pramartinez.github.io/IV_project/docker_azure). 
 - [Docker image deployment on Heroku](https://pramartinez.github.io/IV_project/docker_heroku).
 
-## Creación, levantamiento y provisión de máquinas virtuales
+## Creación, levantamiento y aprovisionamiento de máquinas virtuales
 
 provision: provision/myplaybook.yml
 
+### Creación, levantamiento de VMs con Azure + Aprovisionamiento con Ansible
+
 Podemos usar el siguiente comando para invocar al gestor de tareas y realizar la provisión:
+
+```bash
+$ gulp provision_ansible
+```
+
+#### Documentación  
+- **[Creación y levantamiento de máquinas virtuales con Azure](https://pramartinez.github.io/IV_project/vm_creation).**   
+- **[Provisionamiento con Ansible y configurando Gulp](https://pramartinez.github.io/IV_project/ansible_doc).**  
+
+### Creación, levantamiento de VMs con Vagrant + Aprovisionamiento con Ansible
+
+**Vagrant Box on Vagrant Cloud:** [praxedes/VPTournaments Vagrant Box](https://app.vagrantup.com/praxedes/boxes/VPTournaments)
+
+Mediante el siguiente comando, levantamos la máquina virtual:
+
+```bash
+$ gulp up
+```
+
+Podemos usar el siguiente comando para invocar al gestor de tareas y realizar la provisión (se hace a través de Vagrant):
 
 ```bash
 $ gulp provision
 ```
 
-### Documentación
+#### Documentación
+- **[Creación y levantamiento de máquinas virtuales con Vagrant + Aprovisionamiento con Ansible + Configuración del gestor de tareas Gulp](https://pramartinez.github.io/IV_project/vm_creation).**   
 
-- **[Creación y levantamiento de máquinas virtuales con Azure](https://pramartinez.github.io/IV_project/vm_creation).**  
-- **[Provisionamiento con Ansible y configurando Gulp](https://pramartinez.github.io/IV_project/ansible_doc).**  
+
+

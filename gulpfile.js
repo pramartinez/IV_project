@@ -54,9 +54,18 @@ gulp.task('up', function(done) {
     done(err);
   });
 });
-
-// Tarea para provisionar la MV
+ 
+// Tarea para provisionar la MV a través de vagrant
 gulp.task('provision', function(done) {
+  exec( 'vagrant provision', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    done(err);
+  });
+});
+
+// Tarea para provisionar la MV con ansible
+gulp.task('provision_ansible', function(done) {
   exec( 'ansible-playbook provision/myplaybook.yml', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
