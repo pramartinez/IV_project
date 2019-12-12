@@ -169,7 +169,7 @@ $ gulp provision
 ```
 
 #### Documentación
-- **[Creación y levantamiento de máquinas virtuales con Vagrant + Aprovisionamiento con Ansible + Configuración del gestor de tareas Gulp](https://pramartinez.github.io/IV_project/vm_creation).**   
+- **[Creación y levantamiento de máquinas virtuales con Vagrant + Aprovisionamiento con Ansible + Configuración del gestor de tareas Gulp](https://pramartinez.github.io/IV_project/vagrant_doc).**   
 
 
 
