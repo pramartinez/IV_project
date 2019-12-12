@@ -6,7 +6,7 @@ Para poder crear máquinas virtuales de forma automatizada, necesitamos crear un
 
 Los criterios para elegir correctamente una Vagrant Box son los siguientes: es bastante recomendable que el nombre de usuario sea conocido, como por ejemplo *ubuntu*, ya que es más fiable que uno desconocido. El número de descargas es muy importante, boxes descargadas en gran cantidad de veces tienden a ser examinadas con mayor frecuencia por miembros de la comunidad. También es importante comprobar la fecha de lanzamiento puesto que aquellas que se actualizan de forma periódica tendrán un software más al día. Por útlimo, otro detalle importate es la disponibilidad de la descarga, es decir, si es publicamente accesible. Podemos encontrar las Vagrant Boxes disponibles en el [este enlace](https://app.vagrantup.com/boxes/search?provider=virtualbox).
 
-Teniendo en cuenta todos estos aspectos, he decidido utilizar la siguiente Vagrant Box: ```ubuntu/bionic```.
+Teniendo en cuenta todos estos aspectos, he decidido utilizar la siguiente Vagrant Box: ```ubuntu/bionic64```.
 
 Veamos como se ha configurado el ***Vagrantfile*** con esta decisión y las próximas que tomaremos:
 
