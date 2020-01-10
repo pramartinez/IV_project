@@ -176,7 +176,7 @@ $ gulp provision
 
 ## Despliegue final
 
-Despliegue final: 137.117.141.136:3000
+Despliegue final: 104.40.177.179:3000
 
 Para realizar levantamiento, aprovisionamiento y despliegue:
 
@@ -184,7 +184,7 @@ Para realizar levantamiento, aprovisionamiento y despliegue:
 $ gulp fullup
 ```
 
-Para hacer primer el levantamiento y luego el aprovisionamiento y despligue:
+Para hacer primero el levantamiento y luego el aprovisionamiento y despliegue:
 
 ```bash
 $ gulp up

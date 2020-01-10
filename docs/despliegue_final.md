@@ -17,7 +17,7 @@ $ az group create -l westeurope -n srcgroup-vpt
   },
   "tags": null,
   "type": "Microsoft.Resources/resourceGroups"
-}
+
 ```
 
 Hemos indicado la localización y el nombre deseados. Esta información la necesitamos para incluirla en el Vagrantfile y, entonces, levantar la máquina virtual. 
@@ -64,10 +64,10 @@ Vagrant.configure("2") do |config|
   # EL provider es Azure
   config.vm.provider "azure" do |vm, override|
     # Indicamos la siguiente información para poder continuar con el levantamiento
-    vm.tenant_id="c7a95d24-50ff-4804-ad9a-e4cba81ad10b"
-    vm.client_id="4bcf38d7-65fb-4ddf-883a-5bad5f71e054"
-    vm.subscription_id="0742ef1e-9172-4d37-a4e0-9ff6ab96659e"
-    vm.client_secret="e344b007-b0db-4228-85d2-91c97f523472"
+    vm.tenant_id = ENV['AZURE_TENANT_ID']
+    vm.client_id = ENV['AZURE_CLIENT_ID']
+    vm.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+    vm.client_secret = ENV['AZURE_CLIENT_SECRET']
 
     # Nombre de la máquina virtual
     vm.vm_name = "vpt"
@@ -84,7 +84,7 @@ Vagrant.configure("2") do |config|
     
   end
 
-  # La provisión se realiza con Ansible
+  # El aprovisionamiento se realiza con Ansible
   config.vm.provision "ansible" do |ansible|
     # Indicamos cuál es el playbook
     ansible.playbook = "despliegue/AZplaybook.yml"
@@ -93,7 +93,7 @@ end
 
 ```
 
-### Levantamos la máquina sin aprovisionarla recurriendo a vagrant (luego usaremos gulp) para probar que todo es correcto:
+### Levantamos la máquina sin aprovisionarla recurriendo a *Vagrant* (luego usaremos gulp) para probar que todo es correcto:
 
 ```bash
 $ vagrant up --no-provision
@@ -105,17 +105,16 @@ Bringing machine 'vptournaments-vm' up with 'azure' provider...
 ==> vptournaments-vm:  -- Resource Group Name: srcgroup-vpt
 ==> vptournaments-vm:  -- Location: westeurope
 ==> vptournaments-vm:  -- Admin Username: vagrant
-==> vptournaments-vm:  -- VM Name: vpt
+==> vptournaments-vm:  -- VM Name: vm-vpt
 ==> vptournaments-vm:  -- VM Storage Account Type: Premium_LRS
 ==> vptournaments-vm:  -- VM Size: Standard_B1s
 ==> vptournaments-vm:  -- Image URN: Canonical:UbuntuServer:18.04-LTS:latest
-==> vptournaments-vm:  -- TCP Endpoints: 80
-==> vptournaments-vm:  -- DNS Label Prefix: vpt
+==> vptournaments-vm:  -- TCP Endpoints: 3000
+==> vptournaments-vm:  -- DNS Label Prefix: vm-vpt
 ==> vptournaments-vm:  -- Create or Update of Resource Group: srcgroup-vpt
 ==> vptournaments-vm:  -- Starting deployment
 ==> vptournaments-vm:  -- Finished deploying
 ==> vptournaments-vm: Waiting for SSH to become available...
-Enter passphrase for /home/praxedes/.ssh/id_rsa:
 ==> vptournaments-vm: Machine is booted and ready for use!
 ==> vptournaments-vm: Rsyncing folder: /home/praxedes/Documents/ETSIIT/cuarto_curso/IV/IV_project/ => /vagrant
 ==> vptournaments-vm: Machine not provisioned because `--no-provision` is specified.
@@ -151,7 +150,7 @@ vagrant@vpt:~$
 
 Podemos comprobar que ha sido satisfactoria la prueba, ahora sí que podemos pasar a aprovisionarla. 
 
-### Provisionamos la mv con vagrant (finalmente se crearán nuevas tareas para que podramos realizar todo esto con Gulp):
+### Aprovisionamos la mv con vagrant (finalmente se crearán nuevas tareas para que podramos realizar todo esto con Gulp):
 
 ```bash
 $ vagrant provision
@@ -185,7 +184,7 @@ ok: [vptournaments-vm]
 TASK [Create user] *************************************************************
 ok: [vptournaments-vm]
 
-TASK [Add public key for created user] *****************************************
+TASK [Add public key for 'azure' user] *****************************************
 ok: [vptournaments-vm]
 
 TASK [Clone GitHub repository] *************************************************
@@ -194,14 +193,14 @@ ok: [vptournaments-vm]
 TASK [Install packages based on package.json] **********************************
 ok: [vptournaments-vm]
 
-TASK [Install gulp] ************************************************************
+TASK [Install gulp locally] ****************************************************
 ok: [vptournaments-vm]
 
 TASK [Run gulp start] **********************************************************
 changed: [vptournaments-vm]
 
 PLAY RECAP *********************************************************************
-vptournaments-vm           : ok=11   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0     
+vptournaments-vm           : ok=11   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0       
 ```
 
 El aprovisionamiento también ha sido satisfactorio. Como vemos hay muchos casos en los que se indica ```ok: [vptournaments-vm]```, esto es debido a que la máquina ya se había aprovisionado de ello porque no es la primera vez que lo he ejecutado. Sin embargo, cuando se indica ```changed: [vptournaments-vm]```, significa que se ha producido un cambio en la máquina virtual, es decir, que no se había realizado esa tarea aún o que se ha modificado. 
@@ -211,26 +210,24 @@ Veamos cuál ha sido el playbook de Ansible empleado:
 ```yml
 ---
 - hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
   become: yes
   tasks:
-    # Actualizamos todos los paquetes de apt antes de continuar
     - name: Update apt package list
       apt:
         update_cache: yes
-    
-    # Instalamos el lenguaje del proyecto
+        
     - name: Install Node.js
       apt: name=nodejs state=present
     
-    # Instalamos git, luego lo necesitaremos
     - name: Install git
       apt: name=git state=present
     
-    # Instalamos npm 
     - name: Install npm
       apt: name=npm state=present
 
-    # Creamos usuario llamado azure
     - name: Create user
       user:
         name: azure
@@ -240,45 +237,50 @@ Veamos cuál ha sido el playbook de Ansible empleado:
         createhome: yes  
         home: /home/azure
         
-    # Añadimos la clave pública para el usuario creado
     - name: Add public key for 'azure' user
       authorized_key:
         user: azure
         state: present
         key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
             
-    # Clonamos el repositorio del proyecto
     - name: Clone GitHub repository
       git:
         repo: 'https://github.com/pramartinez/IV_project.git'
         dest: /home/azure/vptournaments 
 
-    # Instalamos las dependencias del proyecto en base a lo especificado en package.json
+    #- name: Make the directory tree readable
+    #  file:
+    #    path: /home/azure/vptournaments
+    #    mode: u=rwX,g=rX,o=rX
+    #    recurse: yes
+
+    #- name: Allow unsafe perms for installing dependencies
+    #  shell: npm config set unsafe-perm=true
+      
     - name: Install packages based on package.json
       npm:
         path: /home/azure/vptournaments
-        unsafe_perm: yes
         state: present
+        #unsafe_perm: yes
         
-    # Instalamos Gulp localmente para evitar ciertos problemas
     - name: Install gulp locally
       npm: name=gulp state=present path=/home/azure/vptournaments
       
-    # Desplegamos la aplicación
     - name: Run gulp start
       shell:
         cmd: gulp start &
         chdir: /home/azure/vptournaments/
+
 ```
 
 ### Miramos IP pública de nuestra máquina virtual. Yo he accedido al portal de Azure para comprobar que todo se había creado correctamente y que se encontraba entre mis máquinas virtuales levantadas. En la siguiente imagen observamos la información de la actual:
 
-![Información de la máquina virtual creada](images/info_vpt.png)
+![Información de la máquina virtual creada](images/info_despliegue.png)
 
 ### Ya podemos conectarnos con el usuario creado y con la IP pública de la máquina que acabamos de consultar a través del puerto específico para el servicio *SSH*:
 
 ```bash
-$ ssh azure@137.117.141.136 -p 22
+$ ssh azure@104.40.177.179 -p 22
 
 Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1027-azure x86_64)
 
@@ -305,7 +307,7 @@ azure@vpt:~$
 ### Añadimos una única regla a Gulp para realizar todo este proceso de una vez:
 
 ```js
-// Tarea para levantar, provisionar y desplegar 
+// Tarea para levantar, aprovisionar y desplegar 
 gulp.task('fullup', function(done) {
   exec( 'vagrant up', function(err, stdout, stderr) {
     console.log(stdout);
@@ -315,5 +317,5 @@ gulp.task('fullup', function(done) {
 });
 ```
 
-Con esta regla estaríamos levantando la máquina, provisionándola y, además, desplegando el microservicio. Esto es así porque el comando ```vagrant up``` levanta la máquina virtual recurriendo al *Vagrantfile* que hemos creado previamente y, a continuación, la provisiona según lo indicado en el *playbook* de Ansible. 
+Con esta regla estaríamos levantando la máquina, aprovisionándola y, además, desplegando el microservicio. Esto es así porque el comando ```vagrant up``` levanta la máquina virtual recurriendo al *Vagrantfile* que hemos creado previamente y, a continuación, la aprovisiona según lo indicado en el *playbook* de Ansible. 
 

@@ -21,17 +21,21 @@ Vagrant.configure("2") do |config|
   config.ssh.private_key_path = "~/.ssh/id_rsa"
 
   config.vm.provider "azure" do |vm, override|
-    vm.tenant_id="c7a95d24-50ff-4804-ad9a-e4cba81ad10b"
-    vm.client_id="4bcf38d7-65fb-4ddf-883a-5bad5f71e054"
-    vm.subscription_id="0742ef1e-9172-4d37-a4e0-9ff6ab96659e"
-    vm.client_secret="e344b007-b0db-4228-85d2-91c97f523472"
+    vm.tenant_id = ENV['AZURE_TENANT_ID']
+    vm.client_id = ENV['AZURE_CLIENT_ID']
+    vm.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+    vm.client_secret = ENV['AZURE_CLIENT_SECRET']
 
-    vm.vm_name = "vpt"
+    #vm.tenant_id="c7a95d24-50ff-4804-ad9a-e4cba81ad10b"
+    #vm.client_id="4bcf38d7-65fb-4ddf-883a-5bad5f71e054"
+    #vm.subscription_id="0742ef1e-9172-4d37-a4e0-9ff6ab96659e"
+    #vm.client_secret="e344b007-b0db-4228-85d2-91c97f523472"
+
+    vm.vm_name = "vm-vpt"
     vm.resource_group_name= "srcgroup-vpt"
     vm.vm_image_urn = "Canonical:UbuntuServer:18.04-LTS:latest"
     vm.vm_size = "Standard_B1s"
-    #vm.tcp_endpoints = ENV['PORT']
-    vm.tcp_endpoints = "80"
+    vm.tcp_endpoints = "3000"
     vm.location = 'westeurope'
     
   end
