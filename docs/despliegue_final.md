@@ -2,7 +2,7 @@
 
 El proceso que se ha seguido para poder llevar a cabo el despliegue final del microservicio en una máquina virtual desde cero ha sido el siguiente:
 
-1. Primero creamos el grupo de recursos que emplearemos para crear la máquina virtual en cuestión:
+### Primero creamos el grupo de recursos que emplearemos para crear la máquina virtual en cuestión:
 
 ```bash
 $ az group create -l westeurope -n srcgroup-vpt
@@ -22,7 +22,7 @@ $ az group create -l westeurope -n srcgroup-vpt
 
 Hemos indicado la localización y el nombre deseados. Esta información la necesitamos para incluirla en el Vagrantfile y, entonces, levantar la máquina virtual. 
 
-2. A continuación, creamos una asignación de rol según nuestra subscripción:
+### A continuación, creamos una asignación de rol según nuestra subscripción:
 
 ```bash
 $ az ad sp create-for-rbac
@@ -44,7 +44,7 @@ Creating a role assignment under the scope of "/subscriptions/0742ef1e-9172-4d37
 
 Como vemos, una vez hecho esto se nos proporciona cierta información relevante que no se muestra por privacidad. Dichos datos tenemos que utilizarlos también en el Vagrantfile.
 
-3. Creamos Vagrantfile:
+### Creamos Vagrantfile:
 
 ```ruby
 Vagrant.configure("2") do |config|
@@ -93,7 +93,7 @@ end
 
 ```
 
-4. Levantamos la máquina sin aprovisionarla recurriendo a vagrant (luego usaremos gulp) para probar que todo es correcto:
+### Levantamos la máquina sin aprovisionarla recurriendo a vagrant (luego usaremos gulp) para probar que todo es correcto:
 
 ```bash
 $ vagrant up --no-provision
@@ -123,7 +123,7 @@ Enter passphrase for /home/praxedes/.ssh/id_rsa:
 
 Vemos que el levantamiento ha sido satisfactorio, por tanto, ya podríamos proveder a aprovisionar la máquina virtual.
 
-5. Probamos a contectarnos con *ssh* para probar si todo funciona como debería y se establece la conexión de forma correcta:
+### Probamos a contectarnos con *ssh* para probar si todo funciona como debería y se establece la conexión de forma correcta:
 
 ```bash
 $ vagrant ssh
@@ -151,7 +151,7 @@ vagrant@vpt:~$
 
 Podemos comprobar que ha sido satisfactoria la prueba, ahora sí que podemos pasar a aprovisionarla. 
 
-6. Provisionamos la mv con vagrant (finalmente se crearán nuevas tareas para que podramos realizar todo esto con Gulp):
+### Provisionamos la mv con vagrant (finalmente se crearán nuevas tareas para que podramos realizar todo esto con Gulp):
 
 ```bash
 $ vagrant provision
@@ -271,11 +271,11 @@ Veamos cuál ha sido el playbook de Ansible empleado:
         chdir: /home/azure/vptournaments/
 ```
 
-7. Miramos IP pública de nuestra máquina virtual. Yo he accedido al portal de Azure para comprobar que todo se había creado correctamente y que se encontraba entre mis máquinas virtuales levantadas. En la siguiente imagen observamos la información de la actual:
+### Miramos IP pública de nuestra máquina virtual. Yo he accedido al portal de Azure para comprobar que todo se había creado correctamente y que se encontraba entre mis máquinas virtuales levantadas. En la siguiente imagen observamos la información de la actual:
 
 ![Información de la máquina virtual creada](images/../docs/images/info_vpt.png)
 
-8. Ya podemos conectarnos con el usuario creado y con la IP pública de la máquina que acabamos de consultar a través del puerto específico para el servicio *SSH*:
+### Ya podemos conectarnos con el usuario creado y con la IP pública de la máquina que acabamos de consultar a través del puerto específico para el servicio *SSH*:
 
 ```bash
 $ ssh azure@137.117.141.136 -p 22
@@ -302,7 +302,7 @@ Last login: Fri Jan 10 11:50:21 2020 from 213.194.177.167
 azure@vpt:~$ 
 ```
 
-9. Añadimos una única regla a Gulp para realizar todo este proceso de una vez:
+### Añadimos una única regla a Gulp para realizar todo este proceso de una vez:
 
 ```js
 // Tarea para levantar, provisionar y desplegar 

@@ -151,12 +151,12 @@ $ gulp provision_ansible
 ```
 
 #### Documentación  
-- **[Creación y levantamiento de máquinas virtuales con Azure](https://pramartinez.github.io/IV_project/vm_creation).**   
-- **[Provisionamiento con Ansible y configuración de Gulp](https://pramartinez.github.io/IV_project/ansible_doc).**  
+- [Creación y levantamiento de máquinas virtuales con Azure](https://pramartinez.github.io/IV_project/vm_creation).   
+- [Provisionamiento con Ansible y configuración de Gulp](https://pramartinez.github.io/IV_project/ansible_doc).  
 
 ### Creación, levantamiento de VMs con Vagrant + Aprovisionamiento con Ansible
 
-**Vagrant Box on Vagrant Cloud:** [praxedes/VPTournaments Vagrant Box](https://app.vagrantup.com/praxedes/boxes/VPTournaments)
+Vagrant Box on Vagrant Cloud: [praxedes/VPTournaments Vagrant Box](https://app.vagrantup.com/praxedes/boxes/VPTournaments)
 
 Mediante el siguiente comando, levantamos la máquina virtual:
 
@@ -171,7 +171,7 @@ $ gulp provision
 ```
 
 #### Documentación
-- **[Creación y levantamiento de máquinas virtuales con Vagrant + Aprovisionamiento con Ansible + Configuración del gestor de tareas Gulp](https://pramartinez.github.io/IV_project/vagrant_doc).**   
+- [Creación y levantamiento de máquinas virtuales con Vagrant + Aprovisionamiento con Ansible + Configuración del gestor de tareas Gulp](https://pramartinez.github.io/IV_project/vagrant_doc).   
 
 
 ## Despliegue final
