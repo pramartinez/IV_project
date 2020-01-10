@@ -73,3 +73,12 @@ gulp.task('provision_ansible', function(done) {
   });
 });
 
+// Tarea para levantar, provisionar y desplegar 
+gulp.task('fullup', function(done) {
+  exec( 'vagrant up', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    done(err);
+  });
+});
+

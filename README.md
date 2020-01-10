@@ -178,6 +178,22 @@ $ gulp provision
 
 Despliegue final: 137.117.141.136:3000
 
+Para realizar levantamiento, aprovisionamiento y despliegue:
+
+```bash
+$ gulp fullup
+```
+
+Para hacer primer el levantamiento y luego el aprovisionamiento y despligue:
+
+```bash
+$ gulp up
+```
+
+```bash
+$ gulp provision
+```
+
 #### Documentación
 - **[Despliegue final del microservicio](https://pramartinez.github.io/IV_project/despliegue_final).**   
 

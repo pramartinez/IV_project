@@ -273,7 +273,7 @@ Veamos cuál ha sido el playbook de Ansible empleado:
 
 ### Miramos IP pública de nuestra máquina virtual. Yo he accedido al portal de Azure para comprobar que todo se había creado correctamente y que se encontraba entre mis máquinas virtuales levantadas. En la siguiente imagen observamos la información de la actual:
 
-![Información de la máquina virtual creada](images/../docs/images/info_vpt.png)
+![Información de la máquina virtual creada](images/info_vpt.png)
 
 ### Ya podemos conectarnos con el usuario creado y con la IP pública de la máquina que acabamos de consultar a través del puerto específico para el servicio *SSH*:
 
