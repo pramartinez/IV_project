@@ -1,0 +1,50 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update apt package list
+      apt:
+        update_cache: yes
+        
+    - name: Install Node.js
+      apt: name=nodejs state=present
+    
+    - name: Install git
+      apt: name=git state=present
+    
+    - name: Install npm
+      apt: name=npm state=present
+
+    - name: Create user
+      user:
+        name: azure
+        state: present
+        shell: /bin/bash
+        system: no       
+        createhome: yes  
+        home: /home/azure
+        
+    - name: Add public key for 'azure' user
+      authorized_key:
+        user: azure
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+            
+    - name: Clone GitHub repository
+      git:
+        repo: 'https://github.com/pramartinez/IV_project.git'
+        dest: /home/azure/vptournaments 
+
+    - name: Install packages based on package.json
+      npm:
+        path: /home/azure/vptournaments
+        unsafe_perm: yes
+        state: present
+        
+    - name: Install gulp locally
+      npm: name=gulp state=present path=/home/azure/vptournaments
+      
+    - name: Run gulp start
+      shell:
+        cmd: gulp start &
+        chdir: /home/azure/vptournaments/
