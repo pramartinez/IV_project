@@ -1,5 +1,26 @@
 # Despliegue final del microservicio
 
+___________________________________
+
+> Índice
+
+<!--ts-->
+- [Despliegue final del microservicio](#despliegue-final-del-microservicio)
+    - [Primero creamos el grupo de recursos que emplearemos para crear la máquina virtual en cuestión:](#primero-creamos-el-grupo-de-recursos-que-emplearemos-para-crear-la-m%c3%a1quina-virtual-en-cuesti%c3%b3n)
+    - [A continuación, creamos una asignación de rol según nuestra subscripción:](#a-continuaci%c3%b3n-creamos-una-asignaci%c3%b3n-de-rol-seg%c3%ban-nuestra-subscripci%c3%b3n)
+    - [Creamos Vagrantfile:](#creamos-vagrantfile)
+    - [Levantamos la máquina sin aprovisionarla recurriendo a Vagrant (luego usaremos Gulp) para probar que todo es correcto:](#levantamos-la-m%c3%a1quina-sin-aprovisionarla-recurriendo-a-vagrant-luego-usaremos-gulp-para-probar-que-todo-es-correcto)
+    - [Probamos a contectarnos con ssh para probar si se establece la conexión de forma correcta:](#probamos-a-contectarnos-con-ssh-para-probar-si-se-establece-la-conexi%c3%b3n-de-forma-correcta)
+    - [Aprovisionamos la mv con vagrant:](#aprovisionamos-la-mv-con-vagrant)
+    - [Tomamos la IP pública de nuestra máquina virtual:](#tomamos-la-ip-p%c3%bablica-de-nuestra-m%c3%a1quina-virtual)
+    - [Ya podemos conectarnos con el usuario creado y con la IP pública de la máquina que acabamos de consultar a través del puerto específico para el servicio SSH:](#ya-podemos-conectarnos-con-el-usuario-creado-y-con-la-ip-p%c3%bablica-de-la-m%c3%a1quina-que-acabamos-de-consultar-a-trav%c3%a9s-del-puerto-espec%c3%adfico-para-el-servicio-ssh)
+    - [Añadimos una única regla a Gulp para realizar todo este proceso de una vez:](#a%c3%b1adimos-una-%c3%banica-regla-a-gulp-para-realizar-todo-este-proceso-de-una-vez)
+<!--te-->
+
+__________________________________________
+
+
+
 El proceso que se ha seguido para poder llevar a cabo el despliegue final del microservicio en una máquina virtual desde cero ha sido el siguiente:
 
 ### Primero creamos el grupo de recursos que emplearemos para crear la máquina virtual en cuestión:
@@ -27,12 +48,7 @@ Hemos indicado la localización y el nombre deseados. Esta información la neces
 ```bash
 $ az ad sp create-for-rbac
 
-Creating a role assignment under the scope of "/subscriptions/0742ef1e-9172-4d37-a4e0-9ff6ab96659e"
-  Retrying role assignment creation: 1/36
-  Retrying role assignment creation: 2/36
-  Retrying role assignment creation: 3/36
-  Retrying role assignment creation: 4/36
-  Retrying role assignment creation: 5/36
+Creating a role assignment under the scope of "/subscriptions/********"
 {
   "appId": "******",
   "displayName": "azure-cli-2020-01-10-11-07-46",
@@ -54,14 +70,14 @@ Vagrant.configure("2") do |config|
   # La máquina virtual va a ser desplegada en Azure
   config.vm.box = "azure"
 
-  # Indicamos la siguiente URL de dummy box que nos va a una base 
+  # Indicamos la siguiente URL de dummy box que nos va facilitar una base 
   # para la máquina que estamos levantando
   config.vm.box_url = 'https://github.com/msopentech/vagrant-azure/raw/master/dummy.box'
 
   # Indicamos dónde se encuentra la clave privada para conectarse a la máquina virtual
   config.ssh.private_key_path = "~/.ssh/id_rsa"
 
-  # EL provider es Azure
+  # El provider es Azure
   config.vm.provider "azure" do |vm, override|
     # Indicamos la siguiente información para poder continuar con el levantamiento
     vm.tenant_id = ENV['AZURE_TENANT_ID']
@@ -70,30 +86,30 @@ Vagrant.configure("2") do |config|
     vm.client_secret = ENV['AZURE_CLIENT_SECRET']
 
     # Nombre de la máquina virtual
-    vm.vm_name = "vpt"
+    vm.vm_name = "vm-vpt"
     # Nombre del grupo de recursos creado previamente
     vm.resource_group_name= "srcgroup-vpt"
     # Imagen de la máquina virtual
     vm.vm_image_urn = "Canonical:UbuntuServer:18.04-LTS:latest"
-    # Tamaño de la máquina virtual, es uno de lo más básicos
+    # Tamaño de la máquina virtual, es uno de los más básicos porque puede que otros 
+    # no encajen con nuestra subscripción
     vm.vm_size = "Standard_B1s"
     # Puerto donde escucha el microservicio
     vm.tcp_endpoints = "3000"
     # Localización
     vm.location = 'westeurope'
-    
   end
 
   # El aprovisionamiento se realiza con Ansible
   config.vm.provision "ansible" do |ansible|
-    # Indicamos cuál es el playbook
+    # Indicamos cuál es el playbook y dónde se encuentra
     ansible.playbook = "despliegue/AZplaybook.yml"
   end
 end
 
 ```
 
-### Levantamos la máquina sin aprovisionarla recurriendo a *Vagrant* (luego usaremos gulp) para probar que todo es correcto:
+### Levantamos la máquina sin aprovisionarla recurriendo a *Vagrant* (luego usaremos Gulp) para probar que todo es correcto:
 
 ```bash
 $ vagrant up --no-provision
@@ -120,9 +136,9 @@ Bringing machine 'vptournaments-vm' up with 'azure' provider...
 ==> vptournaments-vm: Machine not provisioned because `--no-provision` is specified.
 ```
 
-Vemos que el levantamiento ha sido satisfactorio, por tanto, ya podríamos proveder a aprovisionar la máquina virtual.
+Vemos que el levantamiento ha sido satisfactorio, por tanto, ya podríamos proceder a aprovisionar la máquina virtual.
 
-### Probamos a contectarnos con *ssh* para probar si todo funciona como debería y se establece la conexión de forma correcta:
+### Probamos a contectarnos con *ssh* para probar si se establece la conexión de forma correcta:
 
 ```bash
 $ vagrant ssh
@@ -150,7 +166,9 @@ vagrant@vpt:~$
 
 Podemos comprobar que ha sido satisfactoria la prueba, ahora sí que podemos pasar a aprovisionarla. 
 
-### Aprovisionamos la mv con vagrant (finalmente se crearán nuevas tareas para que podramos realizar todo esto con Gulp):
+### Aprovisionamos la mv con vagrant:
+
+Más adelante se creará una nueva tarea para que podamos realizar todo este proceso con Gulp.
 
 ```bash
 $ vagrant provision
@@ -205,29 +223,31 @@ vptournaments-vm           : ok=11   changed=2    unreachable=0    failed=0    s
 
 El aprovisionamiento también ha sido satisfactorio. Como vemos hay muchos casos en los que se indica ```ok: [vptournaments-vm]```, esto es debido a que la máquina ya se había aprovisionado de ello porque no es la primera vez que lo he ejecutado. Sin embargo, cuando se indica ```changed: [vptournaments-vm]```, significa que se ha producido un cambio en la máquina virtual, es decir, que no se había realizado esa tarea aún o que se ha modificado. 
 
-Veamos cuál ha sido el playbook de Ansible empleado:
+Veamos cuál ha sido el *playbook* de Ansible empleado:
 
 ```yml
 ---
 - hosts: all
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-
   become: yes
   tasks:
+    # Actualizamos los packetes de apt
     - name: Update apt package list
       apt:
         update_cache: yes
         
+    # Instalamos el lenguaje del proyecto
     - name: Install Node.js
       apt: name=nodejs state=present
     
+    # Instalamos git, luego lo necesitaremos
     - name: Install git
       apt: name=git state=present
     
+    # Instalamos npm
     - name: Install npm
       apt: name=npm state=present
 
+    # Creamos un usuario llamado 'azure' 
     - name: Create user
       user:
         name: azure
@@ -237,43 +257,42 @@ Veamos cuál ha sido el playbook de Ansible empleado:
         createhome: yes  
         home: /home/azure
         
+    # Añadimos la clave pública para poder acceder mediante ssh utilizando el usuario que acabamos de crear y la IP de la máquina virtual
     - name: Add public key for 'azure' user
       authorized_key:
         user: azure
         state: present
         key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
             
+    # Clonamos el repositorio del proyecto
     - name: Clone GitHub repository
       git:
         repo: 'https://github.com/pramartinez/IV_project.git'
         dest: /home/azure/vptournaments 
-
-    #- name: Make the directory tree readable
-    #  file:
-    #    path: /home/azure/vptournaments
-    #    mode: u=rwX,g=rX,o=rX
-    #    recurse: yes
-
-    #- name: Allow unsafe perms for installing dependencies
-    #  shell: npm config set unsafe-perm=true
       
+    # Instalamos las dependencias indicadas en package.json del proyecto
     - name: Install packages based on package.json
       npm:
         path: /home/azure/vptournaments
         state: present
-        #unsafe_perm: yes
-        
-    - name: Install gulp locally
-      npm: name=gulp state=present path=/home/azure/vptournaments
       
+    # Instalamos Gulp de forma global
+    - name: Globally install gulp
+      npm:
+        name: gulp
+        global: yes
+      
+    # Desplegamos la aplicación
     - name: Run gulp start
-      shell:
-        cmd: gulp start &
-        chdir: /home/azure/vptournaments/
+      shell: gulp start &
+      args:
+        chdir: /home/azure/vptournaments
 
 ```
 
-### Miramos IP pública de nuestra máquina virtual. Yo he accedido al portal de Azure para comprobar que todo se había creado correctamente y que se encontraba entre mis máquinas virtuales levantadas. En la siguiente imagen observamos la información de la actual:
+### Tomamos la IP pública de nuestra máquina virtual: 
+
+Yo he accedido al portal de Azure para comprobar que todo se había creado correctamente y que se encontraba entre mis máquinas virtuales levantadas. En la siguiente imagen observamos la información de la actual:
 
 ![Información de la máquina virtual creada](images/info_despliegue.png)
 
@@ -303,6 +322,8 @@ Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1027-azure x86_64)
 Last login: Fri Jan 10 11:50:21 2020 from 213.194.177.167
 azure@vpt:~$ 
 ```
+
+Vemos que todo es correcto y que la conexión se establece como es debido.
 
 ### Añadimos una única regla a Gulp para realizar todo este proceso de una vez:
 
