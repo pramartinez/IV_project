@@ -105,6 +105,11 @@ Vagrant.configure("2") do |config|
     # Indicamos cuál es el playbook y dónde se encuentra
     ansible.playbook = "despliegue/AZplaybook.yml"
   end
+
+  # Segundo playbook
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "despliegue/playbook_despliegue.yml"
+  end
 end
 
 ```
@@ -188,6 +193,8 @@ TASK [Gathering Facts] *********************************************************
 ok: [vptournaments-vm]
 
 TASK [Update apt package list] *************************************************
+[WARNING]: Updating cache and auto-installing missing dependency: python-apt
+
 changed: [vptournaments-vm]
 
 TASK [Install Node.js] *********************************************************
@@ -206,24 +213,41 @@ TASK [Add public key for 'azure' user] *****************************************
 ok: [vptournaments-vm]
 
 TASK [Clone GitHub repository] *************************************************
-ok: [vptournaments-vm]
+changed: [vptournaments-vm]
 
 TASK [Install packages based on package.json] **********************************
 ok: [vptournaments-vm]
 
-TASK [Install gulp locally] ****************************************************
+TASK [Globally install gulp] ***************************************************
+ok: [vptournaments-vm]
+
+PLAY RECAP *********************************************************************
+vptournaments-vm           : ok=10   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+==> vptournaments-vm: Running provisioner: ansible...
+Vagrant has automatically selected the compatibility mode '2.0'
+according to the Ansible version installed (2.9.2).
+
+Alternatively, the compatibility mode can be specified in your Vagrantfile:
+https://www.vagrantup.com/docs/provisioning/ansible_common.html#compatibility_mode
+
+    vptournaments-vm: Running ansible-playbook...
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
 ok: [vptournaments-vm]
 
 TASK [Run gulp start] **********************************************************
 changed: [vptournaments-vm]
 
 PLAY RECAP *********************************************************************
-vptournaments-vm           : ok=11   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0       
+vptournaments-vm           : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0         
 ```
 
 El aprovisionamiento también ha sido satisfactorio. Como vemos hay muchos casos en los que se indica ```ok: [vptournaments-vm]```, esto es debido a que la máquina ya se había aprovisionado de ello porque no es la primera vez que lo he ejecutado. Sin embargo, cuando se indica ```changed: [vptournaments-vm]```, significa que se ha producido un cambio en la máquina virtual, es decir, que no se había realizado esa tarea aún o que se ha modificado. 
 
-Veamos cuál ha sido el *playbook* de Ansible empleado:
+Veamos cuáles han sido los *playbooks* de Ansible empleados:
 
 ```yml
 ---
@@ -281,14 +305,21 @@ Veamos cuál ha sido el *playbook* de Ansible empleado:
       npm:
         name: gulp
         global: yes
-      
-    # Desplegamos la aplicación
+```
+
+Y un segundo playbook para el despliegue:
+
+```yml
+---
+- hosts: all
+  become: yes
+  tasks:
+    # Despliegue recurriendo a Gulp
     - name: Run gulp start
       shell: gulp start &
       args:
         chdir: /home/azure/vptournaments
-
-```
+```        
 
 ### Tomamos la IP pública de nuestra máquina virtual: 
 
