@@ -369,5 +369,5 @@ gulp.task('fullup', function(done) {
 });
 ```
 
-Con esta regla estaríamos levantando la máquina, aprovisionándola y, además, desplegando el microservicio. Esto es así porque el comando ```vagrant up``` levanta la máquina virtual recurriendo al *Vagrantfile* que hemos creado previamente y, a continuación, la aprovisiona según lo indicado en el *playbook* de Ansible. 
+Con esta regla estaríamos levantando la máquina, aprovisionándola y, además, desplegando el microservicio. Esto es así porque el comando ```vagrant up``` levanta la máquina virtual recurriendo al *Vagrantfile* que hemos creado previamente y, a continuación, la aprovisiona según lo indicado en los *playbooks* de Ansible. 
 
