@@ -9,11 +9,11 @@ ___________________________________
     - [Primero creamos el grupo de recursos que emplearemos para crear la máquina virtual en cuestión:](#primero-creamos-el-grupo-de-recursos-que-emplearemos-para-crear-la-m%c3%a1quina-virtual-en-cuesti%c3%b3n)
     - [A continuación, creamos una asignación de rol según nuestra subscripción:](#a-continuaci%c3%b3n-creamos-una-asignaci%c3%b3n-de-rol-seg%c3%ban-nuestra-subscripci%c3%b3n)
     - [Creamos Vagrantfile:](#creamos-vagrantfile)
-    - [Levantamos la máquina sin aprovisionarla recurriendo a Vagrant (luego usaremos Gulp) para probar que todo es correcto:](#levantamos-la-m%c3%a1quina-sin-aprovisionarla-recurriendo-a-vagrant-luego-usaremos-gulp-para-probar-que-todo-es-correcto)
-    - [Probamos a contectarnos con ssh para probar si se establece la conexión de forma correcta:](#probamos-a-contectarnos-con-ssh-para-probar-si-se-establece-la-conexi%c3%b3n-de-forma-correcta)
+    - [Levantamos la máquina sin aprovisionarla recurriendo a *Vagrant* (luego usaremos Gulp) para probar que todo es correcto:](#levantamos-la-m%c3%a1quina-sin-aprovisionarla-recurriendo-a-vagrant-luego-usaremos-gulp-para-probar-que-todo-es-correcto)
+    - [Probamos a contectarnos con *ssh* para probar si se establece la conexión de forma correcta:](#probamos-a-contectarnos-con-ssh-para-probar-si-se-establece-la-conexi%c3%b3n-de-forma-correcta)
     - [Aprovisionamos la mv con vagrant:](#aprovisionamos-la-mv-con-vagrant)
     - [Tomamos la IP pública de nuestra máquina virtual:](#tomamos-la-ip-p%c3%bablica-de-nuestra-m%c3%a1quina-virtual)
-    - [Ya podemos conectarnos con el usuario creado y con la IP pública de la máquina que acabamos de consultar a través del puerto específico para el servicio SSH:](#ya-podemos-conectarnos-con-el-usuario-creado-y-con-la-ip-p%c3%bablica-de-la-m%c3%a1quina-que-acabamos-de-consultar-a-trav%c3%a9s-del-puerto-espec%c3%adfico-para-el-servicio-ssh)
+    - [Ya podemos conectarnos con el usuario creado y con la IP pública de la máquina que acabamos de consultar a través del puerto específico para el servicio *SSH*:](#ya-podemos-conectarnos-con-el-usuario-creado-y-con-la-ip-p%c3%bablica-de-la-m%c3%a1quina-que-acabamos-de-consultar-a-trav%c3%a9s-del-puerto-espec%c3%adfico-para-el-servicio-ssh)
     - [Añadimos una única regla a Gulp para realizar todo este proceso de una vez:](#a%c3%b1adimos-una-%c3%banica-regla-a-gulp-para-realizar-todo-este-proceso-de-una-vez)
 <!--te-->
 
@@ -29,7 +29,7 @@ El proceso que se ha seguido para poder llevar a cabo el despliegue final del mi
 $ az group create -l westeurope -n srcgroup-vpt
 
 {
-  "id": "/subscriptions/0742ef1e-9172-4d37-a4e0-9ff6ab96659e/resourceGroups/srcgroup-vpt",
+  "id": "/subscriptions/*******/resourceGroups/srcgroup-vpt",
   "location": "westeurope",
   "managedBy": null,
   "name": "srcgroup-vpt",
