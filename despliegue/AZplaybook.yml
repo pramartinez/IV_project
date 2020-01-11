@@ -34,15 +34,6 @@
       git:
         repo: 'https://github.com/pramartinez/IV_project.git'
         dest: /home/azure/vptournaments 
-
-    #- name: Make the directory tree readable
-    #  file:
-    #    path: /home/azure/vptournaments
-    #    mode: u=rwX,g=rX,o=rX
-    #    recurse: yes
-
-    #- name: Allow unsafe perms for installing dependencies
-    #  shell: npm config set unsafe-perm=true
       
     - name: Install packages based on package.json
       npm:
@@ -54,8 +45,3 @@
       npm:
         name: gulp
         global: yes
-      
-    - name: Run gulp start
-      shell: gulp start &
-      args:
-        chdir: /home/azure/vptournaments
