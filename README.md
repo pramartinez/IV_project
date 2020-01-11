@@ -13,7 +13,7 @@ ___________________________________
 
 <!--ts-->
 - [VPTournaments](#vptournaments)
-  - [Microservicio de gestión de torneos de voley playa](#microservicio-de-gesti%c3%b3n-de-torneos-de-voley-playa)
+  - [*Microservicio de gestión de torneos de voley playa*](#microservicio-de-gesti%c3%b3n-de-torneos-de-voley-playa)
   - [¿Cuál es el objetivo de este proyecto VPTournaments?](#%c2%bfcu%c3%a1l-es-el-objetivo-de-este-proyecto-vptournaments)
   - [¿Qué herramientas y servicios se usarán?](#%c2%bfqu%c3%a9-herramientas-y-servicios-se-usar%c3%a1n)
   - [¿Cómo funciona la clase principal del proyecto?](#%c2%bfc%c3%b3mo-funciona-la-clase-principal-del-proyecto)
@@ -26,11 +26,9 @@ ___________________________________
   - [Usando contenedores para el microservicio](#usando-contenedores-para-el-microservicio)
   - [Creación, levantamiento y aprovisionamiento de máquinas virtuales](#creaci%c3%b3n-levantamiento-y-aprovisionamiento-de-m%c3%a1quinas-virtuales)
     - [Creación, levantamiento de VMs con Azure + Aprovisionamiento con Ansible](#creaci%c3%b3n-levantamiento-de-vms-con-azure--aprovisionamiento-con-ansible)
-      - [Documentación](#documentaci%c3%b3n)
     - [Creación, levantamiento de VMs con Vagrant + Aprovisionamiento con Ansible](#creaci%c3%b3n-levantamiento-de-vms-con-vagrant--aprovisionamiento-con-ansible)
-      - [Documentación](#documentaci%c3%b3n-1)
   - [Despliegue final](#despliegue-final)
-      - [Documentación](#documentaci%c3%b3n-2)
+      - [Documentación](#documentaci%c3%b3n)
 <!--te-->
 
 __________________________________________
@@ -143,6 +141,9 @@ Docker Hub: https://hub.docker.com/r/pramartinez/vptournaments
 provision: provision/myplaybook.yml
 
 ### Creación, levantamiento de VMs con Azure + Aprovisionamiento con Ansible
+ 
+- [Creación y levantamiento de máquinas virtuales con Azure](https://pramartinez.github.io/IV_project/vm_creation).   
+- [Provisionamiento con Ansible y configuración de Gulp](https://pramartinez.github.io/IV_project/ansible_doc).  
 
 Podemos usar el siguiente comando para invocar al gestor de tareas y realizar la provisión:
 
@@ -150,11 +151,9 @@ Podemos usar el siguiente comando para invocar al gestor de tareas y realizar la
 $ gulp provision_ansible
 ```
 
-#### Documentación  
-- [Creación y levantamiento de máquinas virtuales con Azure](https://pramartinez.github.io/IV_project/vm_creation).   
-- [Provisionamiento con Ansible y configuración de Gulp](https://pramartinez.github.io/IV_project/ansible_doc).  
-
 ### Creación, levantamiento de VMs con Vagrant + Aprovisionamiento con Ansible
+
+- [Creación y levantamiento de máquinas virtuales con Vagrant + Aprovisionamiento con Ansible + Configuración del gestor de tareas Gulp](https://pramartinez.github.io/IV_project/vagrant_doc).   
 
 Vagrant Box on Vagrant Cloud: [praxedes/VPTournaments Vagrant Box](https://app.vagrantup.com/praxedes/boxes/VPTournaments)
 
@@ -170,8 +169,6 @@ Podemos usar el siguiente comando para invocar al gestor de tareas y realizar la
 $ gulp provision
 ```
 
-#### Documentación
-- [Creación y levantamiento de máquinas virtuales con Vagrant + Aprovisionamiento con Ansible + Configuración del gestor de tareas Gulp](https://pramartinez.github.io/IV_project/vagrant_doc).   
 
 
 ## Despliegue final
