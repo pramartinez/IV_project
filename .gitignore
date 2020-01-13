@@ -105,3 +105,4 @@ boxes/*
 vagran_hosts
 inventory.yml
 Vagranfile_azure
+.vagrant
